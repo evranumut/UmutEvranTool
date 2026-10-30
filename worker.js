@@ -1,6 +1,6 @@
 export default {
   async fetch(request) {
-    const githubRawUrl = `https://raw.githubusercontent.com/evranumut/UmutEvranToolV3/main/UmutEvranTools.ps1?t=${Date.now()}`;
+    const githubRawUrl = `https://raw.githubusercontent.com/evranumut/UmutEvranTool/main/UmutEvranTools.ps1?t=${Date.now()}`;
     const response = await fetch(githubRawUrl, {
       headers: { "User-Agent": "PowerShell-Worker-Proxy" }
     });
