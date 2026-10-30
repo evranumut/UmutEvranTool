@@ -17,12 +17,12 @@ function Remove-Bom([string]$t) {
     return $t.Replace([string][char]0xFEFF, "").Trim()
 }
 
-Write-Host "[+] UmutEvranTools.ps1 v4.0 (WinUtil %100 Tam Entegre + Canli Tema) derleniyor..." -ForegroundColor Cyan
+Write-Host "[+] UmutEvranTools.ps1 v4.0 (Windows 11 Fluent Edition) derleniyor..." -ForegroundColor Cyan
 
 $header = @'
 # =============================================================================
 # UMUT EVRAN TOOL (TEK DOSYA / UZAKTAN CALISTIRMA SURUMU)
-# Komut: irm evrantool.evranumut.workers.dev | iex
+# Komut: irm tinyurl.com/evrantool | iex (veya irm evrantool.evranumut.workers.dev | iex)
 # Mimari: 100% Pure ASCII + Decode-U + WPF XamlReader + Runspace Multithreading
 # =============================================================================
 $ErrorActionPreference = 'Continue'

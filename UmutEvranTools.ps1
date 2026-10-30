@@ -1,6 +1,6 @@
 # =============================================================================
 # UMUT EVRAN TOOL (TEK DOSYA / UZAKTAN CALISTIRMA SURUMU)
-# Komut: irm evrantool.evranumut.workers.dev | iex
+# Komut: irm tinyurl.com/evrantool | iex (veya irm evrantool.evranumut.workers.dev | iex)
 # Mimari: 100% Pure ASCII + Decode-U + WPF XamlReader + Runspace Multithreading
 # =============================================================================
 $ErrorActionPreference = 'Continue'
@@ -2479,29 +2479,29 @@ $sync.Xaml = @'
         WindowStartupLocation="CenterScreen" Background="{DynamicResource WindowBg}" Foreground="#F8FAFC"
         FontFamily="Segoe UI">
     <Window.Resources>
-        <!-- Dinamik Renk Paletleri (Canli Tema Gecisi) -->
-        <SolidColorBrush x:Key="WindowBg" Color="#19221D"/>
-        <SolidColorBrush x:Key="PanelBg" Color="#131C17"/>
-        <SolidColorBrush x:Key="CardBg" Color="#212D26"/>
-        <SolidColorBrush x:Key="BorderBrushColor" Color="#34463B"/>
-        <SolidColorBrush x:Key="HoverBg" Color="#2C3C33"/>
-        <SolidColorBrush x:Key="AccentColor" Color="#A3B18A"/>
-        <SolidColorBrush x:Key="ActiveBtnColor" Color="#4E664A"/>
-        <SolidColorBrush x:Key="TextMuted" Color="#99A799"/>
-        <SolidColorBrush x:Key="TextDim" Color="#677567"/>
-        <SolidColorBrush x:Key="LogBg" Color="#0E1511"/>
-        <SolidColorBrush x:Key="LogFg" Color="#D8F3DC"/>
-        <SolidColorBrush x:Key="BtnInstallBg" Color="#588157"/>
-        <SolidColorBrush x:Key="BtnUninstallBg" Color="#8B4B4B"/>
-        <SolidColorBrush x:Key="BtnUpgradeBg" Color="#3A5A40"/>
+        <!-- Windows 11 Fluent Dark (WinUI 3) Sabit Renk Paleti -->
+        <SolidColorBrush x:Key="WindowBg" Color="#18181B"/>
+        <SolidColorBrush x:Key="PanelBg" Color="#1F1F23"/>
+        <SolidColorBrush x:Key="CardBg" Color="#27272A"/>
+        <SolidColorBrush x:Key="BorderBrushColor" Color="#333338"/>
+        <SolidColorBrush x:Key="HoverBg" Color="#323236"/>
+        <SolidColorBrush x:Key="AccentColor" Color="#60CDFF"/>
+        <SolidColorBrush x:Key="ActiveBtnColor" Color="#0078D4"/>
+        <SolidColorBrush x:Key="TextMuted" Color="#A1A1AA"/>
+        <SolidColorBrush x:Key="TextDim" Color="#71717A"/>
+        <SolidColorBrush x:Key="LogBg" Color="#121215"/>
+        <SolidColorBrush x:Key="LogFg" Color="#E4E4E7"/>
+        <SolidColorBrush x:Key="BtnInstallBg" Color="#0078D4"/>
+        <SolidColorBrush x:Key="BtnUninstallBg" Color="#C42B1C"/>
+        <SolidColorBrush x:Key="BtnUpgradeBg" Color="#2D2D32"/>
 
         <Style x:Key="NavButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="{DynamicResource CardBg}"/>
             <Setter Property="Foreground" Value="#F1F5F9"/>
             <Setter Property="BorderBrush" Value="{DynamicResource BorderBrushColor}"/>
             <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Padding" Value="11,7"/>
-            <Setter Property="Margin" Value="0,0,0,4"/>
+            <Setter Property="Padding" Value="11,8"/>
+            <Setter Property="Margin" Value="0,0,0,5"/>
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
             <Setter Property="FontSize" Value="12.5"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
@@ -2526,23 +2526,60 @@ $sync.Xaml = @'
             </Style.Triggers>
         </Style>
 
-        <Style x:Key="ActionBtnStyle" TargetType="Button">
-            <Setter Property="Foreground" Value="#FFFFFF"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Padding" Value="12,8"/>
+        <Style x:Key="CatPillStyle" TargetType="Button">
+            <Setter Property="Background" Value="{DynamicResource CardBg}"/>
+            <Setter Property="Foreground" Value="{DynamicResource TextMuted}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrushColor}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="11,5"/>
+            <Setter Property="Margin" Value="0,0,6,6"/>
             <Setter Property="FontSize" Value="12"/>
-            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" CornerRadius="6" Padding="{TemplateBinding Padding}">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="6" Padding="{TemplateBinding Padding}">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
             <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource HoverBg}"/>
+                    <Setter Property="Foreground" Value="#FFFFFF"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="ActionBtnStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="BorderBrush" Value="#3F3F46"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="12,8"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="6" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="0.88"/>
+                </Trigger>
                 <Trigger Property="IsEnabled" Value="False">
                     <Setter Property="Opacity" Value="0.5"/>
                 </Trigger>
@@ -2567,15 +2604,15 @@ $sync.Xaml = @'
 
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <StackPanel>
-                        <Border Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource AccentColor}" BorderThickness="1.5" CornerRadius="8" Padding="11" Margin="0,0,0,10">
+                        <Border Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="12" Margin="0,0,0,12">
                             <StackPanel>
-                                <TextBlock Text="&#x1F680; UMUT EVRAN TOOL" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource AccentColor}"/>
-                                <TextBlock Text="WinUtil %100 Full Entegre v4.0" FontSize="11" Foreground="{DynamicResource TextMuted}" Margin="0,2,0,0"/>
+                                <TextBlock Text="&#x1F680; UMUT EVRAN TOOL" FontSize="15.5" FontWeight="Bold" Foreground="#F8FAFC"/>
+                                <TextBlock Text="Windows 11 Fluent Edition v4.0" FontSize="11.5" Foreground="{DynamicResource AccentColor}" Margin="0,2,0,0"/>
                             </StackPanel>
                         </Border>
 
                         <!-- MENULER (6 SEKME) -->
-                        <TextBlock Text="MOD&#x00DC;LLER VE MEN&#x00DC;LER" FontSize="10.5" FontWeight="Bold" Foreground="{DynamicResource TextDim}" Margin="4,0,0,4"/>
+                        <TextBlock Text="MOD&#x00DC;LLER VE MEN&#x00DC;LER" FontSize="10.5" FontWeight="Bold" Foreground="{DynamicResource TextDim}" Margin="4,0,0,6"/>
                         <Button x:Name="BtnNavApps" Style="{StaticResource NavButtonStyle}" Content="&#x1F4E6;  Uygulama Kurulumu (248+)" Background="{DynamicResource ActiveBtnColor}" BorderBrush="{DynamicResource AccentColor}"/>
                         <Button x:Name="BtnNavTweaks" Style="{StaticResource NavButtonStyle}" Content="&#x26A1;  Sistem &amp; Geli&#x015F;mi&#x015F; Tweaks"/>
                         <Button x:Name="BtnNavFeatures" Style="{StaticResource NavButtonStyle}" Content="&#x1F6E0;&#xFE0F;  Windows &#x00D6;zellikleri &amp; DNS"/>
@@ -2583,17 +2620,9 @@ $sync.Xaml = @'
                         <Button x:Name="BtnNavTools" Style="{StaticResource NavButtonStyle}" Content="&#x1F9F0;  Sistem Ara&#x00E7;lar&#x0131; &amp; MAS"/>
                         <Button x:Name="BtnNavConfig" Style="{StaticResource NavButtonStyle}" Content="&#x1F4BE;  Yedekleme &amp; Config"/>
 
-                        <!-- TEMA SECIMI BOLUMU (3 CANLI TEMA) -->
-                        <TextBlock Text="TEMA SE&#x00C7;&#x0130;M&#x0130; (CANLI GE&#x00C7;&#x0130;&#x015E;)" FontSize="10.5" FontWeight="Bold" Foreground="{DynamicResource TextDim}" Margin="4,8,0,4"/>
-                        <UniformGrid Columns="3" Margin="0,0,0,6">
-                            <Button x:Name="BtnThemeOlive" Style="{StaticResource ActionBtnStyle}" Background="#4E664A" Content="&#x1F33F; Ye&#x015F;il" ToolTip="Askeri Ada&#x00E7;ay&#x0131; Ye&#x015F;ili" Padding="4,6" Margin="0,0,2,0" FontSize="11"/>
-                            <Button x:Name="BtnThemeAmber" Style="{StaticResource ActionBtnStyle}" Background="#EA580C" Content="&#x26A1; Turuncu" ToolTip="Karbon &amp; Kehribar Turuncu" Padding="4,6" Margin="2,0,2,0" FontSize="11"/>
-                            <Button x:Name="BtnThemeNeon" Style="{StaticResource ActionBtnStyle}" Background="#BE185D" Content="&#x1F52E; Neon" ToolTip="Siberpunk Neon Pembe" Padding="4,6" Margin="2,0,0,0" FontSize="11"/>
-                        </UniformGrid>
-
                         <!-- HAZIR PAKETLER -->
-                        <TextBlock Text="UYGULAMA PAKETLER&#x0130; (PRESETS)" FontSize="10.5" FontWeight="Bold" Foreground="{DynamicResource TextDim}" Margin="4,6,0,4"/>
-                        <Button x:Name="BtnPresetUmut" Style="{StaticResource NavButtonStyle}" Content="&#x1F451;  Umut &#x00D6;zel Paketi Se&#x00E7;" BorderBrush="{DynamicResource AccentColor}"/>
+                        <TextBlock Text="UYGULAMA PAKETLER&#x0130; (PRESETS)" FontSize="10.5" FontWeight="Bold" Foreground="{DynamicResource TextDim}" Margin="4,12,0,6"/>
+                        <Button x:Name="BtnPresetUmut" Style="{StaticResource NavButtonStyle}" Content="&#x1F451;  Umut &#x00D6;zel Paketi Se&#x00E7;"/>
                         <Button x:Name="BtnPresetGamer" Style="{StaticResource NavButtonStyle}" Content="&#x1F3AE;  Oyuncu Paketi Se&#x00E7;"/>
                         <Button x:Name="BtnPresetDev" Style="{StaticResource NavButtonStyle}" Content="&#x1F4BB;  Geli&#x015F;tirici Paketi Se&#x00E7;"/>
                         <Button x:Name="BtnPresetStandard" Style="{StaticResource NavButtonStyle}" Content="&#x2728;  Standart Kurulum Paketi"/>
@@ -2618,8 +2647,8 @@ $sync.Xaml = @'
                 <Border Grid.Row="0" Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="10,6" Margin="0,0,0,8">
                     <DockPanel>
                         <TextBlock Text="&#x1F50D; Ara:" Foreground="{DynamicResource TextMuted}" VerticalAlignment="Center" FontWeight="SemiBold" Margin="4,0,10,0"/>
-                        <Button x:Name="BtnClearSearch" DockPanel.Dock="Right" Content="Temizle" Background="{DynamicResource HoverBg}" Foreground="#E2E8F0" BorderThickness="0" Padding="10,4" Cursor="Hand" Margin="6,0,0,0"/>
-                        <Button x:Name="BtnCheckInstalled" DockPanel.Dock="Right" Content="&#x1F4CB; Y&#x00FC;kl&#x00FC; Olanlar&#x0131; Tara" Background="{DynamicResource ActiveBtnColor}" Foreground="#FFFFFF" BorderThickness="0" Padding="10,4" Cursor="Hand" Margin="6,0,0,0" ToolTip="Sistemde kurulu olan uygulamalar&#x0131; tespit edip i&#x015F;aretler"/>
+                        <Button x:Name="BtnClearSearch" DockPanel.Dock="Right" Style="{StaticResource ActionBtnStyle}" Content="Temizle" Background="{DynamicResource HoverBg}" Padding="10,5" FontSize="11.5" Margin="6,0,0,0"/>
+                        <Button x:Name="BtnCheckInstalled" DockPanel.Dock="Right" Style="{StaticResource ActionBtnStyle}" Content="&#x1F4CB; Y&#x00FC;kl&#x00FC; Olanlar&#x0131; Tara" Background="{DynamicResource ActiveBtnColor}" Padding="10,5" FontSize="11.5" Margin="6,0,0,0" ToolTip="Sistemde kurulu olan uygulamalar&#x0131; tespit edip i&#x015F;aretler"/>
                         <TextBox x:Name="TxtSearch" Background="Transparent" Foreground="#F8FAFC" BorderThickness="0" FontSize="14" VerticalContentAlignment="Center" CaretBrush="{DynamicResource AccentColor}"/>
                     </DockPanel>
                 </Border>
@@ -2833,12 +2862,12 @@ $sync.Xaml = @'
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                         <StackPanel>
                             <!-- 1. MAS AKTIVASYON & GOD MODE & O&O SHUTUP10 -->
-                            <Border Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource AccentColor}" BorderThickness="1.5" CornerRadius="8" Padding="12" Margin="0,0,0,10">
+                            <Border Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="12" Margin="0,0,0,10">
                                 <StackPanel>
                                     <TextBlock Text="&#x1F511; AKT&#x0130;VASYON DESTE&#x011E;&#x0130;, GOD MODE VE &#x00D6;ZEL YARDIMCI ARA&#x00C7;LAR" FontSize="13" FontWeight="Bold" Foreground="{DynamicResource AccentColor}" Margin="0,0,0,4"/>
                                     <TextBlock Text="A&#x00E7;&#x0131;k kaynakl&#x0131; Microsoft Activation Scripts (MAS), Masa&#x00FC;st&#x00FC; God Mode (Tanr&#x0131; Modu) klas&#x00F6;r&#x00FC; ve O&amp;O ShutUp10++ gizlilik arac&#x0131;:" FontSize="11.5" Foreground="{DynamicResource TextMuted}" Margin="0,0,0,8"/>
                                     <UniformGrid Columns="3">
-                                        <Button x:Name="BtnRunMAS" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnInstallBg}" Content="&#x1F511; MAS Aktivasyon &#x00C7;al&#x0131;&#x015F;t&#x0131;r (get.mas.dev)" Margin="0,0,4,0" ToolTip="irm https://get.mas.dev | iex komutunu &#x00E7;al&#x0131;&#x015F;t&#x0131;r&#x0131;r"/>
+                                        <Button x:Name="BtnRunMAS" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnInstallBg}" Content="&#x1F511; MAS Aktivasyon &#x00C7;al&#x0131;&#x015F;t&#x0131;r (get.activated.win)" Margin="0,0,4,0" ToolTip="irm https://get.activated.win | iex (DoH + Yedek Ayna Destekli)"/>
                                         <Button x:Name="BtnCreateGodMode" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource ActiveBtnColor}" Content="&#x26A1; Masa&#x00FC;st&#x00FC;nde God Mode Olu&#x015F;tur" Margin="2,0,2,0" ToolTip="GodMode.{ED7BA470-8E54-465E-825C-99712043E01C} klas&#x00F6;r&#x00FC;n&#x00FC; masa&#x00FC;st&#x00FC;nde olu&#x015F;turur"/>
                                         <Button x:Name="BtnRunOOSU" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F6E1;&#xFE0F; O&amp;O ShutUp10++ &#x0130;ndir ve A&#x00E7;" Margin="4,0,0,0" ToolTip="Resmi O&amp;O ShutUp10++ ta&#x015F;&#x0131;nabilir arac&#x0131;n&#x0131; indirip ba&#x015F;lat&#x0131;r"/>
                                     </UniformGrid>
@@ -2929,7 +2958,7 @@ $sync.Xaml = @'
                             <TextBlock Text="&#x1F4BB; Uzaktan Tek Sat&#x0131;rla &#x00C7;al&#x0131;&#x015F;t&#x0131;rma Komutu (Cloudflare Worker)" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource AccentColor}"/>
                             <TextBlock Text="Windows PowerShell konsolunda kurulum yapmadan do&#x011F;rudan bellekte &#x00E7;al&#x0131;&#x015F;t&#x0131;rmak i&#x00E7;in a&#x015F;a&#x011F;&#x0131;daki komutu kullanabilirsiniz:" FontSize="13" Foreground="{DynamicResource TextMuted}" Margin="0,6,0,10"/>
                             <Border Background="{DynamicResource WindowBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="6" Padding="12" Margin="0,0,0,10">
-                                <TextBox x:Name="TxtRemoteCmd" Text="irm evrantool.evranumut.workers.dev | iex" IsReadOnly="True" Background="Transparent" Foreground="{DynamicResource AccentColor}" BorderThickness="0" FontFamily="Consolas" FontSize="14" FontWeight="Bold"/>
+                                <TextBox x:Name="TxtRemoteCmd" Text="irm tinyurl.com/evrantool | iex" IsReadOnly="True" Background="Transparent" Foreground="{DynamicResource AccentColor}" BorderThickness="0" FontFamily="Consolas" FontSize="14" FontWeight="Bold"/>
                             </Border>
                             <Button x:Name="BtnCopyCmd" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F4CB; Komutu Panoya Kopyala" HorizontalAlignment="Left"/>
                         </StackPanel>
@@ -3041,60 +3070,24 @@ function Get-Brush([string]$hex) {
     return $brushConverter.ConvertFromString($hex)
 }
 
-# --- Gomulu Tema Verileri (3 Canli Tema Paleti) ---
-$script:ThemesData = @'
+# --- Windows 11 Fluent Dark (WinUI 3) Sabit Tema Yapilandirmasi ---
+$script:Theme = @'
 {
-  "olive": {
-    "Name": "Askeri Ada\u00E7ay\u0131 Ye\u015Fili",
-    "WindowBg": "#19221D",
-    "PanelBg": "#131C17",
-    "CardBg": "#212D26",
-    "BorderBrushColor": "#34463B",
-    "HoverBg": "#2C3C33",
-    "AccentColor": "#A3B18A",
-    "ActiveBtnColor": "#4E664A",
-    "TextMuted": "#99A799",
-    "TextDim": "#677567",
-    "LogBg": "#0E1511",
-    "LogFg": "#D8F3DC",
-    "BtnInstallBg": "#588157",
-    "BtnUninstallBg": "#8B4B4B",
-    "BtnUpgradeBg": "#3A5A40"
-  },
-  "amber": {
-    "Name": "Karbon Kehribar Turuncu",
-    "WindowBg": "#16161A",
-    "PanelBg": "#111114",
-    "CardBg": "#1F1F24",
-    "BorderBrushColor": "#383842",
-    "HoverBg": "#2A2A32",
-    "AccentColor": "#F97316",
-    "ActiveBtnColor": "#EA580C",
-    "TextMuted": "#A1A1AA",
-    "TextDim": "#71717A",
-    "LogBg": "#0A0A0C",
-    "LogFg": "#FED7AA",
-    "BtnInstallBg": "#10B981",
-    "BtnUninstallBg": "#EF4444",
-    "BtnUpgradeBg": "#EA580C"
-  },
-  "neon": {
-    "Name": "Siberpunk Neon Pembe",
-    "WindowBg": "#0C0A17",
-    "PanelBg": "#080611",
-    "CardBg": "#171329",
-    "BorderBrushColor": "#322754",
-    "HoverBg": "#241D3F",
-    "AccentColor": "#EC4899",
-    "ActiveBtnColor": "#BE185D",
-    "TextMuted": "#C084FC",
-    "TextDim": "#7E22CE",
-    "LogBg": "#05030A",
-    "LogFg": "#FBCFE8",
-    "BtnInstallBg": "#10B981",
-    "BtnUninstallBg": "#EF4444",
-    "BtnUpgradeBg": "#7C3AED"
-  }
+  "Name": "Windows 11 Fluent Dark",
+  "WindowBg": "#18181B",
+  "PanelBg": "#1F1F23",
+  "CardBg": "#27272A",
+  "BorderBrushColor": "#333338",
+  "HoverBg": "#323236",
+  "AccentColor": "#60CDFF",
+  "ActiveBtnColor": "#0078D4",
+  "TextMuted": "#A1A1AA",
+  "TextDim": "#71717A",
+  "LogBg": "#121215",
+  "LogFg": "#E4E4E7",
+  "BtnInstallBg": "#0078D4",
+  "BtnUninstallBg": "#C42B1C",
+  "BtnUpgradeBg": "#2D2D32"
 }
 '@ | ConvertFrom-Json
 
@@ -3123,10 +3116,6 @@ $script:BtnNavBloatware = $script:window.FindName("BtnNavBloatware")
 $script:BtnNavTools     = $script:window.FindName("BtnNavTools")
 $script:BtnNavConfig    = $script:window.FindName("BtnNavConfig")
 
-# Tema Butonlari
-$script:BtnThemeOlive = $script:window.FindName("BtnThemeOlive")
-$script:BtnThemeAmber = $script:window.FindName("BtnThemeAmber")
-$script:BtnThemeNeon  = $script:window.FindName("BtnThemeNeon")
 
 # Sol Panel Preset ve Geri Yukleme Butonlari
 $script:BtnPresetUmut     = $script:window.FindName("BtnPresetUmut")
@@ -3390,79 +3379,14 @@ try {
 } catch {}
 
 # =============================================================================
-# CANLI TEMA SISTEMI (REAL-TIME THEME SWITCHER)
-# =============================================================================
-$script:dynamicThemedItems = @()
-$script:currentThemeKey = "olive"
-$script:currentActiveNavBtn = $script:BtnNavApps
-
-function Set-Theme([string]$key) {
-    $t = $script:ThemesData.$key
-    if (-not $t) { return }
-    $script:currentThemeKey = $key
-
-    $resKeys = @("WindowBg", "PanelBg", "CardBg", "BorderBrushColor", "HoverBg", "AccentColor", "ActiveBtnColor", "TextMuted", "TextDim", "LogBg", "LogFg", "BtnInstallBg", "BtnUninstallBg", "BtnUpgradeBg")
-    foreach ($rk in $resKeys) {
-        if ($t.$rk) {
-            $script:window.Resources[$rk] = Get-Brush $t.$rk
-        }
-    }
-
-    foreach ($item in $script:dynamicThemedItems) {
-        if ($item.Type -eq "CatHeader") {
-            $item.Element.Foreground = Get-Brush $t.AccentColor
-        } elseif ($item.Type -eq "Card") {
-            $item.Element.Background  = Get-Brush $t.CardBg
-            $item.Element.BorderBrush = Get-Brush $t.BorderBrushColor
-        } elseif ($item.Type -eq "IconBox") {
-            $item.Element.Background  = Get-Brush $t.HoverBg
-            $item.Element.BorderBrush = Get-Brush $t.BorderBrushColor
-        } elseif ($item.Type -eq "Desc") {
-            $item.Element.Foreground = Get-Brush $t.TextMuted
-        } elseif ($item.Type -eq "Id") {
-            $item.Element.Foreground = Get-Brush $t.TextDim
-        }
-    }
-
-    if ($script:currentActiveNavBtn) {
-        $script:currentActiveNavBtn.Background  = Get-Brush $t.ActiveBtnColor
-        $script:currentActiveNavBtn.BorderBrush = Get-Brush $t.AccentColor
-    }
-
-    if ($script:currentActiveCatBtn) {
-        $script:currentActiveCatBtn.Background = Get-Brush $t.ActiveBtnColor
-    }
-
-    $script:BtnThemeOlive.BorderThickness = New-Object System.Windows.Thickness(0)
-    $script:BtnThemeAmber.BorderThickness = New-Object System.Windows.Thickness(0)
-    $script:BtnThemeNeon.BorderThickness  = New-Object System.Windows.Thickness(0)
-
-    if ($key -eq "olive") {
-        $script:BtnThemeOlive.BorderThickness = New-Object System.Windows.Thickness(2)
-        $script:BtnThemeOlive.BorderBrush = Get-Brush "#FFFFFF"
-    } elseif ($key -eq "amber") {
-        $script:BtnThemeAmber.BorderThickness = New-Object System.Windows.Thickness(2)
-        $script:BtnThemeAmber.BorderBrush = Get-Brush "#FFFFFF"
-    } elseif ($key -eq "neon") {
-        $script:BtnThemeNeon.BorderThickness = New-Object System.Windows.Thickness(2)
-        $script:BtnThemeNeon.BorderBrush = Get-Brush "#FFFFFF"
-    }
-
-    Write-UiLog (Decode-U "Tema de\u011Fi\u015Ftirildi: $($t.Name)")
-}
-
-$script:BtnThemeOlive.Add_Click({ Set-Theme "olive" })
-$script:BtnThemeAmber.Add_Click({ Set-Theme "amber" })
-$script:BtnThemeNeon.Add_Click({ Set-Theme "neon" })
-
-# =============================================================================
 # 1. SEKME GECISLERI (NAVIGASYON - 6 MODUL)
 # =============================================================================
+$script:currentActiveNavBtn = $script:BtnNavApps
 $script:navButtons = @($script:BtnNavApps, $script:BtnNavTweaks, $script:BtnNavFeatures, $script:BtnNavBloatware, $script:BtnNavTools, $script:BtnNavConfig)
 $script:views      = @($script:ViewApps, $script:ViewTweaks, $script:ViewFeatures, $script:ViewBloatware, $script:ViewTools, $script:ViewConfig)
 
 function Switch-Tab($activeBtn, $activeView) {
-    $t = $script:ThemesData.$($script:currentThemeKey)
+    $t = $script:Theme
     foreach ($v in $script:views) { $v.Visibility = "Collapsed" }
     foreach ($b in $script:navButtons) {
         $b.Background  = Get-Brush $t.CardBg
@@ -3535,27 +3459,26 @@ function Apply-AppFilter {
 }
 
 function Set-CategoryButtonActive($clickedBtn) {
-    $t = $script:ThemesData.$($script:currentThemeKey)
+    $t = $script:Theme
     foreach ($b in $script:catButtons) {
-        $b.Background = Get-Brush $t.CardBg
-        $b.Foreground = Get-Brush $t.TextMuted
+        $b.Background  = Get-Brush $t.CardBg
+        $b.Foreground  = Get-Brush $t.TextMuted
+        $b.BorderBrush = Get-Brush $t.BorderBrushColor
     }
-    $clickedBtn.Background = Get-Brush $t.ActiveBtnColor
-    $clickedBtn.Foreground = Get-Brush "#FFFFFF"
+    $clickedBtn.Background  = Get-Brush $t.ActiveBtnColor
+    $clickedBtn.Foreground  = Get-Brush "#FFFFFF"
+    $clickedBtn.BorderBrush = Get-Brush $t.AccentColor
     $script:currentActiveCatBtn = $clickedBtn
 }
 
-$initTheme = $script:ThemesData.olive
+$initTheme = $script:Theme
 
 $script:btnAll = New-Object System.Windows.Controls.Button
+$script:btnAll.Style = $script:window.Resources["CatPillStyle"]
 $script:btnAll.Content = (Decode-U "T\u00FCm\u00FC ($($script:AppCategories | ForEach-Object { $_.Apps.Count } | Measure-Object -Sum | Select-Object -ExpandProperty Sum))")
-$script:btnAll.Padding = "10,5"
-$script:btnAll.Margin  = "0,0,5,5"
-$script:btnAll.Background = Get-Brush $initTheme.ActiveBtnColor
-$script:btnAll.Foreground = Get-Brush "#FFFFFF"
-$script:btnAll.BorderThickness = "0"
-$script:btnAll.FontWeight = "SemiBold"
-$script:btnAll.Cursor = "Hand"
+$script:btnAll.Background  = Get-Brush $initTheme.ActiveBtnColor
+$script:btnAll.Foreground  = Get-Brush "#FFFFFF"
+$script:btnAll.BorderBrush = Get-Brush $initTheme.AccentColor
 $script:btnAll.Add_Click({
     $script:selectedCategory = "ALL"
     Set-CategoryButtonActive $script:btnAll
@@ -3569,15 +3492,9 @@ foreach ($cat in $script:AppCategories) {
     $catName = Decode-U $cat.Category
 
     $cBtn = New-Object System.Windows.Controls.Button
+    $cBtn.Style   = $script:window.Resources["CatPillStyle"]
     $cBtn.Content = "$catName ($($cat.Apps.Count))"
     $cBtn.Tag     = $catName
-    $cBtn.Padding = "10,5"
-    $cBtn.Margin  = "0,0,5,5"
-    $cBtn.Background = Get-Brush $initTheme.CardBg
-    $cBtn.Foreground = Get-Brush $initTheme.TextMuted
-    $cBtn.BorderThickness = "0"
-    $cBtn.FontWeight = "SemiBold"
-    $cBtn.Cursor = "Hand"
     $cBtn.Add_Click({
         param($sender, $e)
         $script:selectedCategory = $sender.Tag
@@ -3597,7 +3514,6 @@ foreach ($cat in $script:AppCategories) {
     $catHeader.Foreground = Get-Brush $initTheme.AccentColor
     $catHeader.Margin = "4,0,0,8"
     [void]$catContainer.Children.Add($catHeader)
-    $script:dynamicThemedItems += [PSCustomObject]@{ Type = "CatHeader"; Element = $catHeader }
 
     $uGrid = New-Object System.Windows.Controls.Primitives.UniformGrid
     $uGrid.Columns = 2
@@ -3614,7 +3530,6 @@ foreach ($cat in $script:AppCategories) {
         $card.Padding = "10"
         $card.Margin = "4"
         $card.Cursor = "Hand"
-        $script:dynamicThemedItems += [PSCustomObject]@{ Type = "Card"; Element = $card }
 
         $dock = New-Object System.Windows.Controls.DockPanel
         $dock.LastChildFill = $true
@@ -3629,7 +3544,6 @@ foreach ($cat in $script:AppCategories) {
         $iconBorder.Margin = New-Object System.Windows.Thickness(0, 0, 10, 0)
         $iconBorder.VerticalAlignment = "Center"
         [System.Windows.Controls.DockPanel]::SetDock($iconBorder, [System.Windows.Controls.Dock]::Left)
-        $script:dynamicThemedItems += [PSCustomObject]@{ Type = "IconBox"; Element = $iconBorder }
 
         $img = New-Object System.Windows.Controls.Image
         $img.Width = 26
@@ -3676,14 +3590,12 @@ foreach ($cat in $script:AppCategories) {
         $descBlock.Foreground = Get-Brush $initTheme.TextMuted
         $descBlock.TextWrapping = "Wrap"
         $descBlock.Margin = "0,2,0,2"
-        $script:dynamicThemedItems += [PSCustomObject]@{ Type = "Desc"; Element = $descBlock }
 
         $idBlock = New-Object System.Windows.Controls.TextBlock
         $idBlock.Text = $app.Id
         $idBlock.FontSize = 10
         $idBlock.FontFamily = "Consolas"
         $idBlock.Foreground = Get-Brush $initTheme.TextDim
-        $script:dynamicThemedItems += [PSCustomObject]@{ Type = "Id"; Element = $idBlock }
 
         [void]$sp.Children.Add($cb)
         [void]$sp.Children.Add($descBlock)
@@ -3907,7 +3819,6 @@ foreach ($grp in $script:TweaksData) {
     $gHeader.Foreground = Get-Brush $initTheme.AccentColor
     $gHeader.Margin = "4,8,0,8"
     [void]$script:TweaksStackPanel.Children.Add($gHeader)
-    $script:dynamicThemedItems += [PSCustomObject]@{ Type = "CatHeader"; Element = $gHeader }
 
     foreach ($tw in $grp.Items) {
         $twTitle = Decode-U $tw.Title
@@ -3921,7 +3832,6 @@ foreach ($grp in $script:TweaksData) {
         $card.Padding = "10"
         $card.Margin = "0,0,0,6"
         $card.Cursor = "Hand"
-        $script:dynamicThemedItems += [PSCustomObject]@{ Type = "Card"; Element = $card }
 
         $sp = New-Object System.Windows.Controls.StackPanel
         $cb = New-Object System.Windows.Controls.CheckBox
@@ -3944,7 +3854,6 @@ foreach ($grp in $script:TweaksData) {
         $d.Foreground = Get-Brush $initTheme.TextMuted
         $d.Margin = "22,3,0,0"
         $d.TextWrapping = "Wrap"
-        $script:dynamicThemedItems += [PSCustomObject]@{ Type = "Desc"; Element = $d }
 
         [void]$sp.Children.Add($cb)
         [void]$sp.Children.Add($d)
@@ -5059,7 +4968,6 @@ foreach ($ft in $script:FeaturesData) {
     $card.Padding = "10"
     $card.Margin = "4"
     $card.Cursor = "Hand"
-    $script:dynamicThemedItems += [PSCustomObject]@{ Type = "Card"; Element = $card }
 
     $sp = New-Object System.Windows.Controls.StackPanel
     $cb = New-Object System.Windows.Controls.CheckBox
@@ -5074,7 +4982,6 @@ foreach ($ft in $script:FeaturesData) {
     $fId.FontFamily = "Consolas"
     $fId.Foreground = Get-Brush $initTheme.TextDim
     $fId.Margin = "22,0,0,0"
-    $script:dynamicThemedItems += [PSCustomObject]@{ Type = "Id"; Element = $fId }
 
     $cb.Tag = [PSCustomObject]@{
         Name          = $ftName
@@ -5089,7 +4996,6 @@ foreach ($ft in $script:FeaturesData) {
     $d.Foreground = Get-Brush $initTheme.TextMuted
     $d.Margin = "22,3,0,2"
     $d.TextWrapping = "Wrap"
-    $script:dynamicThemedItems += [PSCustomObject]@{ Type = "Desc"; Element = $d }
 
     [void]$sp.Children.Add($cb)
     [void]$sp.Children.Add($d)
@@ -5194,7 +5100,6 @@ foreach ($bl in $script:BloatwareData) {
     $card.Padding = "10"
     $card.Margin = "4"
     $card.Cursor = "Hand"
-    $script:dynamicThemedItems += [PSCustomObject]@{ Type = "Card"; Element = $card }
 
     $sp = New-Object System.Windows.Controls.StackPanel
     $cb = New-Object System.Windows.Controls.CheckBox
@@ -5216,7 +5121,6 @@ foreach ($bl in $script:BloatwareData) {
     $pkgTxt.FontFamily = "Consolas"
     $pkgTxt.Foreground = Get-Brush $initTheme.TextDim
     $pkgTxt.Margin = "22,3,0,0"
-    $script:dynamicThemedItems += [PSCustomObject]@{ Type = "Id"; Element = $pkgTxt }
 
     [void]$sp.Children.Add($cb)
     [void]$sp.Children.Add($pkgTxt)
@@ -5320,9 +5224,59 @@ $script:BtnReinstallBloatware.Add_Click({
 # 8. SEKME 5: SISTEM YARDIMCI ARACLARI, ONARIM & MAS AKTIVASYON
 # =============================================================================
 $script:BtnRunMAS.Add_Click({
-    Write-UiLog (Decode-U ">>> Microsoft Activation Scripts (MAS) ayr\u0131 PowerShell penceresinde ba\u015Flat\u0131l\u0131yor (irm https://get.mas.dev | iex)...")
+    Write-UiLog (Decode-U ">>> Microsoft Activation Scripts (MAS) ba\u015Flat\u0131l\u0131yor (get.activated.win / DoH Bypass / massgrave.dev)...")
+    Set-UiStatus (Decode-U "MAS Aktivasyon penceresi a\u00E7\u0131l\u0131yor...") 50
     try {
-        Start-Process powershell.exe -ArgumentList "-NoProfile -ExecutionPolicy Bypass -Command `"irm https://get.mas.dev | iex`"" -Verb RunAs
+        $masRunner = Join-Path $env:TEMP "UmutEvranTool_MAS_Launcher.ps1"
+        $masCode = @'
+$ErrorActionPreference = 'Continue'
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+$Host.UI.RawUI.WindowTitle = "Microsoft Activation Scripts (MAS) - UmutEvranTool"
+Write-Host "================================================================" -ForegroundColor Cyan
+Write-Host "   MICROSOFT ACTIVATION SCRIPTS (MAS) YUKLENIYOR...             " -ForegroundColor Cyan
+Write-Host "================================================================" -ForegroundColor Cyan
+
+$scriptBody = $null
+
+# 1. Resmi birincil adres: https://get.activated.win
+try {
+    Write-Host "[1/3] Baglaniliyor: https://get.activated.win ..." -ForegroundColor Yellow
+    $scriptBody = Invoke-RestMethod -Uri "https://get.activated.win" -UseBasicParsing -TimeoutSec 15 -ErrorAction Stop
+} catch {
+    Write-Host "[!] Standart baglanti engellendi veya yanit vermedi: $($_.Exception.Message)" -ForegroundColor DarkYellow
+}
+
+# 2. ISS / DNS Engeli varsa Cloudflare DoH (1.1.1.1) uzerinden curl.exe ile asma
+if ([string]::IsNullOrWhiteSpace($scriptBody)) {
+    try {
+        Write-Host "[2/3] DNS engeli Cloudflare DoH (1.1.1.1) ile asiliyor..." -ForegroundColor Yellow
+        $dohOut = & curl.exe -s -L --doh-url https://1.1.1.1/dns-query https://get.activated.win 2>$null | Out-String
+        if ($dohOut -and $dohOut.Length -gt 500) {
+            $scriptBody = $dohOut
+        }
+    } catch {}
+}
+
+# 3. Yedek resmi ayna: https://massgrave.dev/get
+if ([string]::IsNullOrWhiteSpace($scriptBody)) {
+    try {
+        Write-Host "[3/3] Yedek ayna deneniyor: https://massgrave.dev/get ..." -ForegroundColor Yellow
+        $scriptBody = Invoke-RestMethod -Uri "https://massgrave.dev/get" -UseBasicParsing -TimeoutSec 15 -ErrorAction Stop
+    } catch {}
+}
+
+if (-not [string]::IsNullOrWhiteSpace($scriptBody)) {
+    Write-Host "[OK] MAS basariyla indirildi! Arayuz aciliyor..." -ForegroundColor Green
+    Invoke-Expression $scriptBody
+} else {
+    Write-Host "`n[HATA] MAS sunucularina ulasilamadi (ISS veya Antivirus engeli olabilir)." -ForegroundColor Red
+    Write-Host "Lutfen uygulama icindeki Hizli DNS bolumunden Cloudflare (1.1.1.1) secip tekrar deneyin." -ForegroundColor Yellow
+    Read-Host "Kapatmak icin Enter tusuna basin"
+}
+'@
+        [System.IO.File]::WriteAllText($masRunner, $masCode, [System.Text.Encoding]::ASCII)
+        Start-Process powershell.exe -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$masRunner`"" -Verb RunAs
+        Write-UiLog (Decode-U "[OK] MAS Aktivasyon penceresi ba\u015Flat\u0131ld\u0131 (get.activated.win + DoH + massgrave.dev).")
         Set-UiStatus (Decode-U "MAS Aktivasyon penceresi ba\u015Flat\u0131ld\u0131!") 100
     } catch {
         Write-UiLog "[HATA] MAS baslatilamadi: $($_.Exception.Message)"
@@ -5557,7 +5511,6 @@ $script:BtnExportConfig.Add_Click({
     if ($sfd.ShowDialog() -eq [System.Windows.Forms.DialogResult]::OK) {
         $exportObj = [PSCustomObject]@{
             Version   = "4.0"
-            Theme     = $script:currentThemeKey
             Apps      = @($script:appCheckboxes | Where-Object { $_.IsChecked -eq $true } | ForEach-Object { $_.Tag.Id })
             Tweaks    = @($script:tweakCheckboxes | Where-Object { $_.IsChecked -eq $true } | ForEach-Object { $_.Tag.Id })
             Features  = @($script:featureCheckboxes | Where-Object { $_.IsChecked -eq $true } | ForEach-Object { $_.Tag.Feature })
@@ -5575,9 +5528,6 @@ $script:BtnImportConfig.Add_Click({
     if ($ofd.ShowDialog() -eq [System.Windows.Forms.DialogResult]::OK) {
         try {
             $imported = [System.IO.File]::ReadAllText($ofd.FileName, [System.Text.Encoding]::UTF8) | ConvertFrom-Json
-            if ($imported.Theme) {
-                Set-Theme $imported.Theme
-            }
             if ($imported.Apps) {
                 foreach ($cb in $script:appCheckboxes) {
                     $cb.IsChecked = ($imported.Apps -contains $cb.Tag.Id)
@@ -5644,8 +5594,8 @@ $script:BtnRestorePoint.Add_Click({
     }
 })
 
-# Baslangic temasini aktif et (Varsayilan Askeri Adacayi Yesili)
-Set-Theme "olive"
-Write-UiLog (Decode-U "Umut Evran Tool v4.0 (WinUtil %100 Entegre S\u00FCr\u00FCm) Canl\u0131 Tema Sistemi ile ba\u015Flat\u0131ld\u0131.")
+# Baslangic kayitlari (Windows 11 Fluent Dark)
+Write-UiLog (Decode-U "Umut Evran Tool v4.0 (Windows 11 Fluent Edition) ba\u015Flat\u0131ld\u0131.")
+Write-UiLog "Hizli Baslatma Komutu: irm tinyurl.com/evrantool | iex"
 
 [void]$script:window.ShowDialog()

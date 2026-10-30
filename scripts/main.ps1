@@ -71,60 +71,24 @@ function Get-Brush([string]$hex) {
     return $brushConverter.ConvertFromString($hex)
 }
 
-# --- Gomulu Tema Verileri (3 Canli Tema Paleti) ---
-$script:ThemesData = @'
+# --- Windows 11 Fluent Dark (WinUI 3) Sabit Tema Yapilandirmasi ---
+$script:Theme = @'
 {
-  "olive": {
-    "Name": "Askeri Ada\u00E7ay\u0131 Ye\u015Fili",
-    "WindowBg": "#19221D",
-    "PanelBg": "#131C17",
-    "CardBg": "#212D26",
-    "BorderBrushColor": "#34463B",
-    "HoverBg": "#2C3C33",
-    "AccentColor": "#A3B18A",
-    "ActiveBtnColor": "#4E664A",
-    "TextMuted": "#99A799",
-    "TextDim": "#677567",
-    "LogBg": "#0E1511",
-    "LogFg": "#D8F3DC",
-    "BtnInstallBg": "#588157",
-    "BtnUninstallBg": "#8B4B4B",
-    "BtnUpgradeBg": "#3A5A40"
-  },
-  "amber": {
-    "Name": "Karbon Kehribar Turuncu",
-    "WindowBg": "#16161A",
-    "PanelBg": "#111114",
-    "CardBg": "#1F1F24",
-    "BorderBrushColor": "#383842",
-    "HoverBg": "#2A2A32",
-    "AccentColor": "#F97316",
-    "ActiveBtnColor": "#EA580C",
-    "TextMuted": "#A1A1AA",
-    "TextDim": "#71717A",
-    "LogBg": "#0A0A0C",
-    "LogFg": "#FED7AA",
-    "BtnInstallBg": "#10B981",
-    "BtnUninstallBg": "#EF4444",
-    "BtnUpgradeBg": "#EA580C"
-  },
-  "neon": {
-    "Name": "Siberpunk Neon Pembe",
-    "WindowBg": "#0C0A17",
-    "PanelBg": "#080611",
-    "CardBg": "#171329",
-    "BorderBrushColor": "#322754",
-    "HoverBg": "#241D3F",
-    "AccentColor": "#EC4899",
-    "ActiveBtnColor": "#BE185D",
-    "TextMuted": "#C084FC",
-    "TextDim": "#7E22CE",
-    "LogBg": "#05030A",
-    "LogFg": "#FBCFE8",
-    "BtnInstallBg": "#10B981",
-    "BtnUninstallBg": "#EF4444",
-    "BtnUpgradeBg": "#7C3AED"
-  }
+  "Name": "Windows 11 Fluent Dark",
+  "WindowBg": "#18181B",
+  "PanelBg": "#1F1F23",
+  "CardBg": "#27272A",
+  "BorderBrushColor": "#333338",
+  "HoverBg": "#323236",
+  "AccentColor": "#60CDFF",
+  "ActiveBtnColor": "#0078D4",
+  "TextMuted": "#A1A1AA",
+  "TextDim": "#71717A",
+  "LogBg": "#121215",
+  "LogFg": "#E4E4E7",
+  "BtnInstallBg": "#0078D4",
+  "BtnUninstallBg": "#C42B1C",
+  "BtnUpgradeBg": "#2D2D32"
 }
 '@ | ConvertFrom-Json
 
@@ -153,10 +117,6 @@ $script:BtnNavBloatware = $script:window.FindName("BtnNavBloatware")
 $script:BtnNavTools     = $script:window.FindName("BtnNavTools")
 $script:BtnNavConfig    = $script:window.FindName("BtnNavConfig")
 
-# Tema Butonlari
-$script:BtnThemeOlive = $script:window.FindName("BtnThemeOlive")
-$script:BtnThemeAmber = $script:window.FindName("BtnThemeAmber")
-$script:BtnThemeNeon  = $script:window.FindName("BtnThemeNeon")
 
 # Sol Panel Preset ve Geri Yukleme Butonlari
 $script:BtnPresetUmut     = $script:window.FindName("BtnPresetUmut")
@@ -420,79 +380,14 @@ try {
 } catch {}
 
 # =============================================================================
-# CANLI TEMA SISTEMI (REAL-TIME THEME SWITCHER)
-# =============================================================================
-$script:dynamicThemedItems = @()
-$script:currentThemeKey = "olive"
-$script:currentActiveNavBtn = $script:BtnNavApps
-
-function Set-Theme([string]$key) {
-    $t = $script:ThemesData.$key
-    if (-not $t) { return }
-    $script:currentThemeKey = $key
-
-    $resKeys = @("WindowBg", "PanelBg", "CardBg", "BorderBrushColor", "HoverBg", "AccentColor", "ActiveBtnColor", "TextMuted", "TextDim", "LogBg", "LogFg", "BtnInstallBg", "BtnUninstallBg", "BtnUpgradeBg")
-    foreach ($rk in $resKeys) {
-        if ($t.$rk) {
-            $script:window.Resources[$rk] = Get-Brush $t.$rk
-        }
-    }
-
-    foreach ($item in $script:dynamicThemedItems) {
-        if ($item.Type -eq "CatHeader") {
-            $item.Element.Foreground = Get-Brush $t.AccentColor
-        } elseif ($item.Type -eq "Card") {
-            $item.Element.Background  = Get-Brush $t.CardBg
-            $item.Element.BorderBrush = Get-Brush $t.BorderBrushColor
-        } elseif ($item.Type -eq "IconBox") {
-            $item.Element.Background  = Get-Brush $t.HoverBg
-            $item.Element.BorderBrush = Get-Brush $t.BorderBrushColor
-        } elseif ($item.Type -eq "Desc") {
-            $item.Element.Foreground = Get-Brush $t.TextMuted
-        } elseif ($item.Type -eq "Id") {
-            $item.Element.Foreground = Get-Brush $t.TextDim
-        }
-    }
-
-    if ($script:currentActiveNavBtn) {
-        $script:currentActiveNavBtn.Background  = Get-Brush $t.ActiveBtnColor
-        $script:currentActiveNavBtn.BorderBrush = Get-Brush $t.AccentColor
-    }
-
-    if ($script:currentActiveCatBtn) {
-        $script:currentActiveCatBtn.Background = Get-Brush $t.ActiveBtnColor
-    }
-
-    $script:BtnThemeOlive.BorderThickness = New-Object System.Windows.Thickness(0)
-    $script:BtnThemeAmber.BorderThickness = New-Object System.Windows.Thickness(0)
-    $script:BtnThemeNeon.BorderThickness  = New-Object System.Windows.Thickness(0)
-
-    if ($key -eq "olive") {
-        $script:BtnThemeOlive.BorderThickness = New-Object System.Windows.Thickness(2)
-        $script:BtnThemeOlive.BorderBrush = Get-Brush "#FFFFFF"
-    } elseif ($key -eq "amber") {
-        $script:BtnThemeAmber.BorderThickness = New-Object System.Windows.Thickness(2)
-        $script:BtnThemeAmber.BorderBrush = Get-Brush "#FFFFFF"
-    } elseif ($key -eq "neon") {
-        $script:BtnThemeNeon.BorderThickness = New-Object System.Windows.Thickness(2)
-        $script:BtnThemeNeon.BorderBrush = Get-Brush "#FFFFFF"
-    }
-
-    Write-UiLog (Decode-U "Tema de\u011Fi\u015Ftirildi: $($t.Name)")
-}
-
-$script:BtnThemeOlive.Add_Click({ Set-Theme "olive" })
-$script:BtnThemeAmber.Add_Click({ Set-Theme "amber" })
-$script:BtnThemeNeon.Add_Click({ Set-Theme "neon" })
-
-# =============================================================================
 # 1. SEKME GECISLERI (NAVIGASYON - 6 MODUL)
 # =============================================================================
+$script:currentActiveNavBtn = $script:BtnNavApps
 $script:navButtons = @($script:BtnNavApps, $script:BtnNavTweaks, $script:BtnNavFeatures, $script:BtnNavBloatware, $script:BtnNavTools, $script:BtnNavConfig)
 $script:views      = @($script:ViewApps, $script:ViewTweaks, $script:ViewFeatures, $script:ViewBloatware, $script:ViewTools, $script:ViewConfig)
 
 function Switch-Tab($activeBtn, $activeView) {
-    $t = $script:ThemesData.$($script:currentThemeKey)
+    $t = $script:Theme
     foreach ($v in $script:views) { $v.Visibility = "Collapsed" }
     foreach ($b in $script:navButtons) {
         $b.Background  = Get-Brush $t.CardBg
@@ -565,27 +460,26 @@ function Apply-AppFilter {
 }
 
 function Set-CategoryButtonActive($clickedBtn) {
-    $t = $script:ThemesData.$($script:currentThemeKey)
+    $t = $script:Theme
     foreach ($b in $script:catButtons) {
-        $b.Background = Get-Brush $t.CardBg
-        $b.Foreground = Get-Brush $t.TextMuted
+        $b.Background  = Get-Brush $t.CardBg
+        $b.Foreground  = Get-Brush $t.TextMuted
+        $b.BorderBrush = Get-Brush $t.BorderBrushColor
     }
-    $clickedBtn.Background = Get-Brush $t.ActiveBtnColor
-    $clickedBtn.Foreground = Get-Brush "#FFFFFF"
+    $clickedBtn.Background  = Get-Brush $t.ActiveBtnColor
+    $clickedBtn.Foreground  = Get-Brush "#FFFFFF"
+    $clickedBtn.BorderBrush = Get-Brush $t.AccentColor
     $script:currentActiveCatBtn = $clickedBtn
 }
 
-$initTheme = $script:ThemesData.olive
+$initTheme = $script:Theme
 
 $script:btnAll = New-Object System.Windows.Controls.Button
+$script:btnAll.Style = $script:window.Resources["CatPillStyle"]
 $script:btnAll.Content = (Decode-U "T\u00FCm\u00FC ($($script:AppCategories | ForEach-Object { $_.Apps.Count } | Measure-Object -Sum | Select-Object -ExpandProperty Sum))")
-$script:btnAll.Padding = "10,5"
-$script:btnAll.Margin  = "0,0,5,5"
-$script:btnAll.Background = Get-Brush $initTheme.ActiveBtnColor
-$script:btnAll.Foreground = Get-Brush "#FFFFFF"
-$script:btnAll.BorderThickness = "0"
-$script:btnAll.FontWeight = "SemiBold"
-$script:btnAll.Cursor = "Hand"
+$script:btnAll.Background  = Get-Brush $initTheme.ActiveBtnColor
+$script:btnAll.Foreground  = Get-Brush "#FFFFFF"
+$script:btnAll.BorderBrush = Get-Brush $initTheme.AccentColor
 $script:btnAll.Add_Click({
     $script:selectedCategory = "ALL"
     Set-CategoryButtonActive $script:btnAll
@@ -599,15 +493,9 @@ foreach ($cat in $script:AppCategories) {
     $catName = Decode-U $cat.Category
 
     $cBtn = New-Object System.Windows.Controls.Button
+    $cBtn.Style   = $script:window.Resources["CatPillStyle"]
     $cBtn.Content = "$catName ($($cat.Apps.Count))"
     $cBtn.Tag     = $catName
-    $cBtn.Padding = "10,5"
-    $cBtn.Margin  = "0,0,5,5"
-    $cBtn.Background = Get-Brush $initTheme.CardBg
-    $cBtn.Foreground = Get-Brush $initTheme.TextMuted
-    $cBtn.BorderThickness = "0"
-    $cBtn.FontWeight = "SemiBold"
-    $cBtn.Cursor = "Hand"
     $cBtn.Add_Click({
         param($sender, $e)
         $script:selectedCategory = $sender.Tag
@@ -627,7 +515,6 @@ foreach ($cat in $script:AppCategories) {
     $catHeader.Foreground = Get-Brush $initTheme.AccentColor
     $catHeader.Margin = "4,0,0,8"
     [void]$catContainer.Children.Add($catHeader)
-    $script:dynamicThemedItems += [PSCustomObject]@{ Type = "CatHeader"; Element = $catHeader }
 
     $uGrid = New-Object System.Windows.Controls.Primitives.UniformGrid
     $uGrid.Columns = 2
@@ -644,7 +531,6 @@ foreach ($cat in $script:AppCategories) {
         $card.Padding = "10"
         $card.Margin = "4"
         $card.Cursor = "Hand"
-        $script:dynamicThemedItems += [PSCustomObject]@{ Type = "Card"; Element = $card }
 
         $dock = New-Object System.Windows.Controls.DockPanel
         $dock.LastChildFill = $true
@@ -659,7 +545,6 @@ foreach ($cat in $script:AppCategories) {
         $iconBorder.Margin = New-Object System.Windows.Thickness(0, 0, 10, 0)
         $iconBorder.VerticalAlignment = "Center"
         [System.Windows.Controls.DockPanel]::SetDock($iconBorder, [System.Windows.Controls.Dock]::Left)
-        $script:dynamicThemedItems += [PSCustomObject]@{ Type = "IconBox"; Element = $iconBorder }
 
         $img = New-Object System.Windows.Controls.Image
         $img.Width = 26
@@ -706,14 +591,12 @@ foreach ($cat in $script:AppCategories) {
         $descBlock.Foreground = Get-Brush $initTheme.TextMuted
         $descBlock.TextWrapping = "Wrap"
         $descBlock.Margin = "0,2,0,2"
-        $script:dynamicThemedItems += [PSCustomObject]@{ Type = "Desc"; Element = $descBlock }
 
         $idBlock = New-Object System.Windows.Controls.TextBlock
         $idBlock.Text = $app.Id
         $idBlock.FontSize = 10
         $idBlock.FontFamily = "Consolas"
         $idBlock.Foreground = Get-Brush $initTheme.TextDim
-        $script:dynamicThemedItems += [PSCustomObject]@{ Type = "Id"; Element = $idBlock }
 
         [void]$sp.Children.Add($cb)
         [void]$sp.Children.Add($descBlock)
@@ -937,7 +820,6 @@ foreach ($grp in $script:TweaksData) {
     $gHeader.Foreground = Get-Brush $initTheme.AccentColor
     $gHeader.Margin = "4,8,0,8"
     [void]$script:TweaksStackPanel.Children.Add($gHeader)
-    $script:dynamicThemedItems += [PSCustomObject]@{ Type = "CatHeader"; Element = $gHeader }
 
     foreach ($tw in $grp.Items) {
         $twTitle = Decode-U $tw.Title
@@ -951,7 +833,6 @@ foreach ($grp in $script:TweaksData) {
         $card.Padding = "10"
         $card.Margin = "0,0,0,6"
         $card.Cursor = "Hand"
-        $script:dynamicThemedItems += [PSCustomObject]@{ Type = "Card"; Element = $card }
 
         $sp = New-Object System.Windows.Controls.StackPanel
         $cb = New-Object System.Windows.Controls.CheckBox
@@ -974,7 +855,6 @@ foreach ($grp in $script:TweaksData) {
         $d.Foreground = Get-Brush $initTheme.TextMuted
         $d.Margin = "22,3,0,0"
         $d.TextWrapping = "Wrap"
-        $script:dynamicThemedItems += [PSCustomObject]@{ Type = "Desc"; Element = $d }
 
         [void]$sp.Children.Add($cb)
         [void]$sp.Children.Add($d)
@@ -2089,7 +1969,6 @@ foreach ($ft in $script:FeaturesData) {
     $card.Padding = "10"
     $card.Margin = "4"
     $card.Cursor = "Hand"
-    $script:dynamicThemedItems += [PSCustomObject]@{ Type = "Card"; Element = $card }
 
     $sp = New-Object System.Windows.Controls.StackPanel
     $cb = New-Object System.Windows.Controls.CheckBox
@@ -2104,7 +1983,6 @@ foreach ($ft in $script:FeaturesData) {
     $fId.FontFamily = "Consolas"
     $fId.Foreground = Get-Brush $initTheme.TextDim
     $fId.Margin = "22,0,0,0"
-    $script:dynamicThemedItems += [PSCustomObject]@{ Type = "Id"; Element = $fId }
 
     $cb.Tag = [PSCustomObject]@{
         Name          = $ftName
@@ -2119,7 +1997,6 @@ foreach ($ft in $script:FeaturesData) {
     $d.Foreground = Get-Brush $initTheme.TextMuted
     $d.Margin = "22,3,0,2"
     $d.TextWrapping = "Wrap"
-    $script:dynamicThemedItems += [PSCustomObject]@{ Type = "Desc"; Element = $d }
 
     [void]$sp.Children.Add($cb)
     [void]$sp.Children.Add($d)
@@ -2224,7 +2101,6 @@ foreach ($bl in $script:BloatwareData) {
     $card.Padding = "10"
     $card.Margin = "4"
     $card.Cursor = "Hand"
-    $script:dynamicThemedItems += [PSCustomObject]@{ Type = "Card"; Element = $card }
 
     $sp = New-Object System.Windows.Controls.StackPanel
     $cb = New-Object System.Windows.Controls.CheckBox
@@ -2246,7 +2122,6 @@ foreach ($bl in $script:BloatwareData) {
     $pkgTxt.FontFamily = "Consolas"
     $pkgTxt.Foreground = Get-Brush $initTheme.TextDim
     $pkgTxt.Margin = "22,3,0,0"
-    $script:dynamicThemedItems += [PSCustomObject]@{ Type = "Id"; Element = $pkgTxt }
 
     [void]$sp.Children.Add($cb)
     [void]$sp.Children.Add($pkgTxt)
@@ -2350,9 +2225,59 @@ $script:BtnReinstallBloatware.Add_Click({
 # 8. SEKME 5: SISTEM YARDIMCI ARACLARI, ONARIM & MAS AKTIVASYON
 # =============================================================================
 $script:BtnRunMAS.Add_Click({
-    Write-UiLog (Decode-U ">>> Microsoft Activation Scripts (MAS) ayr\u0131 PowerShell penceresinde ba\u015Flat\u0131l\u0131yor (irm https://get.mas.dev | iex)...")
+    Write-UiLog (Decode-U ">>> Microsoft Activation Scripts (MAS) ba\u015Flat\u0131l\u0131yor (get.activated.win / DoH Bypass / massgrave.dev)...")
+    Set-UiStatus (Decode-U "MAS Aktivasyon penceresi a\u00E7\u0131l\u0131yor...") 50
     try {
-        Start-Process powershell.exe -ArgumentList "-NoProfile -ExecutionPolicy Bypass -Command `"irm https://get.mas.dev | iex`"" -Verb RunAs
+        $masRunner = Join-Path $env:TEMP "UmutEvranTool_MAS_Launcher.ps1"
+        $masCode = @'
+$ErrorActionPreference = 'Continue'
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+$Host.UI.RawUI.WindowTitle = "Microsoft Activation Scripts (MAS) - UmutEvranTool"
+Write-Host "================================================================" -ForegroundColor Cyan
+Write-Host "   MICROSOFT ACTIVATION SCRIPTS (MAS) YUKLENIYOR...             " -ForegroundColor Cyan
+Write-Host "================================================================" -ForegroundColor Cyan
+
+$scriptBody = $null
+
+# 1. Resmi birincil adres: https://get.activated.win
+try {
+    Write-Host "[1/3] Baglaniliyor: https://get.activated.win ..." -ForegroundColor Yellow
+    $scriptBody = Invoke-RestMethod -Uri "https://get.activated.win" -UseBasicParsing -TimeoutSec 15 -ErrorAction Stop
+} catch {
+    Write-Host "[!] Standart baglanti engellendi veya yanit vermedi: $($_.Exception.Message)" -ForegroundColor DarkYellow
+}
+
+# 2. ISS / DNS Engeli varsa Cloudflare DoH (1.1.1.1) uzerinden curl.exe ile asma
+if ([string]::IsNullOrWhiteSpace($scriptBody)) {
+    try {
+        Write-Host "[2/3] DNS engeli Cloudflare DoH (1.1.1.1) ile asiliyor..." -ForegroundColor Yellow
+        $dohOut = & curl.exe -s -L --doh-url https://1.1.1.1/dns-query https://get.activated.win 2>$null | Out-String
+        if ($dohOut -and $dohOut.Length -gt 500) {
+            $scriptBody = $dohOut
+        }
+    } catch {}
+}
+
+# 3. Yedek resmi ayna: https://massgrave.dev/get
+if ([string]::IsNullOrWhiteSpace($scriptBody)) {
+    try {
+        Write-Host "[3/3] Yedek ayna deneniyor: https://massgrave.dev/get ..." -ForegroundColor Yellow
+        $scriptBody = Invoke-RestMethod -Uri "https://massgrave.dev/get" -UseBasicParsing -TimeoutSec 15 -ErrorAction Stop
+    } catch {}
+}
+
+if (-not [string]::IsNullOrWhiteSpace($scriptBody)) {
+    Write-Host "[OK] MAS basariyla indirildi! Arayuz aciliyor..." -ForegroundColor Green
+    Invoke-Expression $scriptBody
+} else {
+    Write-Host "`n[HATA] MAS sunucularina ulasilamadi (ISS veya Antivirus engeli olabilir)." -ForegroundColor Red
+    Write-Host "Lutfen uygulama icindeki Hizli DNS bolumunden Cloudflare (1.1.1.1) secip tekrar deneyin." -ForegroundColor Yellow
+    Read-Host "Kapatmak icin Enter tusuna basin"
+}
+'@
+        [System.IO.File]::WriteAllText($masRunner, $masCode, [System.Text.Encoding]::ASCII)
+        Start-Process powershell.exe -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$masRunner`"" -Verb RunAs
+        Write-UiLog (Decode-U "[OK] MAS Aktivasyon penceresi ba\u015Flat\u0131ld\u0131 (get.activated.win + DoH + massgrave.dev).")
         Set-UiStatus (Decode-U "MAS Aktivasyon penceresi ba\u015Flat\u0131ld\u0131!") 100
     } catch {
         Write-UiLog "[HATA] MAS baslatilamadi: $($_.Exception.Message)"
@@ -2587,7 +2512,6 @@ $script:BtnExportConfig.Add_Click({
     if ($sfd.ShowDialog() -eq [System.Windows.Forms.DialogResult]::OK) {
         $exportObj = [PSCustomObject]@{
             Version   = "4.0"
-            Theme     = $script:currentThemeKey
             Apps      = @($script:appCheckboxes | Where-Object { $_.IsChecked -eq $true } | ForEach-Object { $_.Tag.Id })
             Tweaks    = @($script:tweakCheckboxes | Where-Object { $_.IsChecked -eq $true } | ForEach-Object { $_.Tag.Id })
             Features  = @($script:featureCheckboxes | Where-Object { $_.IsChecked -eq $true } | ForEach-Object { $_.Tag.Feature })
@@ -2605,9 +2529,6 @@ $script:BtnImportConfig.Add_Click({
     if ($ofd.ShowDialog() -eq [System.Windows.Forms.DialogResult]::OK) {
         try {
             $imported = [System.IO.File]::ReadAllText($ofd.FileName, [System.Text.Encoding]::UTF8) | ConvertFrom-Json
-            if ($imported.Theme) {
-                Set-Theme $imported.Theme
-            }
             if ($imported.Apps) {
                 foreach ($cb in $script:appCheckboxes) {
                     $cb.IsChecked = ($imported.Apps -contains $cb.Tag.Id)
@@ -2674,8 +2595,8 @@ $script:BtnRestorePoint.Add_Click({
     }
 })
 
-# Baslangic temasini aktif et (Varsayilan Askeri Adacayi Yesili)
-Set-Theme "olive"
-Write-UiLog (Decode-U "Umut Evran Tool v4.0 (WinUtil %100 Entegre S\u00FCr\u00FCm) Canl\u0131 Tema Sistemi ile ba\u015Flat\u0131ld\u0131.")
+# Baslangic kayitlari (Windows 11 Fluent Dark)
+Write-UiLog (Decode-U "Umut Evran Tool v4.0 (Windows 11 Fluent Edition) ba\u015Flat\u0131ld\u0131.")
+Write-UiLog "Hizli Baslatma Komutu: irm tinyurl.com/evrantool | iex"
 
 [void]$script:window.ShowDialog()
