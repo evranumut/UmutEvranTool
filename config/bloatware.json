@@ -1,0 +1,254 @@
+[
+  {
+    "Name": "Cortana Asistan",
+    "Pkg": "*Microsoft.549981C3F5F10*",
+    "StoreId": "9NFFX4SZZ23L",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Microsoft Haberler (Bing News)",
+    "Pkg": "*Microsoft.BingNews*",
+    "StoreId": "9WZDNCRFHVFW",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "MSN Hava Durumu (Bing Weather)",
+    "Pkg": "*Microsoft.BingWeather*",
+    "StoreId": "9WZDNCRFJ3Q2",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Bing Web Arama Entegrasyonu",
+    "Pkg": "*Microsoft.BingSearch*",
+    "StoreId": "9NZBF4GT040C",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Microsoft Copilot (UWP)",
+    "Pkg": "*Microsoft.Copilot*",
+    "StoreId": "9NHT9RB2F4HD",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Ba\u015flat Deneyimleri ve Widget Beslemesi",
+    "Pkg": "*Microsoft.StartExperiencesApp*",
+    "StoreId": "9PC1H9VN18CM",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Microsoft Yard\u0131m Al (Get Help)",
+    "Pkg": "*Microsoft.GetHelp*",
+    "StoreId": "9PKDZBMV1H3T",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Windows \u0130pu\u00e7lar\u0131 (Tips / Getstarted)",
+    "Pkg": "*Microsoft.Getstarted*",
+    "StoreId": "9WZDNCRDTBJJ",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Geri Bildirim Merkezi (Feedback Hub)",
+    "Pkg": "*Microsoft.WindowsFeedbackHub*",
+    "StoreId": "9NBLGGH4R32N",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Microsoft 365 (Office Hub)",
+    "Pkg": "*Microsoft.MicrosoftOfficeHub*",
+    "StoreId": "9WZDNCRD29V9",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Yeni Outlook (Outlook for Windows)",
+    "Pkg": "*Microsoft.OutlookForWindows*",
+    "StoreId": "9NRX63209R7B",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Microsoft Teams (Ki\u015fisel / UWP)",
+    "Pkg": "*MSTeams*",
+    "StoreId": "XP8BT8DW290MPQ",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Microsoft Solitaire Collection",
+    "Pkg": "*Microsoft.MicrosoftSolitaireCollection*",
+    "StoreId": "9WZDNCRFHWD2",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Microsoft \u0130nsanlar (People)",
+    "Pkg": "*Microsoft.People*",
+    "StoreId": "9NBLGGH10PG8",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Windows Haritalar (Maps)",
+    "Pkg": "*Microsoft.WindowsMaps*",
+    "StoreId": "9WZDNCRDTBVB",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "3D G\u00f6r\u00fcnt\u00fcleyici (3D Viewer)",
+    "Pkg": "*Microsoft.Microsoft3DViewer*",
+    "StoreId": "9NBLGGH42THS",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Mixed Reality Portal",
+    "Pkg": "*Microsoft.MixedReality.Portal*",
+    "StoreId": "9NG1H8B3ZC7M",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Skype (UWP)",
+    "Pkg": "*Microsoft.SkypeApp*",
+    "StoreId": "9WZDNCRFJ364",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Clipchamp Video Edit\u00f6r",
+    "Pkg": "*Clipchamp.Clipchamp*",
+    "StoreId": "9P1J8S7CCWWT",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Microsoft To-Do",
+    "Pkg": "*Microsoft.Todos*",
+    "StoreId": "9NBLGGH5R558",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Power Automate Desktop",
+    "Pkg": "*Microsoft.PowerAutomateDesktop*",
+    "StoreId": "9NFTCH6J7FHV",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Windows Dev Home (Geli\u015ftirici Merkezi)",
+    "Pkg": "*Microsoft.Windows.DevHome*",
+    "StoreId": "9N8MHTPHNGVV",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "H\u0131zl\u0131 Yard\u0131m (Quick Assist)",
+    "Pkg": "*MicrosoftCorporationII.QuickAssist*",
+    "StoreId": "9P7BP5VNWKX5",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Microsoft Yap\u0131\u015fkan Notlar (Sticky Notes)",
+    "Pkg": "*Microsoft.MicrosoftStickyNotes*",
+    "StoreId": "9NBLGGH4QGHW",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Ses Kaydedicisi (Sound Recorder)",
+    "Pkg": "*Microsoft.WindowsSoundRecorder*",
+    "StoreId": "9WZDNCRFHWKN",
+    "DefaultCheck": false
+  },
+  {
+    "Name": "Windows Saat ve Alarm (Clock)",
+    "Pkg": "*Microsoft.WindowsAlarms*",
+    "StoreId": "9WZDNCRFJ3PR",
+    "DefaultCheck": false
+  },
+  {
+    "Name": "Zune M\u00fczik / Media Player",
+    "Pkg": "*Microsoft.ZuneMusic*",
+    "StoreId": "9WZDNCRFJ3PT",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Zune Film ve TV (Movies & TV)",
+    "Pkg": "*Microsoft.ZuneVideo*",
+    "StoreId": "9WZDNCRFJ3P2",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Telefon Ba\u011flant\u0131s\u0131 (Phone Link / Your Phone)",
+    "Pkg": "*Microsoft.YourPhone*",
+    "StoreId": "9NMPJ99VJBWV",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Mobil Cihazlar Arka Plan Ba\u011flant\u0131s\u0131 (CrossDevice)",
+    "Pkg": "*MicrosoftWindows.CrossDevice*",
+    "StoreId": "9NTXGKQ8P7N0",
+    "DefaultCheck": false
+  },
+  {
+    "Name": "Microsoft Aile G\u00fcvenli\u011fi (Family Safety)",
+    "Pkg": "*MicrosoftCorporationII.MicrosoftFamily*",
+    "StoreId": "9PDJDJS743XF",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Windows Kamera (Camera)",
+    "Pkg": "*Microsoft.WindowsCamera*",
+    "StoreId": "9WZDNCRFJBBG",
+    "DefaultCheck": false
+  },
+  {
+    "Name": "Windows Hesap Makinesi (Calculator)",
+    "Pkg": "*Microsoft.WindowsCalculator*",
+    "StoreId": "9WZDNCRFHVN5",
+    "DefaultCheck": false
+  },
+  {
+    "Name": "Windows Foto\u011fraflar (Modern Photos)",
+    "Pkg": "*Microsoft.Windows.Photos*",
+    "StoreId": "9WZDNCRFJBH4",
+    "DefaultCheck": false
+  },
+  {
+    "Name": "Ekran Al\u0131nt\u0131s\u0131 Arac\u0131 (Snipping Tool)",
+    "Pkg": "*Microsoft.ScreenSketch*",
+    "StoreId": "9MZ95KL8MR0L",
+    "DefaultCheck": false
+  },
+  {
+    "Name": "Modern Paint (UWP)",
+    "Pkg": "*Microsoft.Paint*",
+    "StoreId": "9PCFS5B6T72H",
+    "DefaultCheck": false
+  },
+  {
+    "Name": "Modern Notepad (UWP)",
+    "Pkg": "*Microsoft.WindowsNotepad*",
+    "StoreId": "9MSMLRH6LZF3",
+    "DefaultCheck": false
+  },
+  {
+    "Name": "Xbox Uygulamas\u0131 (GamingApp)",
+    "Pkg": "*Microsoft.GamingApp*",
+    "StoreId": "9MV0B5HZVK9Z",
+    "DefaultCheck": false
+  },
+  {
+    "Name": "Xbox Game Bar (GamingOverlay)",
+    "Pkg": "*Microsoft.XboxGamingOverlay*",
+    "StoreId": "9NZKPSTSNW4P",
+    "DefaultCheck": false
+  },
+  {
+    "Name": "Xbox Speech To Text Overlay",
+    "Pkg": "*Microsoft.XboxSpeechToTextOverlay*",
+    "StoreId": "",
+    "DefaultCheck": false
+  },
+  {
+    "Name": "Xbox Identity Provider (Dikkat: Xbox Giri\u015fi \u0130\u00e7in Gerekli)",
+    "Pkg": "*Microsoft.XboxIdentityProvider*",
+    "StoreId": "9WZDNCRD1HKW",
+    "DefaultCheck": false
+  },
+  {
+    "Name": "Xbox TCUI (Canl\u0131 Hesap Aray\u00fcz\u00fc)",
+    "Pkg": "*Microsoft.Xbox.TCUI*",
+    "StoreId": "",
+    "DefaultCheck": false
+  }
+]

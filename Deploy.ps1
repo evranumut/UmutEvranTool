@@ -18,7 +18,7 @@ Write-Host " 3. GitHub'a Yukleniyor (Git Push)...    " -ForegroundColor Cyan
 Write-Host "=========================================" -ForegroundColor Cyan
 
 git add .
-git commit -m "UmutEvranTool v3.0 Official Colorful Icons + Real-Time Themes ($(Get-Date -Format 'yyyy-MM-dd HH:mm:ss'))"
+git commit -m "UmutEvranTool v3.0 WinUtil Edition + DNS + DISM + CS2 Ping Tweaks ($(Get-Date -Format 'yyyy-MM-dd HH:mm:ss'))"
 git push origin main
 
 Write-Host "`n[OK] Islem tamamlandi! 'irm evrantool.evranumut.workers.dev | iex' komutu aninda guncellendi." -ForegroundColor Green

@@ -1,289 +1,494 @@
-<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Umut Evran Tool v3.0 - Sistem Kurulum ve Optimizasyon Merkezi"
-        Width="1240" Height="820" MinWidth="1024" MinHeight="680"
-        WindowStartupLocation="CenterScreen" Background="{DynamicResource WindowBg}" Foreground="#F8FAFC"
-        FontFamily="Segoe UI">
-    <Window.Resources>
-        <!-- Dinamik Renk Paletleri -->
-        <SolidColorBrush x:Key="WindowBg" Color="#19221D"/>
-        <SolidColorBrush x:Key="PanelBg" Color="#131C17"/>
-        <SolidColorBrush x:Key="CardBg" Color="#212D26"/>
-        <SolidColorBrush x:Key="BorderBrushColor" Color="#34463B"/>
-        <SolidColorBrush x:Key="HoverBg" Color="#2C3C33"/>
-        <SolidColorBrush x:Key="AccentColor" Color="#A3B18A"/>
-        <SolidColorBrush x:Key="ActiveBtnColor" Color="#4E664A"/>
-        <SolidColorBrush x:Key="TextMuted" Color="#99A799"/>
-        <SolidColorBrush x:Key="TextDim" Color="#677567"/>
-        <SolidColorBrush x:Key="LogBg" Color="#0E1511"/>
-        <SolidColorBrush x:Key="LogFg" Color="#D8F3DC"/>
-        <SolidColorBrush x:Key="BtnInstallBg" Color="#588157"/>
-        <SolidColorBrush x:Key="BtnUninstallBg" Color="#8B4B4B"/>
-        <SolidColorBrush x:Key="BtnUpgradeBg" Color="#3A5A40"/>
-
-        <Style x:Key="NavButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="{DynamicResource CardBg}"/>
-            <Setter Property="Foreground" Value="#F1F5F9"/>
-            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrushColor}"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Padding" Value="12,9"/>
-            <Setter Property="Margin" Value="0,0,0,5"/>
-            <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="FontSize" Value="13"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="6" Padding="{TemplateBinding Padding}">
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="{DynamicResource HoverBg}"/>
-                    <Setter Property="BorderBrush" Value="{DynamicResource AccentColor}"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-
-        <Style x:Key="ActionBtnStyle" TargetType="Button">
-            <Setter Property="Foreground" Value="#FFFFFF"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Padding" Value="14,9"/>
-            <Setter Property="FontSize" Value="12.5"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" CornerRadius="6" Padding="{TemplateBinding Padding}">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="IsEnabled" Value="False">
-                    <Setter Property="Opacity" Value="0.5"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-    </Window.Resources>
-
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="270"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="320"/>
-        </Grid.ColumnDefinitions>
-
-        <!-- SOL MENU PANELI -->
-        <Border Grid.Column="0" Background="{DynamicResource PanelBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="0,0,1,0" Padding="14">
-            <DockPanel LastChildFill="False">
-                <StackPanel DockPanel.Dock="Top">
-                    <Border Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource AccentColor}" BorderThickness="1.5" CornerRadius="8" Padding="12" Margin="0,0,0,12">
-                        <StackPanel>
-                            <TextBlock Text="&#x1F680; UMUT EVRAN TOOL" FontSize="16.5" FontWeight="Bold" Foreground="{DynamicResource AccentColor}"/>
-                            <TextBlock Text="Format Sonras&#x0131; Otomasyon v3.0" FontSize="11" Foreground="{DynamicResource TextMuted}" Margin="0,3,0,0"/>
-                        </StackPanel>
-                    </Border>
-
-                    <!-- MENULER -->
-                    <TextBlock Text="MEN&#x00DC;LER" FontSize="10.5" FontWeight="Bold" Foreground="{DynamicResource TextDim}" Margin="4,0,0,5"/>
-                    <Button x:Name="BtnNavApps" Style="{StaticResource NavButtonStyle}" Content="&#x1F4E6;  Uygulama Kurulumu" Background="{DynamicResource ActiveBtnColor}" BorderBrush="{DynamicResource AccentColor}"/>
-                    <Button x:Name="BtnNavTweaks" Style="{StaticResource NavButtonStyle}" Content="&#x26A1;  Sistem &#x0130;nce Ayarlar&#x0131;"/>
-                    <Button x:Name="BtnNavBloatware" Style="{StaticResource NavButtonStyle}" Content="&#x1F9F9;  Bloatware Temizli&#x011F;i"/>
-                    <Button x:Name="BtnNavConfig" Style="{StaticResource NavButtonStyle}" Content="&#x1F4BE;  Yedekleme &amp; Config"/>
-
-                    <!-- TEMA SECIMI BOLUMU (G&#x00D6;RSELLERDEKI 3 TEMA) -->
-                    <TextBlock Text="TEMA SE&#x00C7;&#x0130;M&#x0130; (CANLI GE&#x00C7;&#x0130;&#x015E;)" FontSize="10.5" FontWeight="Bold" Foreground="{DynamicResource TextDim}" Margin="4,10,0,5"/>
-                    <UniformGrid Columns="3" Margin="0,0,0,8">
-                        <Button x:Name="BtnThemeOlive" Style="{StaticResource ActionBtnStyle}" Background="#4E664A" Content="&#x1F33F; Ye&#x015F;il" ToolTip="Askeri Ada&#x00E7;ay&#x0131; Ye&#x015F;ili" Padding="4,6" Margin="0,0,2,0" FontSize="11"/>
-                        <Button x:Name="BtnThemeAmber" Style="{StaticResource ActionBtnStyle}" Background="#EA580C" Content="&#x26A1; Turuncu" ToolTip="Karbon &amp; Kehribar Turuncu" Padding="4,6" Margin="2,0,2,0" FontSize="11"/>
-                        <Button x:Name="BtnThemeNeon" Style="{StaticResource ActionBtnStyle}" Background="#BE185D" Content="&#x1F52E; Neon" ToolTip="Siberpunk Neon Pembe" Padding="4,6" Margin="2,0,0,0" FontSize="11"/>
-                    </UniformGrid>
-
-                    <!-- HAZIR PAKETLER -->
-                    <TextBlock Text="HAZIR PAKETLER (PRESETS)" FontSize="10.5" FontWeight="Bold" Foreground="{DynamicResource TextDim}" Margin="4,6,0,5"/>
-                    <Button x:Name="BtnPresetUmut" Style="{StaticResource NavButtonStyle}" Content="&#x1F451;  Umut &#x00D6;zel Paketi Se&#x00E7;" BorderBrush="{DynamicResource AccentColor}"/>
-                    <Button x:Name="BtnPresetGamer" Style="{StaticResource NavButtonStyle}" Content="&#x1F3AE;  Oyuncu Paketi Se&#x00E7;"/>
-                    <Button x:Name="BtnPresetDev" Style="{StaticResource NavButtonStyle}" Content="&#x1F4BB;  Geli&#x015F;tirici Paketi Se&#x00E7;"/>
-                    <Button x:Name="BtnPresetStandard" Style="{StaticResource NavButtonStyle}" Content="&#x2728;  Standart Kurulum Se&#x00E7;"/>
-                    <Button x:Name="BtnClearSelection" Style="{StaticResource NavButtonStyle}" Content="&#x1F504;  T&#x00FC;m Se&#x00E7;imleri Temizle"/>
-                </StackPanel>
-
-                <StackPanel DockPanel.Dock="Bottom">
-                    <Button x:Name="BtnRestorePoint" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F6E1;&#xFE0F; Geri Y&#x00FC;kleme Noktas&#x0131; Olu&#x015F;tur" Margin="0,0,0,8"/>
-                    <TextBlock x:Name="TxtSysInfo" Text="Y&#x00F6;netici Olarak &#x00C7;al&#x0131;&#x015F;&#x0131;yor" FontSize="11" Foreground="{DynamicResource TextDim}" HorizontalAlignment="Center"/>
-                </StackPanel>
-            </DockPanel>
-        </Border>
-
-        <!-- ORTA ANA ICERIK PANELI -->
-        <Grid Grid.Column="1" Margin="14">
-            <!-- SEKME 1: UYGULAMA KURULUMU -->
-            <Grid x:Name="ViewApps" Visibility="Visible">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-
-                <!-- Arama Bar -->
-                <Border Grid.Row="0" Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="10,6" Margin="0,0,0,10">
-                    <DockPanel>
-                        <TextBlock Text="&#x1F50D; Ara:" Foreground="{DynamicResource TextMuted}" VerticalAlignment="Center" FontWeight="SemiBold" Margin="4,0,10,0"/>
-                        <Button x:Name="BtnClearSearch" DockPanel.Dock="Right" Content="Temizle" Background="{DynamicResource HoverBg}" Foreground="#E2E8F0" BorderThickness="0" Padding="10,4" Cursor="Hand"/>
-                        <TextBox x:Name="TxtSearch" Background="Transparent" Foreground="#F8FAFC" BorderThickness="0" FontSize="14" VerticalContentAlignment="Center" CaretBrush="{DynamicResource AccentColor}"/>
-                    </DockPanel>
-                </Border>
-
-                <!-- Kategori Filtre Butonlari -->
-                <WrapPanel x:Name="CategoryButtonPanel" Grid.Row="1" Margin="0,0,0,10"/>
-
-                <!-- Uygulama Listesi -->
-                <Border Grid.Row="2" Background="{DynamicResource PanelBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="10">
-                    <ScrollViewer VerticalScrollBarVisibility="Auto">
-                        <StackPanel x:Name="MainStackPanel"/>
-                    </ScrollViewer>
-                </Border>
-
-                <!-- Alt Butonlar -->
-                <Border Grid.Row="3" Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="12" Margin="0,10,0,0">
-                    <DockPanel>
-                        <TextBlock x:Name="TxtSelectedCount" Text="0 uygulama se&#x00E7;ildi" FontSize="14" FontWeight="Bold" Foreground="{DynamicResource AccentColor}" VerticalAlignment="Center"/>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Right">
-                            <Button x:Name="BtnInstall" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnInstallBg}" Content="&#x1F680; Se&#x00E7;ilenleri Kur (Winget)" Margin="0,0,8,0"/>
-                            <Button x:Name="BtnUninstall" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnUninstallBg}" Content="&#x1F5D1;&#xFE0F; Se&#x00E7;ilenleri Kald&#x0131;r" Margin="0,0,8,0"/>
-                            <Button x:Name="BtnUpgradeAll" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnUpgradeBg}" Content="&#x1F504; T&#x00FC;m&#x00FC;n&#x00FC; G&#x00FC;ncelle"/>
-                        </StackPanel>
-                    </DockPanel>
-                </Border>
-            </Grid>
-
-            <!-- SEKME 2: SISTEM INCE AYARLARI (TWEAKS) -->
-            <Grid x:Name="ViewTweaks" Visibility="Collapsed">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-
-                <Border Grid.Row="0" Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="14" Margin="0,0,0,10">
-                    <StackPanel>
-                        <TextBlock Text="&#x26A1; Sistem &#x0130;nce Ayarlar&#x0131; ve Performans Optimizasyonu" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource AccentColor}"/>
-                        <TextBlock Text="Windows 10/11 i&#x00E7;in oyun performans&#x0131;, gizlilik ve aray&#x00FC;z iyile&#x015F;tirmelerini se&#x00E7;ip tek t&#x0131;kla uygulayabilirsiniz." FontSize="12.5" Foreground="{DynamicResource TextMuted}" Margin="0,4,0,0"/>
-                    </StackPanel>
-                </Border>
-
-                <Border Grid.Row="1" Background="{DynamicResource PanelBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="12">
-                    <ScrollViewer VerticalScrollBarVisibility="Auto">
-                        <StackPanel x:Name="TweaksStackPanel"/>
-                    </ScrollViewer>
-                </Border>
-
-                <Border Grid.Row="2" Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="12" Margin="0,10,0,0">
-                    <WrapPanel HorizontalAlignment="Right">
-                        <Button x:Name="BtnSelectRecTweaks" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x2728; &#x00D6;nerilenleri Se&#x00E7;" Margin="0,0,8,0"/>
-                        <Button x:Name="BtnApplyTweaks" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnInstallBg}" Content="&#x26A1; Se&#x00E7;ili Ayarlar&#x0131; Uygula" Margin="0,0,8,0"/>
-                        <Button x:Name="BtnRevertContextMenu" Style="{StaticResource ActionBtnStyle}" Background="#D97706" Content="&#x267B;&#xFE0F; Sa&#x011F; T&#x0131;k Men&#x00FC;s&#x00FC;n&#x00FC; Varsay&#x0131;lana D&#x00F6;nd&#x00FC;r" Margin="0,0,8,0"/>
-                        <Button x:Name="BtnCleanTemp" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnUpgradeBg}" Content="&#x1F9F9; Temp &amp; DNS Temizle"/>
-                    </WrapPanel>
-                </Border>
-            </Grid>
-
-            <!-- SEKME 3: BLOATWARE TEMIZLIGI -->
-            <Grid x:Name="ViewBloatware" Visibility="Collapsed">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-
-                <Border Grid.Row="0" Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="14" Margin="0,0,0,10">
-                    <StackPanel>
-                        <TextBlock Text="&#x1F9F9; Windows Gereksiz Uygulama (Bloatware) Temizli&#x011F;i" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource AccentColor}"/>
-                        <TextBlock Text="Windows ile birlikte y&#x00FC;kl&#x00FC; gelen ve arka planda kaynak t&#x00FC;keten gereksiz paketleri kald&#x0131;r&#x0131;n." FontSize="12.5" Foreground="{DynamicResource TextMuted}" Margin="0,4,0,0"/>
-                    </StackPanel>
-                </Border>
-
-                <Border Grid.Row="1" Background="{DynamicResource PanelBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="12">
-                    <ScrollViewer VerticalScrollBarVisibility="Auto">
-                        <UniformGrid x:Name="BloatwareGrid" Columns="2"/>
-                    </ScrollViewer>
-                </Border>
-
-                <Border Grid.Row="2" Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="12" Margin="0,10,0,0">
-                    <DockPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <Button x:Name="BtnSelectAllBloat" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="T&#x00FC;m&#x00FC;n&#x00FC; Se&#x00E7;" Margin="0,0,8,0"/>
-                            <Button x:Name="BtnClearBloat" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BorderBrushColor}" Content="Se&#x00E7;imi Temizle"/>
-                        </StackPanel>
-                        <Button x:Name="BtnRemoveBloatware" DockPanel.Dock="Right" HorizontalAlignment="Right" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnUninstallBg}" Content="&#x1F5D1;&#xFE0F; Se&#x00E7;ili Bloatware Uygulamalar&#x0131;n&#x0131; Kald&#x0131;r"/>
-                    </DockPanel>
-                </Border>
-            </Grid>
-
-            <!-- SEKME 4: YEDEKLEME & CONFIG -->
-            <Grid x:Name="ViewConfig" Visibility="Collapsed">
-                <StackPanel>
-                    <Border Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="16" Margin="0,0,0,12">
-                        <StackPanel>
-                            <TextBlock Text="&#x1F4BE; Yap&#x0131;land&#x0131;rma Yedekleme (JSON D&#x0131;&#x015F;a / &#x0130;&#x00E7;e Aktar)" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource AccentColor}"/>
-                            <TextBlock Text="Se&#x00E7;ti&#x011F;iniz uygulama ve ince ayar listesini JSON dosyas&#x0131; olarak kaydedebilir, ba&#x015F;ka bir bilgisayarda tek t&#x0131;kla geri y&#x00FC;kleyebilirsiniz." FontSize="13" Foreground="{DynamicResource TextMuted}" Margin="0,6,0,14" TextWrapping="Wrap"/>
-                            <StackPanel Orientation="Horizontal">
-                                <Button x:Name="BtnExportConfig" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnInstallBg}" Content="&#x1F4E4; Se&#x00E7;imleri JSON Olarak Kaydet" Margin="0,0,10,0"/>
-                                <Button x:Name="BtnImportConfig" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnUpgradeBg}" Content="&#x1F4C2; JSON Dosyas&#x0131;ndan Y&#x00FC;kle"/>
-                            </StackPanel>
-                        </StackPanel>
-                    </Border>
-
-                    <Border Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="16">
-                        <StackPanel>
-                            <TextBlock Text="&#x1F4BB; Uzaktan Tek Sat&#x0131;rla &#x00C7;al&#x0131;&#x015F;t&#x0131;rma Komutu" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource AccentColor}"/>
-                            <TextBlock Text="PowerShell'de arac&#x0131; kurulum yapmadan do&#x011F;rudan a&#x00E7;mak i&#x00E7;in a&#x015F;a&#x011F;&#x0131;daki komutu kullanabilirsiniz:" FontSize="13" Foreground="{DynamicResource TextMuted}" Margin="0,6,0,10"/>
-                            <Border Background="{DynamicResource WindowBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="6" Padding="12" Margin="0,0,0,10">
-                                <TextBox x:Name="TxtRemoteCmd" Text="irm evrantool.evranumut.workers.dev | iex" IsReadOnly="True" Background="Transparent" Foreground="{DynamicResource AccentColor}" BorderThickness="0" FontFamily="Consolas" FontSize="14" FontWeight="Bold"/>
-                            </Border>
-                            <Button x:Name="BtnCopyCmd" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F4CB; Komutu Panoya Kopyala" HorizontalAlignment="Left"/>
-                        </StackPanel>
-                    </Border>
-                </StackPanel>
-            </Grid>
-        </Grid>
-
-        <!-- SAG CANLI LOG VE ISLEM DURUM PANELI -->
-        <Border Grid.Column="2" Background="{DynamicResource PanelBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1,0,0,0" Padding="14">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-
-                <TextBlock Grid.Row="0" Text="&#x1F4DF; CANLI &#x0130;&#x015E;LEM KAYITLARI (LOG)" FontSize="13" FontWeight="Bold" Foreground="{DynamicResource AccentColor}" Margin="0,0,0,8"/>
-
-                <StackPanel Grid.Row="1" Margin="0,0,0,10">
-                    <TextBlock x:Name="TxtStatus" Text="Haz&#x0131;r - &#x0130;&#x015F;lem bekleniyor..." FontSize="12.5" Foreground="#E2E8F0" Margin="0,0,0,6" TextWrapping="Wrap"/>
-                    <ProgressBar x:Name="ProgressBarMain" Height="10" Minimum="0" Maximum="100" Value="0" Background="{DynamicResource CardBg}" Foreground="{DynamicResource AccentColor}" BorderThickness="0"/>
-                </StackPanel>
-
-                <Border Grid.Row="2" Background="{DynamicResource LogBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="6" Padding="8">
-                    <TextBox x:Name="TxtLog" Background="Transparent" Foreground="{DynamicResource LogFg}" BorderThickness="0"
-                             FontFamily="Consolas" FontSize="11.5" IsReadOnly="True" TextWrapping="Wrap"
-                             VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
-                </Border>
-
-                <Button x:Name="BtnClearLog" Grid.Row="3" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource CardBg}" Content="Kay&#x0131;tlar&#x0131; Temizle" Margin="0,10,0,0"/>
-            </Grid>
-        </Border>
-    </Grid>
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Umut Evran Tool v4.0 - Ultimate WinUtil Edition (Sistem Kurulum ve Optimizasyon Merkezi)"
+        Width="1320" Height="860" MinWidth="1080" MinHeight="720"
+        WindowStartupLocation="CenterScreen" Background="{DynamicResource WindowBg}" Foreground="#F8FAFC"
+        FontFamily="Segoe UI">
+    <Window.Resources>
+        <!-- Dinamik Renk Paletleri (Canli Tema Gecisi) -->
+        <SolidColorBrush x:Key="WindowBg" Color="#19221D"/>
+        <SolidColorBrush x:Key="PanelBg" Color="#131C17"/>
+        <SolidColorBrush x:Key="CardBg" Color="#212D26"/>
+        <SolidColorBrush x:Key="BorderBrushColor" Color="#34463B"/>
+        <SolidColorBrush x:Key="HoverBg" Color="#2C3C33"/>
+        <SolidColorBrush x:Key="AccentColor" Color="#A3B18A"/>
+        <SolidColorBrush x:Key="ActiveBtnColor" Color="#4E664A"/>
+        <SolidColorBrush x:Key="TextMuted" Color="#99A799"/>
+        <SolidColorBrush x:Key="TextDim" Color="#677567"/>
+        <SolidColorBrush x:Key="LogBg" Color="#0E1511"/>
+        <SolidColorBrush x:Key="LogFg" Color="#D8F3DC"/>
+        <SolidColorBrush x:Key="BtnInstallBg" Color="#588157"/>
+        <SolidColorBrush x:Key="BtnUninstallBg" Color="#8B4B4B"/>
+        <SolidColorBrush x:Key="BtnUpgradeBg" Color="#3A5A40"/>
+
+        <Style x:Key="NavButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="{DynamicResource CardBg}"/>
+            <Setter Property="Foreground" Value="#F1F5F9"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrushColor}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="11,7"/>
+            <Setter Property="Margin" Value="0,0,0,4"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FontSize" Value="12.5"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="6" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource HoverBg}"/>
+                    <Setter Property="BorderBrush" Value="{DynamicResource AccentColor}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="ActionBtnStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="12,8"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="6" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.5"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="275"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="330"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- SOL MENU PANELI -->
+        <Border Grid.Column="0" Background="{DynamicResource PanelBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="0,0,1,0" Padding="12">
+            <DockPanel LastChildFill="True">
+                <StackPanel DockPanel.Dock="Bottom" Margin="0,8,0,0">
+                    <Button x:Name="BtnRestorePoint" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F6E1;&#xFE0F; Geri Y&#x00FC;kleme Noktas&#x0131; Olu&#x015F;tur" Margin="0,0,0,6"/>
+                    <TextBlock x:Name="TxtSysInfo" Text="Y&#x00F6;netici Olarak &#x00C7;al&#x0131;&#x015F;&#x0131;yor" FontSize="11" Foreground="{DynamicResource TextDim}" HorizontalAlignment="Center" TextTrimming="CharacterEllipsis"/>
+                </StackPanel>
+
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <Border Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource AccentColor}" BorderThickness="1.5" CornerRadius="8" Padding="11" Margin="0,0,0,10">
+                            <StackPanel>
+                                <TextBlock Text="&#x1F680; UMUT EVRAN TOOL" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource AccentColor}"/>
+                                <TextBlock Text="WinUtil %100 Full Entegre v4.0" FontSize="11" Foreground="{DynamicResource TextMuted}" Margin="0,2,0,0"/>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- MENULER (6 SEKME) -->
+                        <TextBlock Text="MOD&#x00DC;LLER VE MEN&#x00DC;LER" FontSize="10.5" FontWeight="Bold" Foreground="{DynamicResource TextDim}" Margin="4,0,0,4"/>
+                        <Button x:Name="BtnNavApps" Style="{StaticResource NavButtonStyle}" Content="&#x1F4E6;  Uygulama Kurulumu (248+)" Background="{DynamicResource ActiveBtnColor}" BorderBrush="{DynamicResource AccentColor}"/>
+                        <Button x:Name="BtnNavTweaks" Style="{StaticResource NavButtonStyle}" Content="&#x26A1;  Sistem &amp; Geli&#x015F;mi&#x015F; Tweaks"/>
+                        <Button x:Name="BtnNavFeatures" Style="{StaticResource NavButtonStyle}" Content="&#x1F6E0;&#xFE0F;  Windows &#x00D6;zellikleri &amp; DNS"/>
+                        <Button x:Name="BtnNavBloatware" Style="{StaticResource NavButtonStyle}" Content="&#x1F9F9;  Bloatware &amp; UWP Tasfiyesi"/>
+                        <Button x:Name="BtnNavTools" Style="{StaticResource NavButtonStyle}" Content="&#x1F9F0;  Sistem Ara&#x00E7;lar&#x0131; &amp; MAS"/>
+                        <Button x:Name="BtnNavConfig" Style="{StaticResource NavButtonStyle}" Content="&#x1F4BE;  Yedekleme &amp; Config"/>
+
+                        <!-- TEMA SECIMI BOLUMU (3 CANLI TEMA) -->
+                        <TextBlock Text="TEMA SE&#x00C7;&#x0130;M&#x0130; (CANLI GE&#x00C7;&#x0130;&#x015E;)" FontSize="10.5" FontWeight="Bold" Foreground="{DynamicResource TextDim}" Margin="4,8,0,4"/>
+                        <UniformGrid Columns="3" Margin="0,0,0,6">
+                            <Button x:Name="BtnThemeOlive" Style="{StaticResource ActionBtnStyle}" Background="#4E664A" Content="&#x1F33F; Ye&#x015F;il" ToolTip="Askeri Ada&#x00E7;ay&#x0131; Ye&#x015F;ili" Padding="4,6" Margin="0,0,2,0" FontSize="11"/>
+                            <Button x:Name="BtnThemeAmber" Style="{StaticResource ActionBtnStyle}" Background="#EA580C" Content="&#x26A1; Turuncu" ToolTip="Karbon &amp; Kehribar Turuncu" Padding="4,6" Margin="2,0,2,0" FontSize="11"/>
+                            <Button x:Name="BtnThemeNeon" Style="{StaticResource ActionBtnStyle}" Background="#BE185D" Content="&#x1F52E; Neon" ToolTip="Siberpunk Neon Pembe" Padding="4,6" Margin="2,0,0,0" FontSize="11"/>
+                        </UniformGrid>
+
+                        <!-- HAZIR PAKETLER -->
+                        <TextBlock Text="UYGULAMA PAKETLER&#x0130; (PRESETS)" FontSize="10.5" FontWeight="Bold" Foreground="{DynamicResource TextDim}" Margin="4,6,0,4"/>
+                        <Button x:Name="BtnPresetUmut" Style="{StaticResource NavButtonStyle}" Content="&#x1F451;  Umut &#x00D6;zel Paketi Se&#x00E7;" BorderBrush="{DynamicResource AccentColor}"/>
+                        <Button x:Name="BtnPresetGamer" Style="{StaticResource NavButtonStyle}" Content="&#x1F3AE;  Oyuncu Paketi Se&#x00E7;"/>
+                        <Button x:Name="BtnPresetDev" Style="{StaticResource NavButtonStyle}" Content="&#x1F4BB;  Geli&#x015F;tirici Paketi Se&#x00E7;"/>
+                        <Button x:Name="BtnPresetStandard" Style="{StaticResource NavButtonStyle}" Content="&#x2728;  Standart Kurulum Paketi"/>
+                        <Button x:Name="BtnClearSelection" Style="{StaticResource NavButtonStyle}" Content="&#x1F504;  T&#x00FC;m Se&#x00E7;imleri Temizle"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </DockPanel>
+        </Border>
+
+        <!-- ORTA ANA ICERIK PANELI -->
+        <Grid Grid.Column="1" Margin="14">
+            <!-- SEKME 1: UYGULAMA KURULUMU (WINGET ENGINE) -->
+            <Grid x:Name="ViewApps" Visibility="Visible">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Arama Bar -->
+                <Border Grid.Row="0" Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="10,6" Margin="0,0,0,8">
+                    <DockPanel>
+                        <TextBlock Text="&#x1F50D; Ara:" Foreground="{DynamicResource TextMuted}" VerticalAlignment="Center" FontWeight="SemiBold" Margin="4,0,10,0"/>
+                        <Button x:Name="BtnClearSearch" DockPanel.Dock="Right" Content="Temizle" Background="{DynamicResource HoverBg}" Foreground="#E2E8F0" BorderThickness="0" Padding="10,4" Cursor="Hand" Margin="6,0,0,0"/>
+                        <Button x:Name="BtnCheckInstalled" DockPanel.Dock="Right" Content="&#x1F4CB; Y&#x00FC;kl&#x00FC; Olanlar&#x0131; Tara" Background="{DynamicResource ActiveBtnColor}" Foreground="#FFFFFF" BorderThickness="0" Padding="10,4" Cursor="Hand" Margin="6,0,0,0" ToolTip="Sistemde kurulu olan uygulamalar&#x0131; tespit edip i&#x015F;aretler"/>
+                        <TextBox x:Name="TxtSearch" Background="Transparent" Foreground="#F8FAFC" BorderThickness="0" FontSize="14" VerticalContentAlignment="Center" CaretBrush="{DynamicResource AccentColor}"/>
+                    </DockPanel>
+                </Border>
+
+                <!-- Kategori Filtre Butonlari -->
+                <WrapPanel x:Name="CategoryButtonPanel" Grid.Row="1" Margin="0,0,0,8"/>
+
+                <!-- Uygulama Listesi -->
+                <Border Grid.Row="2" Background="{DynamicResource PanelBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="10">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel x:Name="MainStackPanel"/>
+                    </ScrollViewer>
+                </Border>
+
+                <!-- Alt Butonlar -->
+                <Border Grid.Row="3" Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="12" Margin="0,10,0,0">
+                    <DockPanel>
+                        <TextBlock x:Name="TxtSelectedCount" Text="0 uygulama se&#x00E7;ildi" FontSize="14" FontWeight="Bold" Foreground="{DynamicResource AccentColor}" VerticalAlignment="Center"/>
+                        <WrapPanel HorizontalAlignment="Right" DockPanel.Dock="Right">
+                            <Button x:Name="BtnInstall" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnInstallBg}" Content="&#x1F680; Se&#x00E7;ilenleri Kur (Winget)" Margin="0,0,8,0"/>
+                            <Button x:Name="BtnUninstall" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnUninstallBg}" Content="&#x1F5D1;&#xFE0F; Se&#x00E7;ilenleri Kald&#x0131;r" Margin="0,0,8,0"/>
+                            <Button x:Name="BtnUpgradeSelected" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource ActiveBtnColor}" Content="&#x2B06;&#xFE0F; Se&#x00E7;ilenleri G&#x00FC;ncelle" Margin="0,0,8,0"/>
+                            <Button x:Name="BtnUpgradeAll" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnUpgradeBg}" Content="&#x1F504; T&#x00FC;m&#x00FC;n&#x00FC; G&#x00FC;ncelle (Upgrade All)"/>
+                        </WrapPanel>
+                    </DockPanel>
+                </Border>
+            </Grid>
+
+            <!-- SEKME 2: SISTEM INCE AYARLARI VE GELISMIS TWEAKS (APPLY + UNDO DESTEGI ILE) -->
+            <Grid x:Name="ViewTweaks" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0" Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="12" Margin="0,0,0,8">
+                    <StackPanel>
+                        <TextBlock Text="&#x26A1; Sistem &#x0130;nce Ayarlar&#x0131;, Oyun Performans&#x0131; ve Geli&#x015F;mi&#x015F; Tweaks (Uygula &amp; Geri Al)" FontSize="15.5" FontWeight="Bold" Foreground="{DynamicResource AccentColor}"/>
+                        <TextBlock Text="WinUtil'deki t&#x00FC;m Essential, Gaming, UI ve Advanced Tweaks se&#x00E7;eneklerini tek t&#x0131;kla uygulayabilir veya Geri Al (Undo) butonuyla fabrika de&#x011F;erlerine d&#x00F6;nd&#x00FC;rebilirsiniz." FontSize="12" Foreground="{DynamicResource TextMuted}" Margin="0,3,0,0" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- WinUtil Tweak Preset Secicileri -->
+                <Border Grid.Row="1" Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="8" Margin="0,0,0,8">
+                    <WrapPanel VerticalAlignment="Center">
+                        <TextBlock Text="WinUtil Profilleri:" FontSize="12" FontWeight="Bold" Foreground="{DynamicResource AccentColor}" VerticalAlignment="Center" Margin="4,0,10,0"/>
+                        <Button x:Name="BtnSelectRecTweaks" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource ActiveBtnColor}" Content="&#x2728; &#x00D6;nerilen (Recommended)" Padding="10,5" Margin="0,0,6,0"/>
+                        <Button x:Name="BtnTweakPresetStandard" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F5A5;&#xFE0F; WinUtil Standart (Masa&#x00FC;st&#x00FC;)" Padding="10,5" Margin="0,0,6,0"/>
+                        <Button x:Name="BtnTweakPresetMinimal" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F4BB; WinUtil Minimal (Laptop)" Padding="10,5" Margin="0,0,6,0"/>
+                        <Button x:Name="BtnTweakPresetAdvanced" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F525; WinUtil Geli&#x015F;mi&#x015F; (Tam)" Padding="10,5" Margin="0,0,6,0"/>
+                        <Button x:Name="BtnClearTweaks" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BorderBrushColor}" Content="Temizle" Padding="10,5"/>
+                    </WrapPanel>
+                </Border>
+
+                <Border Grid.Row="2" Background="{DynamicResource PanelBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="12">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel x:Name="TweaksStackPanel"/>
+                    </ScrollViewer>
+                </Border>
+
+                <Border Grid.Row="3" Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="12" Margin="0,10,0,0">
+                    <WrapPanel HorizontalAlignment="Right">
+                        <Button x:Name="BtnApplyTweaks" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnInstallBg}" Content="&#x26A1; Se&#x00E7;ili Ayarlar&#x0131; Uygula (Apply)" Margin="0,0,8,0"/>
+                        <Button x:Name="BtnUndoTweaks" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnUninstallBg}" Content="&#x21A9;&#xFE0F; Se&#x00E7;ili Ayarlar&#x0131; Geri Al (Undo / Revert)" Margin="0,0,8,0"/>
+                        <Button x:Name="BtnRevertContextMenu" Style="{StaticResource ActionBtnStyle}" Background="#D97706" Content="&#x267B;&#xFE0F; Sa&#x011F; T&#x0131;k Men&#x00FC;s&#x00FC;n&#x00FC; Varsay&#x0131;lana D&#x00F6;nd&#x00FC;r" Margin="0,0,8,0"/>
+                        <Button x:Name="BtnCleanTemp" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnUpgradeBg}" Content="&#x1F9F9; Disk, Temp &amp; DNS Temizle"/>
+                    </WrapPanel>
+                </Border>
+            </Grid>
+
+            <!-- SEKME 3: WINDOWS OZELLIKLERI (DISM), HIZLI DNS, DERIN TEMIZLIK & WINDOWS UPDATE -->
+            <Grid x:Name="ViewFeatures" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0" Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="12" Margin="0,0,0,8">
+                    <StackPanel>
+                        <TextBlock Text="&#x1F6E0;&#xFE0F; Windows &#x00D6;zellikleri (DISM), H&#x0131;zl&#x0131; DNS, Derin Temizlik ve Windows Update" FontSize="15.5" FontWeight="Bold" Foreground="{DynamicResource AccentColor}"/>
+                        <TextBlock Text="DirectPlay, .NET 3.5, WSL2, Sandbox, Hyper-V, Telnet ve TFTP bile&#x015F;enlerini y&#x00F6;netin; tek t&#x0131;kla DNS de&#x011F;i&#x015F;tirin ve Windows Update politikas&#x0131;n&#x0131; belirleyin." FontSize="12" Foreground="{DynamicResource TextMuted}" Margin="0,3,0,0" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Row="1" Background="{DynamicResource PanelBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="12">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel x:Name="FeaturesStackPanel">
+                            <!-- 1. HIZLI DNS DEGISTIRICI -->
+                            <Border Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="12" Margin="0,0,0,10">
+                                <StackPanel>
+                                    <TextBlock Text="&#x1F310; HIZLI DNS DE&#x011E;&#x0130;&#x015E;T&#x0130;R&#x0130;C&#x0130; (F&#x0130;Z&#x0130;KSEL A&#x011E; BA&#x011E;DA&#x015E;TIRICISI OTOMAT&#x0130;K TESP&#x0130;T - IPv4 &amp; IPv6)" FontSize="13" FontWeight="Bold" Foreground="{DynamicResource AccentColor}" Margin="0,0,0,4"/>
+                                    <TextBlock x:Name="TxtDnsStatus" Text="Aktif A&#x011F; Ba&#x011F;da&#x015F;t&#x0131;r&#x0131;c&#x0131;s&#x0131; Haz&#x0131;r (Sanal/VPN a&#x011F;lar&#x0131; hari&#x00E7; tutularak tek t&#x0131;kla DNS atan&#x0131;r)" FontSize="11.5" Foreground="{DynamicResource TextMuted}" Margin="0,0,0,8"/>
+                                    <UniformGrid Columns="4" Margin="0,0,0,6">
+                                        <Button x:Name="BtnDnsCloudflare" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x26A1; Cloudflare (1.1.1.1)" Margin="0,0,4,0" ToolTip="1.1.1.1 / 1.0.0.1"/>
+                                        <Button x:Name="BtnDnsGoogle" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F310; Google (8.8.8.8)" Margin="2,0,2,0" ToolTip="8.8.8.8 / 8.8.4.4"/>
+                                        <Button x:Name="BtnDnsAdguard" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F6E1;&#xFE0F; AdGuard (94.140.14.14)" Margin="2,0,2,0" ToolTip="Reklam ve &#x0130;zleyici Engelleyici DNS (94.140.14.14 / 94.140.15.15)"/>
+                                        <Button x:Name="BtnDnsQuad9" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F512; Quad9 (9.9.9.9)" Margin="4,0,0,0" ToolTip="Zararl&#x0131; Yaz&#x0131;l&#x0131;m Engelleyici G&#x00FC;venlik DNS (9.9.9.9 / 149.112.112.112)"/>
+                                    </UniformGrid>
+                                    <UniformGrid Columns="3">
+                                        <Button x:Name="BtnDnsCloudflareMalware" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F6E1;&#xFE0F; Cloudflare G&#x00FC;venlik (1.1.1.2)" Margin="0,0,4,0" ToolTip="Zararl&#x0131; Yaz&#x0131;l&#x0131;m Engelleyici Cloudflare (1.1.1.2 / 1.0.0.2)"/>
+                                        <Button x:Name="BtnDnsOpenDns" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F4E1; Cisco OpenDNS (208.67.222.222)" Margin="2,0,2,0" ToolTip="208.67.222.222 / 208.67.220.220"/>
+                                        <Button x:Name="BtnDnsDhcp" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BorderBrushColor}" Content="&#x1F504; Varsay&#x0131;lan (Otomatik DHCP)" Margin="4,0,0,0" ToolTip="Otomatik modem/ISS DNS ayarlar&#x0131;na geri d&#x00F6;n"/>
+                                    </UniformGrid>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- 2. DERIN TEMIZLIK & GELISMIS WINUTIL ARACLARI -->
+                            <Border Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="12" Margin="0,0,0,10">
+                                <StackPanel>
+                                    <TextBlock Text="&#x1F9F9; DER&#x0130;N TEM&#x0130;ZL&#x0130;K &amp; &#x0130;ZOLASYON MOD&#x00DC;LLER&#x0130; (DEEP DEBLOAT)" FontSize="13" FontWeight="Bold" Foreground="{DynamicResource AccentColor}" Margin="0,0,0,4"/>
+                                    <TextBlock Text="OneDrive kal&#x0131;nt&#x0131;lar&#x0131;n&#x0131;, Windows 11 Copilot/Recall yapay zeka izlemesini ve Edge arka plan servislerini tek t&#x0131;kla y&#x00F6;netin:" FontSize="11.5" Foreground="{DynamicResource TextMuted}" Margin="0,0,0,8"/>
+                                    <UniformGrid Columns="3" Margin="0,0,0,6">
+                                        <Button x:Name="BtnDeepOneDrive" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnUninstallBg}" Content="&#x1F5D1;&#xFE0F; OneDrive K&#x00F6;kten Kald&#x0131;r" Margin="0,0,4,0" ToolTip="OneDriveSetup /uninstall &#x00E7;al&#x0131;&#x015F;t&#x0131;r&#x0131;r ve Dosya Gezgini CLSID kay&#x0131;tlar&#x0131;n&#x0131; siler"/>
+                                        <Button x:Name="BtnDisableCopilot" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F6AB; Copilot &amp; Recall Kapat" Margin="2,0,2,0" ToolTip="Copilot, Recall ve Windows AI anl&#x0131;k g&#x00F6;r&#x00FC;nt&#x00FC; alma mekanizmalar&#x0131;n&#x0131; kapat&#x0131;r"/>
+                                        <Button x:Name="BtnDisableEdgeBg" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F6D1; Edge &#x0130;zolasyonu &amp; Debloat" Margin="4,0,0,0" ToolTip="Edge Startup Boost, arka plan servisleri ve 17 telemetri ilkesini kapat&#x0131;r"/>
+                                    </UniformGrid>
+                                    <UniformGrid Columns="3">
+                                        <Button x:Name="BtnRestoreOneDrive" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BorderBrushColor}" Content="&#x21A9;&#xFE0F; OneDrive Geri Y&#x00FC;kle" Margin="0,0,4,0" ToolTip="Winget &#x00FC;zerinden OneDrive'&#x0131; yeniden kurar ve servislerini a&#x00E7;ar"/>
+                                        <Button x:Name="BtnEnableCopilot" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BorderBrushColor}" Content="&#x21A9;&#xFE0F; Copilot &amp; AI Geri A&#x00E7;" Margin="2,0,2,0" ToolTip="Copilot ve Windows AI k&#x0131;s&#x0131;tlamalar&#x0131;n&#x0131; kald&#x0131;r&#x0131;r"/>
+                                        <Button x:Name="BtnEnableEdgeBg" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BorderBrushColor}" Content="&#x21A9;&#xFE0F; Edge &#x0130;lkelerini S&#x0131;f&#x0131;rla" Margin="4,0,0,0" ToolTip="Edge k&#x0131;s&#x0131;tlama ilkelerini varsay&#x0131;lana d&#x00F6;nd&#x00FC;r&#x00FC;r"/>
+                                    </UniformGrid>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- 3. WINDOWS UPDATE AKILLI YONETIMI (3 MOD) -->
+                            <Border Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="12" Margin="0,0,0,10">
+                                <StackPanel>
+                                    <TextBlock Text="&#x1F504; WINDOWS UPDATE AKILLI Y&#x00D6;NET&#x0130;M&#x0130; (WINUTIL 3 MOD)" FontSize="13" FontWeight="Bold" Foreground="{DynamicResource AccentColor}" Margin="0,0,0,4"/>
+                                    <TextBlock Text="1) G&#x00FC;venlik Odakl&#x0131; Mod (365 g&#x00FC;n &#x00F6;zellik erteleme, 4 g&#x00FC;n kalite erteleme, s&#x00FC;r&#x00FC;c&#x00FC; engeli), 2) Tamamen Kapatma, 3) Fabrika Varsay&#x0131;lan&#x0131;:" FontSize="11.5" Foreground="{DynamicResource TextMuted}" Margin="0,0,0,8"/>
+                                    <UniformGrid Columns="3">
+                                        <Button x:Name="BtnWinUpdateSecurity" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnInstallBg}" Content="&#x1F6E1;&#xFE0F; 1. G&#x00FC;venlik Odakl&#x0131; Mod (&#x00D6;nerilen)" Margin="0,0,4,0" ToolTip="B&#x00FC;y&#x00FC;k s&#x00FC;r&#x00FC;m g&#x00FC;ncellemelerini 365 g&#x00FC;n geciktirir, s&#x00FC;r&#x00FC;c&#x00FC; g&#x00FC;ncellemelerini kapat&#x0131;r"/>
+                                        <Button x:Name="BtnWinUpdateDisable" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnUninstallBg}" Content="&#x26D4; 2. G&#x00FC;ncellemeleri Tamamen Durdur" Margin="2,0,2,0" ToolTip="wuauserv, bits, UsoSvc, dosvc servislerini ve zamanlanm&#x0131;&#x015F; g&#x00F6;revleri tamamen kapat&#x0131;r"/>
+                                        <Button x:Name="BtnWinUpdateDefault" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BorderBrushColor}" Content="&#x267B;&#xFE0F; 3. Varsay&#x0131;lan Mod (Fabrika Ayar&#x0131;)" Margin="4,0,0,0" ToolTip="T&#x00FC;m Windows Update ilkelerini ve servislerini standart fabrika de&#x011F;erlerine d&#x00F6;nd&#x00FC;r&#x00FC;r"/>
+                                    </UniformGrid>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- 4. WINDOWS ISTEGE BAGLI BILESENLERI (DISM ENGINE) -->
+                            <Border Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="12">
+                                <StackPanel>
+                                    <DockPanel Margin="0,0,0,6">
+                                        <TextBlock Text="&#x1F4BB; WINDOWS &#x0130;STE&#x011E;E BA&#x011E;LI B&#x0130;LE&#x015E;ENLER&#x0130; (DISM ENGINE)" FontSize="13" FontWeight="Bold" Foreground="{DynamicResource AccentColor}" VerticalAlignment="Center"/>
+                                        <Button x:Name="BtnCheckFeaturesStatus" DockPanel.Dock="Right" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F50D; Bile&#x015F;en Durumlar&#x0131;n&#x0131; Sorgula" Padding="10,4" FontSize="11.5"/>
+                                    </DockPanel>
+                                    <TextBlock Text="DirectPlay, .NET Framework 3.5, WSL 2, Virtual Machine Platform, Windows Sandbox, Hyper-V, Telnet ve TFTP bile&#x015F;enlerini y&#x00F6;netin:" FontSize="11.5" Foreground="{DynamicResource TextMuted}" Margin="0,0,0,8"/>
+                                    <UniformGrid x:Name="FeaturesGrid" Columns="2" Margin="0,0,0,10"/>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <Button x:Name="BtnApplyFeatures" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnInstallBg}" Content="&#x2699;&#xFE0F; Se&#x00E7;ili Bile&#x015F;enleri Etkinle&#x015F;tir (DISM Enable)" Margin="0,0,8,0"/>
+                                        <Button x:Name="BtnDisableFeatures" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnUninstallBg}" Content="&#x1F6AB; Se&#x00E7;ili Bile&#x015F;enleri Devre D&#x0131;&#x015F;&#x0131; B&#x0131;rak (DISM Disable)"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Border>
+            </Grid>
+
+            <!-- SEKME 4: KAPSAMLI BLOATWARE TASFIYESI (42 UWP PAKETI) -->
+            <Grid x:Name="ViewBloatware" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0" Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="12" Margin="0,0,0,8">
+                    <StackPanel>
+                        <TextBlock Text="&#x1F9F9; Kapsaml&#x0131; Windows Bloatware ve UWP Paket Tasfiyesi (WinUtil Appx Engine)" FontSize="15.5" FontWeight="Bold" Foreground="{DynamicResource AccentColor}"/>
+                        <TextBlock Text="Se&#x00E7;ilen UWP paketlerini hem ge&#x00E7;erli kullan&#x0131;c&#x0131; (Get-AppxPackage -AllUsers) hem de yeni kullan&#x0131;c&#x0131; provizyon kay&#x0131;tlar&#x0131;ndan (Get-AppxProvisionedPackage -Online) tamamen kald&#x0131;r&#x0131;r veya Microsoft Store'dan geri y&#x00FC;kler." FontSize="12" Foreground="{DynamicResource TextMuted}" Margin="0,3,0,0" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Row="1" Background="{DynamicResource PanelBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="12">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <UniformGrid x:Name="BloatwareGrid" Columns="2"/>
+                    </ScrollViewer>
+                </Border>
+
+                <Border Grid.Row="2" Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="12" Margin="0,10,0,0">
+                    <DockPanel>
+                        <WrapPanel VerticalAlignment="Center">
+                            <Button x:Name="BtnSelectDefaultBloat" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource ActiveBtnColor}" Content="&#x2728; &#x00D6;nerilen Bloatware Se&#x00E7;" Margin="0,0,6,0"/>
+                            <Button x:Name="BtnSelectAllBloat" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="T&#x00FC;m&#x00FC;n&#x00FC; Se&#x00E7;" Margin="0,0,6,0"/>
+                            <Button x:Name="BtnClearBloat" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BorderBrushColor}" Content="Se&#x00E7;imi Temizle"/>
+                        </WrapPanel>
+                        <WrapPanel HorizontalAlignment="Right" DockPanel.Dock="Right">
+                            <Button x:Name="BtnReinstallBloatware" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnInstallBg}" Content="&#x1F4E5; Se&#x00E7;ilenleri Ma&#x011F;azadan Geri Y&#x00FC;kle" Margin="0,0,8,0"/>
+                            <Button x:Name="BtnRemoveBloatware" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnUninstallBg}" Content="&#x1F5D1;&#xFE0F; Se&#x00E7;ili Bloatware Paketlerini Kald&#x0131;r"/>
+                        </WrapPanel>
+                    </DockPanel>
+                </Border>
+            </Grid>
+
+            <!-- SEKME 5: SISTEM YARDIMCI ARACLARI, ONARIM & MAS AKTIVASYON -->
+            <Grid x:Name="ViewTools" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0" Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="12" Margin="0,0,0,8">
+                    <StackPanel>
+                        <TextBlock Text="&#x1F9F0; Sistem Yard&#x0131;mc&#x0131; Ara&#x00E7;lar&#x0131;, MAS Aktivasyon, Onar&#x0131;m ve Klasik Konsollar" FontSize="15.5" FontWeight="Bold" Foreground="{DynamicResource AccentColor}"/>
+                        <TextBlock Text="God Mode, Microsoft Activation Scripts (MAS), SFC/DISM Sistem Onar&#x0131;m&#x0131;, Windows Update S&#x0131;f&#x0131;rlama ve Klasik Windows Y&#x00F6;netim Panellerine tek t&#x0131;kla eri&#x015F;in." FontSize="12" Foreground="{DynamicResource TextMuted}" Margin="0,3,0,0" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Row="1" Background="{DynamicResource PanelBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="12">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <!-- 1. MAS AKTIVASYON & GOD MODE & O&O SHUTUP10 -->
+                            <Border Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource AccentColor}" BorderThickness="1.5" CornerRadius="8" Padding="12" Margin="0,0,0,10">
+                                <StackPanel>
+                                    <TextBlock Text="&#x1F511; AKT&#x0130;VASYON DESTE&#x011E;&#x0130;, GOD MODE VE &#x00D6;ZEL YARDIMCI ARA&#x00C7;LAR" FontSize="13" FontWeight="Bold" Foreground="{DynamicResource AccentColor}" Margin="0,0,0,4"/>
+                                    <TextBlock Text="A&#x00E7;&#x0131;k kaynakl&#x0131; Microsoft Activation Scripts (MAS), Masa&#x00FC;st&#x00FC; God Mode (Tanr&#x0131; Modu) klas&#x00F6;r&#x00FC; ve O&amp;O ShutUp10++ gizlilik arac&#x0131;:" FontSize="11.5" Foreground="{DynamicResource TextMuted}" Margin="0,0,0,8"/>
+                                    <UniformGrid Columns="3">
+                                        <Button x:Name="BtnRunMAS" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnInstallBg}" Content="&#x1F511; MAS Aktivasyon &#x00C7;al&#x0131;&#x015F;t&#x0131;r (get.mas.dev)" Margin="0,0,4,0" ToolTip="irm https://get.mas.dev | iex komutunu &#x00E7;al&#x0131;&#x015F;t&#x0131;r&#x0131;r"/>
+                                        <Button x:Name="BtnCreateGodMode" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource ActiveBtnColor}" Content="&#x26A1; Masa&#x00FC;st&#x00FC;nde God Mode Olu&#x015F;tur" Margin="2,0,2,0" ToolTip="GodMode.{ED7BA470-8E54-465E-825C-99712043E01C} klas&#x00F6;r&#x00FC;n&#x00FC; masa&#x00FC;st&#x00FC;nde olu&#x015F;turur"/>
+                                        <Button x:Name="BtnRunOOSU" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F6E1;&#xFE0F; O&amp;O ShutUp10++ &#x0130;ndir ve A&#x00E7;" Margin="4,0,0,0" ToolTip="Resmi O&amp;O ShutUp10++ ta&#x015F;&#x0131;nabilir arac&#x0131;n&#x0131; indirip ba&#x015F;lat&#x0131;r"/>
+                                    </UniformGrid>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- 2. WINUTIL SISTEM ONARIM VE KURTARMA MOTORU (FIXES) -->
+                            <Border Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="12" Margin="0,0,0,10">
+                                <StackPanel>
+                                    <TextBlock Text="&#x1FA7A; S&#x0130;STEM ONARIM, KURTARMA VE SIFIRLAMA ARA&#x00C7;LARI (WINUTIL FIXES)" FontSize="13" FontWeight="Bold" Foreground="{DynamicResource AccentColor}" Margin="0,0,0,4"/>
+                                    <TextBlock Text="Bozuk sistem dosyalar&#x0131;n&#x0131; (SFC / DISM), bozuk Windows Update bile&#x015F;enlerini, a&#x011F; y&#x0131;&#x011F;&#x0131;n&#x0131;n&#x0131; ve Winget paket y&#x00F6;neticisini onar&#x0131;n:" FontSize="11.5" Foreground="{DynamicResource TextMuted}" Margin="0,0,0,8"/>
+                                    <UniformGrid Columns="3" Margin="0,0,0,6">
+                                        <Button x:Name="BtnFixSystemCorruption" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnInstallBg}" Content="&#x1FA7A; Sistem Bozulma Taramas&#x0131; (Chkdsk+SFC+DISM)" Margin="0,0,4,0" ToolTip="S&#x0131;ras&#x0131;yla chkdsk /scan, sfc /scannow ve DISM /RestoreHealth &#x00E7;al&#x0131;&#x015F;t&#x0131;r&#x0131;r"/>
+                                        <Button x:Name="BtnFixWinUpdate" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnUpgradeBg}" Content="&#x1F504; Windows Update Tam S&#x0131;f&#x0131;rlama &amp; Onar&#x0131;m" Margin="2,0,2,0" ToolTip="Update servislerini, Catroot2/SoftwareDistribution klas&#x00F6;rlerini ve 36 DLL kayd&#x0131;n&#x0131; s&#x0131;f&#x0131;rlar"/>
+                                        <Button x:Name="BtnFixNetwork" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F310; A&#x011F; Y&#x0131;&#x011F;&#x0131;n&#x0131;n&#x0131; S&#x0131;f&#x0131;rla (Winsock &amp; IP Reset)" Margin="4,0,0,0" ToolTip="netsh winsock reset, netsh int ip reset ve DNS temizli&#x011F;i yapar"/>
+                                    </UniformGrid>
+                                    <UniformGrid Columns="3">
+                                        <Button x:Name="BtnFixWinget" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F4E6; WinGet Paket Y&#x00F6;neticisini Onar" Margin="0,0,4,0" ToolTip="AppInstaller / Winget kaynaklar&#x0131;n&#x0131; ve kay&#x0131;tlar&#x0131;n&#x0131; onar&#x0131;r"/>
+                                        <Button x:Name="BtnFixNTP" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x23F1;&#xFE0F; NTP Saat Sunucusunu Onar (pool.ntp.org)" Margin="2,0,2,0" ToolTip="Windows saat senkronizasyon sunucusunu pool.ntp.org olarak yap&#x0131;land&#x0131;r&#x0131;r"/>
+                                        <Button x:Name="BtnRunAutologon" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F513; Sysinternals AutoLogon &#x0130;ndir ve A&#x00E7;" Margin="4,0,0,0" ToolTip="Microsoft Sysinternals AutoLogon arac&#x0131;n&#x0131; indirip ba&#x015F;lat&#x0131;r"/>
+                                    </UniformGrid>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- 3. GELISMIS SISTEM KISAYOLLARI, OPENSSH & KAYIT DEFTERI YEDEGI -->
+                            <Border Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="12" Margin="0,0,0,10">
+                                <StackPanel>
+                                    <TextBlock Text="&#x2699;&#xFE0F; UZAKTAN ER&#x0130;&#x015E;&#x0130;M, &#x00D6;NY&#x00DC;KLEME (F8) VE S&#x0130;STEM G&#x00D6;REVLER&#x0130;" FontSize="13" FontWeight="Bold" Foreground="{DynamicResource AccentColor}" Margin="0,0,0,4"/>
+                                    <UniformGrid Columns="3" Margin="0,0,0,6">
+                                        <Button x:Name="BtnEnableOpenSSH" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F5A7; OpenSSH Sunucusunu Kur ve Ba&#x015F;lat" Margin="0,0,4,0" ToolTip="OpenSSH Server kurar, Port 22 g&#x00FC;venlik duvar&#x0131; kural&#x0131;n&#x0131; a&#x00E7;ar ve sshd servisini ba&#x015F;lat&#x0131;r"/>
+                                        <Button x:Name="BtnEnableRegBackup" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F5C2;&#xFE0F; G&#x00FC;nl&#x00FC;k Kay&#x0131;t Defteri Yede&#x011F;ini A&#x00E7; (00:30)" Margin="2,0,2,0" ToolTip="RegIdleBackup g&#x00F6;revini her gece 00:30'da otomatik &#x00E7;al&#x0131;&#x015F;acak &#x015F;ekilde etkinle&#x015F;tirir"/>
+                                        <Button x:Name="BtnRestartExplorer" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F504; Dosya Gezgini'ni (Explorer) Yeniden Ba&#x015F;lat" Margin="4,0,0,0" ToolTip="explorer.exe s&#x00FC;recini g&#x00FC;venli bi&#x00E7;imde yeniden ba&#x015F;lat&#x0131;r"/>
+                                    </UniformGrid>
+                                    <UniformGrid Columns="2">
+                                        <Button x:Name="BtnEnableF8Boot" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F6E0;&#xFE0F; Klasik F8 G&#x00FC;venli Mod &#x00D6;ny&#x00FC;kleme Men&#x00FC;s&#x00FC;n&#x00FC; A&#x00E7;" Margin="0,0,4,0" ToolTip="bcdedit /set bootmenupolicy legacy"/>
+                                        <Button x:Name="BtnDisableF8Boot" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BorderBrushColor}" Content="&#x21A9;&#xFE0F; Standart Modern &#x00D6;ny&#x00FC;kleme Men&#x00FC;s&#x00FC;ne D&#x00F6;n" Margin="4,0,0,0" ToolTip="bcdedit /set bootmenupolicy standard"/>
+                                    </UniformGrid>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- 4. KLASIK WINDOWS DENETIM MASASI VE YONETIM KONSOLLARI (14 PANEL) -->
+                            <Border Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="12">
+                                <StackPanel>
+                                    <TextBlock Text="&#x1F5A5;&#xFE0F; KLAS&#x0130;K WINDOWS DENET&#x0130;M MASASI VE S&#x0130;STEM KONSOLLARI (LEGACY PANELS)" FontSize="13" FontWeight="Bold" Foreground="{DynamicResource AccentColor}" Margin="0,0,0,4"/>
+                                    <TextBlock Text="Windows 11'de gizlenen klasik y&#x00F6;netim ara&#x00E7;lar&#x0131;n&#x0131; do&#x011F;rudan ba&#x015F;lat&#x0131;n:" FontSize="11.5" Foreground="{DynamicResource TextMuted}" Margin="0,0,0,8"/>
+                                    <UniformGrid Columns="4" Margin="0,0,0,6">
+                                        <Button x:Name="BtnPanelControl" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F39B;&#xFE0F; Denetim Masas&#x0131; (control)" Margin="0,0,4,0"/>
+                                        <Button x:Name="BtnPanelNetwork" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F310; A&#x011F; Ba&#x011F;lant&#x0131;lar&#x0131; (ncpa.cpl)" Margin="2,0,2,0"/>
+                                        <Button x:Name="BtnPanelSystem" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F4BB; Sistem &#x00D6;zellikleri (sysdm.cpl)" Margin="2,0,2,0"/>
+                                        <Button x:Name="BtnPanelPower" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F50B; G&#x00FC;&#x00E7; Se&#x00E7;enekleri (powercfg.cpl)" Margin="4,0,0,0"/>
+                                    </UniformGrid>
+                                    <UniformGrid Columns="4" Margin="0,0,0,6">
+                                        <Button x:Name="BtnPanelSound" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F50A; Ses Ayarlar&#x0131; (mmsys.cpl)" Margin="0,0,4,0"/>
+                                        <Button x:Name="BtnPanelPrograms" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F4E6; Program Ekle/Kald&#x0131;r (appwiz.cpl)" Margin="2,0,2,0"/>
+                                        <Button x:Name="BtnPanelComputer" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x2699;&#xFE0F; Bilgisayar Y&#x00F6;netimi (compmgmt)" Margin="2,0,2,0"/>
+                                        <Button x:Name="BtnPanelMouse" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F5B1;&#xFE0F; Fare &#x00D6;zellikleri (main.cpl)" Margin="4,0,0,0"/>
+                                    </UniformGrid>
+                                    <UniformGrid Columns="4">
+                                        <Button x:Name="BtnPanelFirewall" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F9F1; G&#x00FC;venlik Duvar&#x0131; (firewall.cpl)" Margin="0,0,4,0"/>
+                                        <Button x:Name="BtnPanelRestore" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x23EA; Sistem Geri Y&#x00FC;kleme (rstrui)" Margin="2,0,2,0"/>
+                                        <Button x:Name="BtnPanelTimedate" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F552; Tarih ve Saat (timedate.cpl)" Margin="2,0,2,0"/>
+                                        <Button x:Name="BtnPanelRegion" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F30D; B&#x00F6;lge ve Dil (intl.cpl)" Margin="4,0,0,0"/>
+                                    </UniformGrid>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Border>
+            </Grid>
+
+            <!-- SEKME 6: YEDEKLEME & CONFIG -->
+            <Grid x:Name="ViewConfig" Visibility="Collapsed">
+                <StackPanel>
+                    <Border Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="16" Margin="0,0,0,12">
+                        <StackPanel>
+                            <TextBlock Text="&#x1F4BE; Yap&#x0131;land&#x0131;rma Yedekleme (JSON D&#x0131;&#x015F;a / &#x0130;&#x00E7;e Aktar - WinUtil &amp; UmutEvranTool)" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource AccentColor}"/>
+                            <TextBlock Text="Se&#x00E7;ti&#x011F;iniz uygulama, sistem ince ayarlar&#x0131; (Tweaks), Windows bile&#x015F;enleri (DISM) ve Bloatware listesini JSON dosyas&#x0131; olarak kaydedebilir, ba&#x015F;ka bir bilgisayarda tek t&#x0131;kla geri y&#x00FC;kleyebilirsiniz." FontSize="13" Foreground="{DynamicResource TextMuted}" Margin="0,6,0,14" TextWrapping="Wrap"/>
+                            <WrapPanel>
+                                <Button x:Name="BtnExportConfig" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnInstallBg}" Content="&#x1F4E4; Se&#x00E7;imleri JSON Olarak D&#x0131;&#x015F;a Aktar (Export)" Margin="0,0,10,0"/>
+                                <Button x:Name="BtnImportConfig" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource BtnUpgradeBg}" Content="&#x1F4C2; JSON Yap&#x0131;land&#x0131;rma Dosyas&#x0131; &#x0130;&#x00E7;e Aktar (Import)" Margin="0,0,10,0"/>
+                                <Button x:Name="BtnExportSysReport" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F4CA; Sistem Donan&#x0131;m &amp; Ortam Raporu Kaydet"/>
+                            </WrapPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Background="{DynamicResource CardBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="8" Padding="16">
+                        <StackPanel>
+                            <TextBlock Text="&#x1F4BB; Uzaktan Tek Sat&#x0131;rla &#x00C7;al&#x0131;&#x015F;t&#x0131;rma Komutu (Cloudflare Worker)" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource AccentColor}"/>
+                            <TextBlock Text="Windows PowerShell konsolunda kurulum yapmadan do&#x011F;rudan bellekte &#x00E7;al&#x0131;&#x015F;t&#x0131;rmak i&#x00E7;in a&#x015F;a&#x011F;&#x0131;daki komutu kullanabilirsiniz:" FontSize="13" Foreground="{DynamicResource TextMuted}" Margin="0,6,0,10"/>
+                            <Border Background="{DynamicResource WindowBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="6" Padding="12" Margin="0,0,0,10">
+                                <TextBox x:Name="TxtRemoteCmd" Text="irm evrantool.evranumut.workers.dev | iex" IsReadOnly="True" Background="Transparent" Foreground="{DynamicResource AccentColor}" BorderThickness="0" FontFamily="Consolas" FontSize="14" FontWeight="Bold"/>
+                            </Border>
+                            <Button x:Name="BtnCopyCmd" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource HoverBg}" Content="&#x1F4CB; Komutu Panoya Kopyala" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <!-- SAG CANLI LOG VE ISLEM DURUM PANELI -->
+        <Border Grid.Column="2" Background="{DynamicResource PanelBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1,0,0,0" Padding="14">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Text="&#x1F4DF; CANLI &#x0130;&#x015E;LEM KAYITLARI (LOG)" FontSize="13" FontWeight="Bold" Foreground="{DynamicResource AccentColor}" Margin="0,0,0,8"/>
+
+                <StackPanel Grid.Row="1" Margin="0,0,0,10">
+                    <TextBlock x:Name="TxtStatus" Text="Haz&#x0131;r - &#x0130;&#x015F;lem bekleniyor..." FontSize="12.5" Foreground="#E2E8F0" Margin="0,0,0,6" TextWrapping="Wrap"/>
+                    <ProgressBar x:Name="ProgressBarMain" Height="10" Minimum="0" Maximum="100" Value="0" Background="{DynamicResource CardBg}" Foreground="{DynamicResource AccentColor}" BorderThickness="0"/>
+                </StackPanel>
+
+                <Border Grid.Row="2" Background="{DynamicResource LogBg}" BorderBrush="{DynamicResource BorderBrushColor}" BorderThickness="1" CornerRadius="6" Padding="8">
+                    <TextBox x:Name="TxtLog" Background="Transparent" Foreground="{DynamicResource LogFg}" BorderThickness="0"
+                             FontFamily="Consolas" FontSize="11.5" IsReadOnly="True" TextWrapping="Wrap"
+                             VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+                </Border>
+
+                <Button x:Name="BtnClearLog" Grid.Row="3" Style="{StaticResource ActionBtnStyle}" Background="{DynamicResource CardBg}" Content="Kay&#x0131;tlar&#x0131; Temizle" Margin="0,10,0,0"/>
+            </Grid>
+        </Border>
+    </Grid>
 </Window>

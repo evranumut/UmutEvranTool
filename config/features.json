@@ -1,0 +1,71 @@
+[
+  {
+    "Name": "DirectPlay (Eski DirectX Oyun Deste\u011fi)",
+    "Feature": "DirectPlay",
+    "ExtraFeatures": [
+      "LegacyComponents"
+    ],
+    "Desc": "GTA San Andreas, Blur, eski NFS ve DirectX 8/9 oyunlar\u0131n\u0131n Windows 10/11'de hatas\u0131z a\u00e7\u0131lmas\u0131 i\u00e7in \u015fartt\u0131r."
+  },
+  {
+    "Name": ".NET Framework 3.5 (2.0 ve 3.0 Dahil)",
+    "Feature": "NetFx3",
+    "ExtraFeatures": [
+      "NetFx4-AdvSrvs"
+    ],
+    "Desc": "Eski program, oyun modlar\u0131 ve kurulumcular\u0131n ihtiya\u00e7 duydu\u011fu .NET 2.0, 3.0 ve 3.5 \u00e7al\u0131\u015fma zaman\u0131 k\u00fct\u00fcphanesi."
+  },
+  {
+    "Name": "WSL 2 (Windows Subsystem for Linux)",
+    "Feature": "Microsoft-Windows-Subsystem-Linux",
+    "ExtraFeatures": [],
+    "Desc": "Geli\u015ftiriciler i\u00e7in Windows i\u00e7inde yerel Linux \u00e7ekirde\u011fi ve Ubuntu/Debian terminali \u00e7al\u0131\u015ft\u0131rma altyap\u0131s\u0131."
+  },
+  {
+    "Name": "Sanal Makine Platformu (Virtual Machine Platform)",
+    "Feature": "VirtualMachinePlatform",
+    "ExtraFeatures": [],
+    "Desc": "WSL 2, WSA ve sanalla\u015ft\u0131rma tabanl\u0131 alt sistemler i\u00e7in gerekli temel donan\u0131m sanalla\u015ft\u0131rma bile\u015feni."
+  },
+  {
+    "Name": "Windows Sandbox (Kum Havuzu)",
+    "Feature": "Containers-DisposableClientVM",
+    "ExtraFeatures": [],
+    "Desc": "\u015e\u00fcpheli dosyalar\u0131 ve kurulumlar\u0131 ana sisteme zarar vermeden izole ge\u00e7ici sanal makinede g\u00fcvenle test etme arac\u0131."
+  },
+  {
+    "Name": "Hyper-V Sanalla\u015ft\u0131rma Altyap\u0131s\u0131",
+    "Feature": "Microsoft-Hyper-V-All",
+    "ExtraFeatures": [],
+    "Desc": "Tam donan\u0131m sanalla\u015ft\u0131rma hiperviz\u00f6r\u00fc (Type-1 Hypervisor) ve Hyper-V Y\u00f6neticisi konsolu."
+  },
+  {
+    "Name": "Telnet \u0130stemcisi (Telnet Client)",
+    "Feature": "TelnetClient",
+    "ExtraFeatures": [],
+    "Desc": "A\u011f cihazlar\u0131na, sunuculara ve a\u00e7\u0131k portlara komut sat\u0131r\u0131ndan Telnet protokol\u00fc ile ba\u011flanma ve port testi arac\u0131."
+  },
+  {
+    "Name": "TFTP \u0130stemcisi (TFTP Client)",
+    "Feature": "TFTP",
+    "ExtraFeatures": [],
+    "Desc": "Modem, router, switch ve PXE a\u011f \u00f6ny\u00fckleme cihazlar\u0131na Trivial FTP protokol\u00fc ile dosya/firmware aktar\u0131m arac\u0131."
+  },
+  {
+    "Name": "Klasik Medya Bile\u015fenleri (Windows Media Player)",
+    "Feature": "WindowsMediaPlayer",
+    "ExtraFeatures": [
+      "MediaPlayback"
+    ],
+    "Desc": "Eski oyunlar\u0131n ara sahne videolar\u0131 i\u00e7in ihtiya\u00e7 duydu\u011fu klasik Windows Media Player ve medya oynatma bile\u015fenleri."
+  },
+  {
+    "Name": "A\u011f Dosya Sistemi (NFS Client)",
+    "Feature": "ServicesForNFS-ClientOnly",
+    "ExtraFeatures": [
+      "ClientForNFS-Infrastructure",
+      "NFS-Administration"
+    ],
+    "Desc": "Linux/NAS sunucular\u0131ndaki NFS a\u011f payla\u015f\u0131mlar\u0131n\u0131 Windows'a do\u011frudan yerel disk gibi ba\u011flama bile\u015feni."
+  }
+]

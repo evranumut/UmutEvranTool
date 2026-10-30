@@ -1,0 +1,580 @@
+[
+  {
+    "Group": "1. Temel ve Gizlilik Ayarlar\u0131 (Essential Tweaks)",
+    "Items": [
+      {
+        "Id": "Tweak_RestorePoint",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "Sistem Geri Y\u00fckleme Noktas\u0131 Olu\u015ftur (Checkpoint-Computer)",
+        "Desc": "\u0130\u015flemlerden \u00f6nce sistem korumas\u0131n\u0131 a\u00e7ar, s\u0131kl\u0131k s\u0131n\u0131r\u0131n\u0131 kald\u0131r\u0131r ve g\u00fcvenli geri d\u00f6n\u00fc\u015f noktas\u0131 olu\u015fturur."
+      },
+      {
+        "Id": "Tweak_Telemetry",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Minimal",
+          "Advanced"
+        ],
+        "Title": "Telemetri ve Tan\u0131lama Verilerini Kapat (DiagTrack + Group Policy)",
+        "Desc": "DiagTrack ve dmwappushservice servislerini devre d\u0131\u015f\u0131 b\u0131rak\u0131r, Group Policy, SIUF, m\u00fcrekkep/ses ve PowerShell 7 telemetrisini kapat\u0131r."
+      },
+      {
+        "Id": "Tweak_ActivityHistory",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "Etkinlik Ge\u00e7mi\u015fi (Timeline) ve Kullan\u0131c\u0131 Takibini Kapat",
+        "Desc": "Windows'un a\u00e7t\u0131\u011f\u0131n\u0131z dosya ve uygulama ge\u00e7mi\u015fini kaydetmesini ve buluta senkronize etmesini durdurur (Pano ge\u00e7mi\u015fini korur)."
+      },
+      {
+        "Id": "Tweak_Location",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "Konum Takibi ve Harita Servislerini Kapat (lfsvc)",
+        "Desc": "Uygulamalar\u0131n ve Windows'un fiziksel konumunuzu takip etmesini ve sens\u00f6r izinlerini devre d\u0131\u015f\u0131 b\u0131rak\u0131r."
+      },
+      {
+        "Id": "Tweak_AdvertisingId",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "Reklam Kimli\u011fi (Advertising ID) ve Ki\u015fiselle\u015ftirilmi\u015f \u0130pu\u00e7lar\u0131n\u0131 Kapat",
+        "Desc": "Uygulamalar aras\u0131 reklam kimli\u011fi takibini ve tan\u0131 verisiyle ki\u015fiselle\u015ftirilmi\u015f \u00f6nerileri kapat\u0131r."
+      },
+      {
+        "Id": "Tweak_BingSearch",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "Ba\u015flat Men\u00fcs\u00fc Bing Web Arama Sonu\u00e7lar\u0131n\u0131 Kapat (DisableSearchBoxSuggestions)",
+        "Desc": "Ba\u015flat men\u00fcs\u00fcnde arama yaparken Bing internet sonu\u00e7lar\u0131n\u0131n \u00e7\u0131kmas\u0131n\u0131 engeller, yerel aramay\u0131 h\u0131zland\u0131r\u0131r."
+      },
+      {
+        "Id": "Tweak_ConsumerFeatures",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Minimal",
+          "Advanced"
+        ],
+        "Title": "Kilit Ekran\u0131 \u0130pu\u00e7lar\u0131 ve Microsoft T\u00fcketici Deneyimlerini (Spotlight) Kapat",
+        "Desc": "Windows'un arka planda sessizce sponsorlu ma\u011faza uygulamalar\u0131 ve oyunlar kurmas\u0131n\u0131 (ConsumerFeatures) engeller."
+      },
+      {
+        "Id": "Tweak_ErrorReporting",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "Windows Hata Bildirimi (WerFault / WerSvc) Kapat",
+        "Desc": "\u00c7\u00f6ken uygulamalar i\u00e7in Microsoft'a tan\u0131 raporu haz\u0131rlayan Windows Error Reporting servisini devre d\u0131\u015f\u0131 b\u0131rak\u0131r."
+      },
+      {
+        "Id": "Tweak_DeliveryOpt",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "Teslim En \u0130yile\u015ftirme (P2P G\u00fcncelleme Payla\u015f\u0131m\u0131) Kapat",
+        "Desc": "Windows'un arka planda internet bant geni\u015fli\u011finizi kullanarak ba\u015fka bilgisayarlara g\u00fcncelleme y\u00fcklemesini durdurur."
+      },
+      {
+        "Id": "Tweak_WPBT",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Minimal",
+          "Advanced"
+        ],
+        "Title": "Windows Platform Binary Table (WPBT) Kapat",
+        "Desc": "Anakart \u00fcreticilerinin BIOS \u00fczerinden Windows a\u00e7\u0131l\u0131\u015f\u0131nda izinsiz arka plan yaz\u0131l\u0131m\u0131 enjekte etmesini engeller."
+      },
+      {
+        "Id": "Tweak_DeviceMetadata",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "Cihaz E\u015flik\u00e7i Uygulamalar\u0131n\u0131n Otomatik Kurulumunu Engelle",
+        "Desc": "Monit\u00f6r veya \u00e7evre birimi tak\u0131ld\u0131\u011f\u0131nda a\u011f \u00fczerinden otomatik tan\u0131t\u0131m/reklam uygulamas\u0131 indirilmesini engeller."
+      },
+      {
+        "Id": "Tweak_StoreSearch",
+        "Recommended": false,
+        "Preset": [
+          "Advanced"
+        ],
+        "Title": "Ba\u015flat Men\u00fcs\u00fcnde Microsoft Store Uygulama \u00d6nerilerini Kapat",
+        "Desc": "Arama kutusunda y\u00fckl\u00fc olmayan Microsoft Store uygulama tavsiyelerinin g\u00f6sterilmesini engeller."
+      },
+      {
+        "Id": "Tweak_ExplorerAutoDiscovery",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "Dosya Gezgini Otomatik Klas\u00f6r T\u00fcr\u00fc Alg\u0131lamay\u0131 Kapat (H\u0131zl\u0131 Gezinme)",
+        "Desc": "\u0130\u00e7inde \u00e7ok say\u0131da medya olan klas\u00f6rleri a\u00e7arken Dosya Gezgini'nin bekleyip tak\u0131lmas\u0131n\u0131 \u00f6nler, t\u00fcm klas\u00f6rleri genel modda an\u0131nda a\u00e7ar."
+      },
+      {
+        "Id": "Tweak_EndTaskOnTaskbar",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "G\u00f6rev \u00c7ubu\u011fundan Sa\u011f T\u0131kla 'G\u00f6revi Sonland\u0131r' \u00d6zelli\u011fini A\u00e7",
+        "Desc": "G\u00f6rev Y\u00f6neticisi'ni a\u00e7maya gerek kalmadan g\u00f6rev \u00e7ubu\u011fundaki uygulama simgesine sa\u011f t\u0131klay\u0131p kapatabilmenizi sa\u011flar."
+      }
+    ]
+  },
+  {
+    "Group": "2. Oyun ve Sistem Performans\u0131 (Gaming & Latency)",
+    "Items": [
+      {
+        "Id": "Tweak_UltimatePerf",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "Nihai Performans (Ultimate Performance) G\u00fc\u00e7 Plan\u0131 Aktivasyonu",
+        "Desc": "\u0130\u015flemci frekans d\u00fc\u015f\u00fc\u015flerini ve mikro gecikmeleri \u00f6nleyen gizli Nihai Performans g\u00fc\u00e7 plan\u0131n\u0131 olu\u015fturur ve etkinle\u015ftirir."
+      },
+      {
+        "Id": "Tweak_MouseAccel",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "Fare \u0130vmesini (Enhance Pointer Precision) Kapat (1:1 Ham Giri\u015f)",
+        "Desc": "Windows i\u015faret\u00e7i hassasiyetini kapatarak rekabet\u00e7i FPS oyunlar\u0131nda (CS2, Valorant) 1:1 ham fare hareketi sa\u011flar."
+      },
+      {
+        "Id": "Tweak_GameDVR",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "Xbox GameDVR Arka Plan Kayd\u0131n\u0131 Kapat ve Oyun Modunu (Game Mode) A\u00e7",
+        "Desc": "Oyunlarda FPS d\u00fc\u015f\u00fc\u015f\u00fc ve tak\u0131lmalara yol a\u00e7an arka plan video yakalamay\u0131 kapat\u0131r, Windows Oyun Modu'nu aktif eder."
+      },
+      {
+        "Id": "Tweak_NetworkThrottling",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "A\u011f Trafi\u011fi K\u0131s\u0131tlamas\u0131n\u0131 Kald\u0131r (NetworkThrottlingIndex = 0xFFFFFFFF)",
+        "Desc": "Multimedya ve oyun esnas\u0131nda Windows'un a\u011f paket i\u015fleme h\u0131z\u0131n\u0131 s\u0131n\u0131rland\u0131rmas\u0131n\u0131 tamamen kald\u0131r\u0131r."
+      },
+      {
+        "Id": "Tweak_SystemResponsiveness",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "Sistem Tepkiselli\u011fi ve Oyun \u00d6nceli\u011fi (SystemResponsiveness = 0)",
+        "Desc": "Arka plan i\u015flemleri yerine oyun ve ger\u00e7ek zamanl\u0131 uygulamalara %100 i\u015flemci ve a\u011f \u00f6nceli\u011fi tan\u0131r."
+      },
+      {
+        "Id": "Tweak_TCPNoDelay",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "TCP No Delay & Ack Frequency (Nagle Algoritmas\u0131n\u0131 Devre D\u0131\u015f\u0131 B\u0131rak)",
+        "Desc": "A\u011f paketlerini arabellekte bekletmeden an\u0131nda g\u00f6ndererek \u00e7evrimi\u00e7i oyunlarda ping dalgalanmas\u0131n\u0131 ve gecikmeyi d\u00fc\u015f\u00fcr\u00fcr."
+      },
+      {
+        "Id": "Tweak_GreenEthernet",
+        "Recommended": true,
+        "Preset": [
+          "Advanced"
+        ],
+        "Title": "Green Ethernet ve A\u011f Kart\u0131 Enerji Tasarrufu Modlar\u0131n\u0131 Kapat",
+        "Desc": "A\u011f ba\u011fda\u015ft\u0131r\u0131c\u0131s\u0131n\u0131n g\u00fc\u00e7 tasarrufu moduna ge\u00e7ip oyun ortas\u0131nda anl\u0131k paket kayb\u0131 (lag spike) olu\u015fturmas\u0131n\u0131 engeller."
+      },
+      {
+        "Id": "Tweak_Hibernation",
+        "Recommended": false,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "Haz\u0131rda Bekletmeyi (Hibernation) Kapat (powercfg -h off ile 10-30 GB Yer A\u00e7)",
+        "Desc": "Masa\u00fcst\u00fc bilgisayarlarda gereksiz olan hiberfil.sys dosyas\u0131n\u0131 kald\u0131rarak SSD \u00fczerinde ciddi depolama alan\u0131 a\u00e7ar."
+      },
+      {
+        "Id": "Tweak_BgApps",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "Gereksiz Ma\u011faza Arka Plan Uygulamalar\u0131n\u0131 Kapat (GlobalUserDisabled)",
+        "Desc": "Kullanmad\u0131\u011f\u0131n\u0131z Microsoft Store uygulamalar\u0131n\u0131n arka planda gizlice \u00e7al\u0131\u015f\u0131p RAM ve CPU t\u00fcketmesini engeller."
+      },
+      {
+        "Id": "Tweak_MultiplaneOverlay",
+        "Recommended": false,
+        "Preset": [],
+        "Title": "Multiplane Overlay (MPO) Kapat (Ekran Titremesi ve Tak\u0131lma \u00c7\u00f6z\u00fcm\u00fc)",
+        "Desc": "NVIDIA ve AMD ekran kartlar\u0131nda masa\u00fcst\u00fc ve oyun ge\u00e7i\u015flerinde ya\u015fanan siyah ekran, titreme ve tak\u0131lmalar\u0131 (OverlayTestMode=5) \u00e7\u00f6zer."
+      },
+      {
+        "Id": "Tweak_VisualFX",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "Men\u00fc Ge\u00e7i\u015flerini H\u0131zland\u0131r ve En \u0130yi Performans G\u00f6rsel Efektlerini Uygula",
+        "Desc": "MenuShowDelay s\u00fcresini 10ms'ye d\u00fc\u015f\u00fcr\u00fcr ve gereksiz pencere/g\u00f6rev \u00e7ubu\u011fu animasyonlar\u0131n\u0131 azaltarak aray\u00fcz\u00fc h\u0131zland\u0131r\u0131r."
+      }
+    ]
+  },
+  {
+    "Group": "3. Disk, Servis ve Donan\u0131m Optimizasyonlar\u0131",
+    "Items": [
+      {
+        "Id": "Tweak_SSDTrim",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "SSD TRIM \u00d6zelli\u011fini Zorla ve Do\u011frula (DisableDeleteNotify = 0)",
+        "Desc": "SSD disklerin okuma/yazma \u00f6mr\u00fcn\u00fc ve h\u0131z\u0131n\u0131 koruyan TRIM komutunun aktif oldu\u011funu do\u011frular ve zorlar."
+      },
+      {
+        "Id": "Tweak_Services",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Minimal",
+          "Advanced"
+        ],
+        "Title": "Gereksiz Arka Plan Servislerini Manuel/Devre D\u0131\u015f\u0131 Moduna Al (WinUtil Services)",
+        "Desc": "RemoteRegistry, Fax, MapsBroker, CscService, StorSvc, SharedAccess, RetailDemo ve WMPNetworkSvc gibi servisleri optimize eder."
+      },
+      {
+        "Id": "Tweak_DiskCleanup",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "Kapsaml\u0131 Disk ve \u00d6nbellek Temizli\u011fi (Cleanmgr / Temp / Prefetch / WU Cache)",
+        "Desc": "Temp klas\u00f6rlerini, Prefetch \u00f6nbelle\u011fini, Windows Update indirme kal\u0131nt\u0131lar\u0131n\u0131 ve C: s\u00fcr\u00fcc\u00fcs\u00fc gereksiz dosyalar\u0131n\u0131 temizler."
+      },
+      {
+        "Id": "Tweak_StorageSense",
+        "Recommended": false,
+        "Preset": [],
+        "Title": "Ak\u0131ll\u0131 Depolama (Storage Sense) Otomatik Silmeyi Kapat",
+        "Desc": "Windows'un \u0130ndirilenler veya ge\u00e7ici klas\u00f6rlerdeki dosyalar\u0131 arka planda kendili\u011finden silmesini durdurur."
+      },
+      {
+        "Id": "Tweak_ReservedStorage",
+        "Recommended": false,
+        "Preset": [],
+        "Title": "Windows Ayr\u0131lm\u0131\u015f Depolama Alan\u0131n\u0131 (Reserved Storage) Kapat (~7-10 GB)",
+        "Desc": "Windows'un g\u00fcncellemeler i\u00e7in diskte bloke etti\u011fi 7-10 GB'l\u0131k ayr\u0131lm\u0131\u015f alan\u0131 serbest b\u0131rak\u0131r."
+      },
+      {
+        "Id": "Tweak_SvcHostSplitting",
+        "Recommended": false,
+        "Preset": [],
+        "Title": "svchost.exe S\u00fcre\u00e7 B\u00f6l\u00fcnmesini (Splitting) Kapat",
+        "Desc": "RAM boyutuna g\u00f6re SvcHostSplitThresholdInKB de\u011ferini y\u00fckselterek G\u00f6rev Y\u00f6neticisi'ndeki svchost.exe say\u0131s\u0131n\u0131 azalt\u0131r."
+      },
+      {
+        "Id": "Tweak_BitLocker",
+        "Recommended": false,
+        "Preset": [],
+        "Title": "BitLocker S\u00fcr\u00fcc\u00fc \u015eifrelemesini Devre D\u0131\u015f\u0131 B\u0131rak (SSD Performans\u0131)",
+        "Desc": "Sistem s\u00fcr\u00fcc\u00fcs\u00fcnde yaz\u0131l\u0131msal BitLocker \u015fifrelemesini kapatarak disk G/\u00c7 gecikmesini azalt\u0131r."
+      },
+      {
+        "Id": "Tweak_LongPaths",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "260 Karakterden Uzun Dosya Yolu (Long Paths) Deste\u011fini A\u00e7",
+        "Desc": "Geli\u015ftiriciler ve derin klas\u00f6r yap\u0131lar\u0131 i\u00e7in Windows'un 260 karakterlik MAX_PATH s\u0131n\u0131r\u0131n\u0131 kald\u0131r\u0131r."
+      },
+      {
+        "Id": "Tweak_UTC",
+        "Recommended": false,
+        "Preset": [],
+        "Title": "Donan\u0131m Saatini UTC Olarak Ayarla (Dual-Boot Linux Uyumlulu\u011fu)",
+        "Desc": "Windows ve Linux'u ayn\u0131 bilgisayarda (Dual-Boot) kullan\u0131rken saat kaymas\u0131 sorununu (RealTimeIsUniversal) \u00e7\u00f6zer."
+      },
+      {
+        "Id": "Tweak_S0StandbyFix",
+        "Recommended": false,
+        "Preset": [],
+        "Title": "Modern Uyku (S0 Low Power Idle) A\u011f Ba\u011flant\u0131s\u0131n\u0131 Kapat",
+        "Desc": "Diz\u00fcst\u00fc bilgisayarlarda uyku modundayken a\u011f ba\u011flant\u0131s\u0131n\u0131 keserek pil t\u00fckenmesini ve \u0131s\u0131nmay\u0131 \u00f6nler."
+      },
+      {
+        "Id": "Tweak_S3Sleep",
+        "Recommended": false,
+        "Preset": [],
+        "Title": "Klasik S3 Uyku Modunu Zorla (PlatformAoAcOverride)",
+        "Desc": "Sorunlu Modern Standby yerine i\u015flemci g\u00fcc\u00fcn\u00fc tamamen kesen klasik S3 derin uyku modunu etkinle\u015ftirir."
+      }
+    ]
+  },
+  {
+    "Group": "4. Aray\u00fcz ve Kullan\u0131labilirlik (UI Tweaks)",
+    "Items": [
+      {
+        "Id": "Tweak_ClassicContext",
+        "Recommended": true,
+        "Preset": [
+          "Advanced"
+        ],
+        "Title": "Windows 11 Klasik Sa\u011f T\u0131k Men\u00fcs\u00fcn\u00fc Etkinle\u015ftir (CLSID\\{86ca1aa0-...})",
+        "Desc": "'Daha fazla se\u00e7enek g\u00f6ster' ad\u0131m\u0131n\u0131 kald\u0131rarak do\u011frudan tam kapsaml\u0131 klasik sa\u011f t\u0131k men\u00fcs\u00fcn\u00fc a\u00e7ar."
+      },
+      {
+        "Id": "Tweak_FileExt",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "Bilinen Dosya Uzant\u0131lar\u0131n\u0131 (.exe, .ps1, .txt) G\u00f6ster",
+        "Desc": "Dosya Gezgini'nde t\u00fcm dosyalar\u0131n ger\u00e7ek uzant\u0131lar\u0131n\u0131 g\u00f6r\u00fcn\u00fcr yaparak g\u00fcvenli\u011fi ve kullan\u0131m kolayl\u0131\u011f\u0131n\u0131 art\u0131r\u0131r."
+      },
+      {
+        "Id": "Tweak_HiddenFiles",
+        "Recommended": false,
+        "Preset": [],
+        "Title": "Gizli Dosya ve Klas\u00f6rleri G\u00f6ster (AppData vb.)",
+        "Desc": "Dosya Gezgini'nde gizli sistem ve kullan\u0131c\u0131 klas\u00f6rlerini g\u00f6r\u00fcn\u00fcr hale getirir."
+      },
+      {
+        "Id": "Tweak_HideTaskbarJunk",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "G\u00f6rev \u00c7ubu\u011fu Arama, Widget (Hava Durumu) ve G\u00f6rev G\u00f6r\u00fcn\u00fcm\u00fc Simgelerini Gizle",
+        "Desc": "G\u00f6rev \u00e7ubu\u011fundaki gereksiz arama kutusunu, G\u00f6rev G\u00f6r\u00fcn\u00fcm\u00fc butonunu ve arka planda \u00e7al\u0131\u015fan Widget s\u00fcrecini kapat\u0131r."
+      },
+      {
+        "Id": "Tweak_DarkMode",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "Sistem ve Uygulama D\u00fczeyinde Koyu Tema (Dark Mode) Zorla",
+        "Desc": "Windows kabu\u011funu, Ba\u015flat men\u00fcs\u00fcn\u00fc ve t\u00fcm destekleyen uygulamalar\u0131 Koyu Tema moduna ge\u00e7irir."
+      },
+      {
+        "Id": "Tweak_StickyKeys",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "Yap\u0131\u015fkan Tu\u015flar (Sticky Keys) K\u0131sayolunu ve Bildirimini Kapat",
+        "Desc": "Oyunlarda art arda Shift tu\u015funa bas\u0131ld\u0131\u011f\u0131nda ekrana gelen Yap\u0131\u015fkan Tu\u015flar uyar\u0131s\u0131n\u0131 (Flags=506) tamamen kapat\u0131r."
+      },
+      {
+        "Id": "Tweak_ClassicPhotoViewer",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "Klasik Windows Foto\u011fraf G\u00f6r\u00fcnt\u00fcleyicisini (Windows Photo Viewer) Geri Getir",
+        "Desc": "Yava\u015f a\u00e7\u0131lan UWP Foto\u011fraflar uygulamas\u0131 yerine saliseler i\u00e7inde a\u00e7\u0131lan klasik Windows Foto\u011fraf G\u00f6r\u00fcnt\u00fcleyicisi kay\u0131tlar\u0131n\u0131 ekler."
+      },
+      {
+        "Id": "Tweak_RemoveHomeGallery",
+        "Recommended": true,
+        "Preset": [
+          "Advanced"
+        ],
+        "Title": "Dosya Gezgini'nde 'Giri\u015f (Home)' ve 'Galeri' Sekmelerini Kald\u0131r, 'Bu Bilgisayar' ile A\u00e7",
+        "Desc": "Dosya Gezgini sol panelinden Giri\u015f ve Galeri kalabal\u0131\u011f\u0131n\u0131 kald\u0131r\u0131r, gezgini do\u011frudan Bu Bilgisayar g\u00f6r\u00fcn\u00fcm\u00fcnde ba\u015flat\u0131r."
+      },
+      {
+        "Id": "Tweak_TaskbarLeft",
+        "Recommended": false,
+        "Preset": [],
+        "Title": "Windows 11 G\u00f6rev \u00c7ubu\u011fu Simgelerini Sola Hizala",
+        "Desc": "Ortalanm\u0131\u015f Windows 11 ba\u015flat men\u00fcs\u00fc ve g\u00f6rev \u00e7ubu\u011fu simgelerini klasik sol k\u00f6\u015feye hizalar."
+      },
+      {
+        "Id": "Tweak_RevertStartMenu",
+        "Recommended": false,
+        "Preset": [
+          "Advanced"
+        ],
+        "Title": "Ba\u015flat Men\u00fcs\u00fc \u00d6nerilenler B\u00f6l\u00fcm\u00fc ve 25H2 D\u00fczenini Kapat",
+        "Desc": "Ba\u015flat men\u00fcs\u00fcndeki \u00d6nerilenler (Recommended) alan\u0131n\u0131 gizler ve klasik d\u00fczeni etkinle\u015ftirir."
+      },
+      {
+        "Id": "Tweak_NumLock",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "Bilgisayar A\u00e7\u0131l\u0131\u015f\u0131nda Num Lock Tu\u015funu Otomatik A\u00e7",
+        "Desc": "Oturum a\u00e7ma ekran\u0131nda ve masa\u00fcst\u00fcnde klavye say\u0131sal tu\u015f tak\u0131m\u0131n\u0131 (Num Lock) her zaman a\u00e7\u0131k ba\u015flat\u0131r."
+      },
+      {
+        "Id": "Tweak_DetailedBSoD",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "Ayr\u0131nt\u0131l\u0131 Mavi Ekran (BSoD) ve A\u00e7\u0131l\u0131\u015f/Kapan\u0131\u015f Durum Mesajlar\u0131n\u0131 A\u00e7",
+        "Desc": "Mavi ekran hatalar\u0131nda tam hata parametrelerini ve Windows a\u00e7\u0131l\u0131\u015f/kapan\u0131\u015f\u0131nda detayl\u0131 durum bilgisini (VerboseLogon) g\u00f6sterir."
+      },
+      {
+        "Id": "Tweak_BatteryPct",
+        "Recommended": false,
+        "Preset": [],
+        "Title": "Sistem Tepsisinde Pil Y\u00fczdesini G\u00f6ster, Kayd\u0131rma \u00c7ubuklar\u0131n\u0131 Her Zaman A\u00e7\u0131k Tut",
+        "Desc": "G\u00f6rev \u00e7ubu\u011fu pil simgesi yan\u0131nda say\u0131sal y\u00fczdeyi g\u00f6sterir ve pencere kayd\u0131rma \u00e7ubuklar\u0131n\u0131n otomatik gizlenmesini kapat\u0131r."
+      },
+      {
+        "Id": "Tweak_HideSettingsHome",
+        "Recommended": true,
+        "Preset": [
+          "Standard"
+        ],
+        "Title": "Windows Ayarlar 'Giri\u015f (Home)' Sayfas\u0131n\u0131 ve Kilit Ekran\u0131 Bulan\u0131kl\u0131\u011f\u0131n\u0131 Kapat",
+        "Desc": "Ayarlar uygulamas\u0131ndaki reklaml\u0131 Giri\u015f sekmesini gizler ve oturum a\u00e7ma ekran\u0131ndaki Acrylic Blur efektini kapat\u0131r."
+      }
+    ]
+  },
+  {
+    "Group": "5. Geli\u015fmi\u015f Tweaks & Derin Temizlik (Advanced Tweaks & Deep Debloat)",
+    "Items": [
+      {
+        "Id": "Tweak_DeepOneDrive",
+        "Recommended": false,
+        "Preset": [
+          "Advanced"
+        ],
+        "Title": "OneDrive K\u00f6kten Kald\u0131rma ve CLSID Temizli\u011fi",
+        "Desc": "Kullan\u0131c\u0131 dosyalar\u0131n\u0131 koruyarak OneDrive s\u00fcre\u00e7lerini sonland\u0131r\u0131r, OneDriveSetup /uninstall \u00e7al\u0131\u015ft\u0131r\u0131r ve Gezgin sol panel CLSID kal\u0131nt\u0131lar\u0131n\u0131 siler."
+      },
+      {
+        "Id": "Tweak_DisableCopilotAI",
+        "Recommended": true,
+        "Preset": [
+          "Advanced"
+        ],
+        "Title": "Copilot, Windows Recall ve AI Bile\u015fenlerini Tamamen Devre D\u0131\u015f\u0131 B\u0131rak",
+        "Desc": "Group Policy, Registry, WSAIFabricSvc ve DISM \u00fczerinden Windows Copilot, Recall anl\u0131k g\u00f6r\u00fcnt\u00fc alma ve Notepad AI \u00f6zelliklerini kapat\u0131r."
+      },
+      {
+        "Id": "Tweak_EdgeDebloat",
+        "Recommended": true,
+        "Preset": [
+          "Advanced"
+        ],
+        "Title": "Microsoft Edge \u0130zolasyonu ve Telemetri Temizli\u011fi (17 \u0130lke + Arka Plan Kapatma)",
+        "Desc": "Edge Startup Boost, arka plan \u00e7al\u0131\u015fma, al\u0131\u015fveri\u015f asistan\u0131, \u00f6d\u00fcller, kenar \u00e7ubu\u011fu ve telemetri ilkelerinin tamam\u0131n\u0131 devre d\u0131\u015f\u0131 b\u0131rak\u0131r."
+      },
+      {
+        "Id": "Tweak_RemoveEdge",
+        "Recommended": false,
+        "Preset": [],
+        "Title": "Microsoft Edge Taray\u0131c\u0131s\u0131n\u0131 Sistem D\u00fczeyinde Kald\u0131r (Edge Unlocker)",
+        "Desc": "WinUtil y\u00f6ntemiyle resmi Edge kald\u0131r\u0131c\u0131s\u0131n\u0131n kilidini a\u00e7arak Microsoft Edge'i sistemden kald\u0131r\u0131r (Geri Al ile Winget \u00fczerinden tekrar kurulur)."
+      },
+      {
+        "Id": "Tweak_BraveDebloat",
+        "Recommended": true,
+        "Preset": [
+          "Advanced"
+        ],
+        "Title": "Brave Browser Debloat (Rewards, Kripto C\u00fczdan, Leo AI ve VPN Kapatma)",
+        "Desc": "Brave taray\u0131c\u0131s\u0131ndaki kripto c\u00fczdan, Brave Rewards, Leo AI sohbet, Brave VPN ve haber ak\u0131\u015f\u0131 kalabal\u0131\u011f\u0131n\u0131 Group Policy ile kapat\u0131r."
+      },
+      {
+        "Id": "Tweak_PeripheralBlock",
+        "Recommended": false,
+        "Preset": [],
+        "Title": "Razer Synapse ve Logitech Download Assistant Otomatik Kurulumunu Engelle",
+        "Desc": "Fare veya klavye tak\u0131ld\u0131\u011f\u0131nda Windows Update'in arka planda zorla Razer ve Logitech yaz\u0131l\u0131mlar\u0131n\u0131 indirmesini engeller."
+      },
+      {
+        "Id": "Tweak_BlockAdobeNet",
+        "Recommended": false,
+        "Preset": [],
+        "Title": "Adobe Telemetri ve Lisans Do\u011frulama Sunucular\u0131n\u0131 Engelle (Hosts Blocklist)",
+        "Desc": "Hosts dosyas\u0131na Adobe telemetri engelleyici kurallar\u0131 ekleyerek arka plan a\u011f trafi\u011fini ve a\u00e7\u0131l\u0131r pencereleri durdurur."
+      },
+      {
+        "Id": "Tweak_IPv4Prefer",
+        "Recommended": false,
+        "Preset": [],
+        "Title": "IPv4 \u00d6nceli\u011fini Zorla ve Teredo T\u00fcnelini Kapat (D\u00fc\u015f\u00fck A\u011f Gecikmesi)",
+        "Desc": "IPv6 yerine IPv4 kullan\u0131m\u0131na \u00f6ncelik verir (DisabledComponents=32) ve oyunlarda gecikme yaratan Teredo t\u00fcnellemesini kapat\u0131r."
+      },
+      {
+        "Id": "Tweak_DisableIPv6",
+        "Recommended": false,
+        "Preset": [],
+        "Title": "IPv6 Protokol\u00fcn\u00fc T\u00fcm A\u011f Ba\u011fda\u015ft\u0131r\u0131c\u0131lar\u0131nda Tamamen Devre D\u0131\u015f\u0131 B\u0131rak",
+        "Desc": "Kay\u0131t defteri ve a\u011f ba\u011fda\u015ft\u0131r\u0131c\u0131s\u0131 ba\u011flamalar\u0131 (ms_tcpip6) \u00fczerinden IPv6 protokol\u00fcn\u00fc tamamen kapat\u0131r."
+      },
+      {
+        "Id": "Tweak_DisableNotifications",
+        "Recommended": false,
+        "Preset": [],
+        "Title": "Sistem Tepsisi Bildirim Merkezini ve RDP \u0130mzas\u0131z Dosya Uyar\u0131lar\u0131n\u0131 Kapat",
+        "Desc": "Windows Bildirim Merkezi balonlar\u0131n\u0131 ve Uzak Masa\u00fcst\u00fc (RDP) ba\u011flant\u0131 uyar\u0131lar\u0131n\u0131 devre d\u0131\u015f\u0131 b\u0131rak\u0131r."
+      },
+      {
+        "Id": "Tweak_NewOutlookBlock",
+        "Recommended": true,
+        "Preset": [
+          "Standard",
+          "Advanced"
+        ],
+        "Title": "Yeni Outlook (New Outlook) Otomatik G\u00f6\u00e7\u00fcn\u00fc ve Zorlamas\u0131n\u0131 Engelle",
+        "Desc": "Klasik Posta/Outlook uygulamas\u0131n\u0131n zorla reklaml\u0131 Yeni Outlook'a d\u00f6n\u00fc\u015ft\u00fcr\u00fclmesini kay\u0131t defteri ilkeleriyle engeller."
+      }
+    ]
+  }
+]
