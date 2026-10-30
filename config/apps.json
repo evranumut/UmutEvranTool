@@ -1,0 +1,356 @@
+[
+  {
+    "Category": "Taray\u0131c\u0131lar",
+    "Apps": [
+      {
+        "Name": "Arc Browser",
+        "Id": "TheBrowserCompany.Arc",
+        "Description": "Modern ve \u00e7al\u0131\u015fma alan\u0131 odakl\u0131 yeni nesil taray\u0131c\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=arc.net&sz=128"
+      },
+      {
+        "Name": "Google Chrome",
+        "Id": "Google.Chrome",
+        "Description": "D\u00fcnyan\u0131n en pop\u00fcler, h\u0131zl\u0131 ve g\u00fcvenli web taray\u0131c\u0131s\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=google.com/chrome&sz=128"
+      },
+      {
+        "Name": "Brave Browser",
+        "Id": "Brave.Brave",
+        "Description": "Reklamlar\u0131 ve izleyicileri varsay\u0131lan olarak engelleyen gizlilik taray\u0131c\u0131s\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=brave.com&sz=128"
+      },
+      {
+        "Name": "Mozilla Firefox",
+        "Id": "Mozilla.Firefox",
+        "Description": "Gizlilik odakl\u0131, a\u00e7\u0131k kaynakl\u0131 ve \u00f6zelle\u015ftirilebilir taray\u0131c\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=mozilla.org/firefox&sz=128"
+      },
+      {
+        "Name": "Microsoft Edge",
+        "Id": "Microsoft.Edge",
+        "Description": "Windows ile tam uyumlu, d\u00fc\u015f\u00fck kaynak t\u00fcketen modern taray\u0131c\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=microsoft.com/edge&sz=128"
+      },
+      {
+        "Name": "Opera",
+        "Id": "Opera.Opera",
+        "Description": "Dahili VPN ve reklam engelleyici i\u00e7eren modern taray\u0131c\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=opera.com&sz=128"
+      },
+      {
+        "Name": "Opera GX",
+        "Id": "Opera.OperaGX",
+        "Description": "Oyuncular i\u00e7in RAM ve CPU s\u0131n\u0131rland\u0131r\u0131c\u0131 \u00f6zellikli taray\u0131c\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=opera.com/gx&sz=128"
+      },
+      {
+        "Name": "Vivaldi",
+        "Id": "Vivaldi.Vivaldi",
+        "Description": "Uzman kullan\u0131c\u0131lar i\u00e7in y\u00fcksek d\u00fczeyde \u00f6zelle\u015ftirilebilir taray\u0131c\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=vivaldi.com&sz=128"
+      },
+      {
+        "Name": "LibreWolf",
+        "Id": "LibreWolf.LibreWolf",
+        "Description": "Telemetri ar\u0131nd\u0131r\u0131lm\u0131\u015f, maksimum gizlilik odakl\u0131 Firefox \u00e7atal\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=librewolf.net&sz=128"
+      },
+      {
+        "Name": "Tor Browser",
+        "Id": "TorProject.TorBrowser",
+        "Description": "Anonim internet gezintisi ve \u00fcst d\u00fczey gizlilik sa\u011flayan taray\u0131c\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=torproject.org&sz=128"
+      }
+    ]
+  },
+  {
+    "Category": "Geli\u015ftirici Ara\u00e7lar\u0131",
+    "Apps": [
+      {
+        "Name": "Visual Studio Code",
+        "Id": "Microsoft.VisualStudioCode",
+        "Description": "Hafif, g\u00fc\u00e7l\u00fc ve eklenti destekli pop\u00fcler kod edit\u00f6r\u00fc.",
+        "Icon": "https://www.google.com/s2/favicons?domain=code.visualstudio.com&sz=128"
+      },
+      {
+        "Name": "Git",
+        "Id": "Git.Git",
+        "Description": "Da\u011f\u0131t\u0131k versiyon kontrol sistemi ve Git Bash terminali.",
+        "Icon": "https://www.google.com/s2/favicons?domain=git-scm.com&sz=128"
+      },
+      {
+        "Name": "GitHub Desktop",
+        "Id": "GitHub.GitHubDesktop",
+        "Description": "Git ve GitHub depolar\u0131n\u0131 g\u00f6rsel aray\u00fczle y\u00f6netme arac\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=desktop.github.com&sz=128"
+      },
+      {
+        "Name": "Node.js (LTS)",
+        "Id": "OpenJS.NodeJS.LTS",
+        "Description": "JavaScript \u00e7al\u0131\u015fma zaman\u0131 ortam\u0131 ve npm paket y\u00f6neticisi.",
+        "Icon": "https://www.google.com/s2/favicons?domain=nodejs.org&sz=128"
+      },
+      {
+        "Name": "Python 3.12",
+        "Id": "Python.Python.3.12",
+        "Description": "Genel ama\u00e7l\u0131, g\u00fc\u00e7l\u00fc ve yayg\u0131n programlama dili.",
+        "Icon": "https://www.google.com/s2/favicons?domain=python.org&sz=128"
+      },
+      {
+        "Name": "Windows Terminal",
+        "Id": "Microsoft.WindowsTerminal",
+        "Description": "Sekmeli, modern ve \u00f6zelle\u015ftirilebilir komut sat\u0131r\u0131 uygulamas\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=microsoft.com/windows&sz=128"
+      },
+      {
+        "Name": "PowerShell 7",
+        "Id": "Microsoft.PowerShell",
+        "Description": "Platformlar aras\u0131 modern PowerShell s\u00fcr\u00fcm\u00fc.",
+        "Icon": "https://www.google.com/s2/favicons?domain=microsoft.com/powershell&sz=128"
+      },
+      {
+        "Name": "Docker Desktop",
+        "Id": "Docker.DockerDesktop",
+        "Description": "Konteyner taban\u0131 uygulama geli\u015ftirme ve y\u00f6netim platformu.",
+        "Icon": "https://www.google.com/s2/favicons?domain=docker.com&sz=128"
+      },
+      {
+        "Name": "Postman",
+        "Id": "Postman.Postman",
+        "Description": "API geli\u015ftirme, test etme ve dok\u00fcmantasyon platformu.",
+        "Icon": "https://www.google.com/s2/favicons?domain=postman.com&sz=128"
+      },
+      {
+        "Name": "Notepad++",
+        "Id": "Notepad++.Notepad++",
+        "Description": "H\u0131zl\u0131 ve \u00e7ok dilli geli\u015fmi\u015f metin/kod d\u00fczenleyici.",
+        "Icon": "https://www.google.com/s2/favicons?domain=notepad-plus-plus.org&sz=128"
+      }
+    ]
+  },
+  {
+    "Category": "Oyun ve Oyuncu Ara\u00e7lar\u0131",
+    "Apps": [
+      {
+        "Name": "Steam",
+        "Id": "Valve.Steam",
+        "Description": "En b\u00fcy\u00fck PC oyun ma\u011fazas\u0131 ve topluluk platformu.",
+        "Icon": "https://www.google.com/s2/favicons?domain=steampowered.com&sz=128"
+      },
+      {
+        "Name": "Epic Games Launcher",
+        "Id": "EpicGames.EpicGamesLauncher",
+        "Description": "Epic Games oyunlar\u0131 ve Unreal Engine ba\u015flat\u0131c\u0131s\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=epicgames.com&sz=128"
+      },
+      {
+        "Name": "EA App",
+        "Id": "ElectronicArts.EADesktop",
+        "Description": "Electronic Arts (EA FC, Battlefield vb.) oyun platformu.",
+        "Icon": "https://www.google.com/s2/favicons?domain=ea.com&sz=128"
+      },
+      {
+        "Name": "Ubisoft Connect",
+        "Id": "Ubisoft.Connect",
+        "Description": "Ubisoft oyunlar\u0131 i\u00e7in k\u00fct\u00fcphane ve ba\u015flat\u0131c\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=ubisoft.com&sz=128"
+      },
+      {
+        "Name": "GOG Galaxy",
+        "Id": "GOG.Galaxy",
+        "Description": "DRM-siz oyunlar ve birle\u015fik oyun k\u00fct\u00fcphanesi y\u00f6neticisi.",
+        "Icon": "https://www.google.com/s2/favicons?domain=gog.com&sz=128"
+      },
+      {
+        "Name": "SteelSeries GG",
+        "Id": "SteelSeries.GG",
+        "Description": "SteelSeries kulakl\u0131k/ekipman y\u00f6netimi ve Sonar ses motoru.",
+        "Icon": "https://www.google.com/s2/favicons?domain=steelseries.com&sz=128"
+      },
+      {
+        "Name": "Logitech G HUB",
+        "Id": "Logitech.GHUB",
+        "Description": "Logitech G oyuncu ekipmanlar\u0131 i\u00e7in yaz\u0131l\u0131m ve makro y\u00f6netimi.",
+        "Icon": "https://www.google.com/s2/favicons?domain=logitechg.com&sz=128"
+      },
+      {
+        "Name": "MSI Afterburner",
+        "Id": "Guru3D.Afterburner",
+        "Description": "Ekran kart\u0131 h\u0131z a\u015f\u0131rtma (OC), fan kontrol\u00fc ve oyun i\u00e7i FPS g\u00f6stergesi.",
+        "Icon": "https://www.google.com/s2/favicons?domain=msi.com&sz=128"
+      },
+      {
+        "Name": "Prism Launcher",
+        "Id": "PrismLauncher.PrismLauncher",
+        "Description": "Modlu Minecraft (Forge, NeoForge, Fabric) i\u00e7in geli\u015fmi\u015f ba\u015flat\u0131c\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=prismlauncher.org&sz=128"
+      }
+    ]
+  },
+  {
+    "Category": "\u0130leti\u015fim ve Medya",
+    "Apps": [
+      {
+        "Name": "Discord",
+        "Id": "Discord.Discord",
+        "Description": "Oyuncular ve topluluklar i\u00e7in sesli, g\u00f6r\u00fcnt\u00fcl\u00fc ve yaz\u0131l\u0131 sohbet.",
+        "Icon": "https://www.google.com/s2/favicons?domain=discord.com&sz=128"
+      },
+      {
+        "Name": "Spotify",
+        "Id": "Spotify.Spotify",
+        "Description": "Dijital m\u00fczik ve podcast dinleme platformu.",
+        "Icon": "https://www.google.com/s2/favicons?domain=spotify.com&sz=128"
+      },
+      {
+        "Name": "VLC Media Player",
+        "Id": "VideoLAN.VLC",
+        "Description": "T\u00fcm video ve ses formatlar\u0131n\u0131 kodeksiz oynatan medya oynat\u0131c\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=videolan.org&sz=128"
+      },
+      {
+        "Name": "OBS Studio",
+        "Id": "OBSProject.OBSStudio",
+        "Description": "Profesyonel ekran kayd\u0131 ve canl\u0131 yay\u0131n yaz\u0131l\u0131m\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=obsproject.com&sz=128"
+      },
+      {
+        "Name": "WhatsApp",
+        "Id": "9NKSQGP7F2NH",
+        "Description": "Masa\u00fcst\u00fc i\u00e7in resmi WhatsApp mesajla\u015fma uygulamas\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=whatsapp.com&sz=128"
+      },
+      {
+        "Name": "Telegram Desktop",
+        "Id": "Telegram.TelegramDesktop",
+        "Description": "H\u0131zl\u0131 ve bulut tabanl\u0131 masa\u00fcst\u00fc mesajla\u015fma uygulamas\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=telegram.org&sz=128"
+      },
+      {
+        "Name": "HandBrake",
+        "Id": "HandBrake.HandBrake",
+        "Description": "A\u00e7\u0131k kaynakl\u0131 video d\u00f6n\u00fc\u015ft\u00fcrme ve s\u0131k\u0131\u015ft\u0131rma arac\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=handbrake.fr&sz=128"
+      }
+    ]
+  },
+  {
+    "Category": "Sistem ve Yard\u0131mc\u0131 Ara\u00e7lar",
+    "Apps": [
+      {
+        "Name": "7-Zip",
+        "Id": "7zip.7zip",
+        "Description": "Y\u00fcksek s\u0131k\u0131\u015ft\u0131rma oran\u0131na sahip \u00fccretsiz ar\u015fiv y\u00f6neticisi.",
+        "Icon": "https://www.google.com/s2/favicons?domain=7-zip.org&sz=128"
+      },
+      {
+        "Name": "WinRAR",
+        "Id": "RARLab.WinRAR",
+        "Description": "RAR ve ZIP ar\u015fivleri i\u00e7in klasik s\u0131k\u0131\u015ft\u0131rma program\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=rarlab.com&sz=128"
+      },
+      {
+        "Name": "Microsoft PowerToys",
+        "Id": "Microsoft.PowerToys",
+        "Description": "Windows i\u00e7in geli\u015fmi\u015f pencere, k\u0131sayol ve verimlilik ara\u00e7lar\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=microsoft.com&sz=128"
+      },
+      {
+        "Name": "Everything",
+        "Id": "voidtools.Everything",
+        "Description": "Dosya ve klas\u00f6rleri saliseler i\u00e7inde bulan ultra h\u0131zl\u0131 arama arac\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=voidtools.com&sz=128"
+      },
+      {
+        "Name": "WizTree",
+        "Id": "AntibodySoftware.WizTree",
+        "Description": "Diskte yer kaplayan dosya ve klas\u00f6rleri saniyeler i\u00e7inde analiz eder.",
+        "Icon": "https://www.google.com/s2/favicons?domain=diskanalyzer.com&sz=128"
+      },
+      {
+        "Name": "Revo Uninstaller",
+        "Id": "RevoUninstaller.RevoUninstaller",
+        "Description": "Programlar\u0131 kal\u0131nt\u0131 ve kay\u0131t defteri izi b\u0131rakmadan kald\u0131r\u0131r.",
+        "Icon": "https://www.google.com/s2/favicons?domain=revouninstaller.com&sz=128"
+      },
+      {
+        "Name": "ShareX",
+        "Id": "ShareX.ShareX",
+        "Description": "Geli\u015fmi\u015f ekran g\u00f6r\u00fcnt\u00fcs\u00fc alma, GIF kaydetme ve payla\u015f\u0131m arac\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=getsharex.com&sz=128"
+      },
+      {
+        "Name": "Lightshot",
+        "Id": "Skillbrains.Lightshot",
+        "Description": "Pratik ve h\u0131zl\u0131 ekran g\u00f6r\u00fcnt\u00fcs\u00fc alma arac\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=app.prntscr.com&sz=128"
+      },
+      {
+        "Name": "CPU-Z",
+        "Id": "CPUID.CPU-Z",
+        "Description": "\u0130\u015flemci, anakart ve RAM donan\u0131m bilgilerini detayl\u0131 g\u00f6sterir.",
+        "Icon": "https://www.google.com/s2/favicons?domain=cpuid.com&sz=128"
+      },
+      {
+        "Name": "HWMonitor",
+        "Id": "CPUID.HWMonitor",
+        "Description": "Sistem s\u0131cakl\u0131klar\u0131n\u0131, voltajlar\u0131 ve fan h\u0131zlar\u0131n\u0131 canl\u0131 izleme arac\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=cpuid.com&sz=128"
+      },
+      {
+        "Name": "Rufus",
+        "Id": "Rufus.Rufus",
+        "Description": "\u00d6ny\u00fcklenebilir (Bootable) USB format belle\u011fi haz\u0131rlama arac\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=rufus.ie&sz=128"
+      }
+    ]
+  },
+  {
+    "Category": "Ofis, Belge ve Bulut",
+    "Apps": [
+      {
+        "Name": "LibreOffice",
+        "Id": "TheDocumentFoundation.LibreOffice",
+        "Description": "\u00dccretsiz ve a\u00e7\u0131k kaynakl\u0131 tam kapsaml\u0131 ofis paketi.",
+        "Icon": "https://www.google.com/s2/favicons?domain=libreoffice.org&sz=128"
+      },
+      {
+        "Name": "Adobe Acrobat Reader DC",
+        "Id": "Adobe.Acrobat.Reader.64-bit",
+        "Description": "End\u00fcstri standard\u0131 PDF g\u00f6r\u00fcnt\u00fcleme ve imzalama yaz\u0131l\u0131m\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=adobe.com&sz=128"
+      },
+      {
+        "Name": "SumatraPDF",
+        "Id": "SumatraPDF.SumatraPDF",
+        "Description": "\u00c7ok hafif ve ultra h\u0131zl\u0131 PDF, ePub ve \u00e7izgi roman okuyucu.",
+        "Icon": "https://www.google.com/s2/favicons?domain=sumatrapdfreader.org&sz=128"
+      },
+      {
+        "Name": "Obsidian",
+        "Id": "Obsidian.Obsidian",
+        "Description": "Markdown tabanl\u0131 ki\u015fisel bilgi taban\u0131 ve not alma uygulamas\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=obsidian.md&sz=128"
+      },
+      {
+        "Name": "Notion",
+        "Id": "Notion.Notion",
+        "Description": "Notlar, g\u00f6revler ve projeler i\u00e7in hepsi bir arada \u00e7al\u0131\u015fma alan\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=notion.so&sz=128"
+      },
+      {
+        "Name": "Google Drive",
+        "Id": "Google.Drive",
+        "Description": "Google Drive bulut dosyalar\u0131n\u0131 bilgisayarla senkronize etme arac\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=drive.google.com&sz=128"
+      },
+      {
+        "Name": "AnyDesk",
+        "Id": "AnyDeskSoftwareGmbH.AnyDesk",
+        "Description": "D\u00fc\u015f\u00fck gecikmeli ve h\u0131zl\u0131 uzak masa\u00fcst\u00fc ba\u011flant\u0131 yaz\u0131l\u0131m\u0131.",
+        "Icon": "https://www.google.com/s2/favicons?domain=anydesk.com&sz=128"
+      }
+    ]
+  }
+]
