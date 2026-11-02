@@ -18,6 +18,18 @@
     "DefaultCheck": true
   },
   {
+    "Name": "MSN Finans (Bing Finance)",
+    "Pkg": "*Microsoft.BingFinance*",
+    "StoreId": "9WZDNCRFHV4V",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "MSN Spor (Bing Sports)",
+    "Pkg": "*Microsoft.BingSports*",
+    "StoreId": "9WZDNCRFHVH4",
+    "DefaultCheck": true
+  },
+  {
     "Name": "Bing Web Arama Entegrasyonu",
     "Pkg": "*Microsoft.BingSearch*",
     "StoreId": "9NZBF4GT040C",
@@ -30,19 +42,19 @@
     "DefaultCheck": true
   },
   {
-    "Name": "Ba\u015flat Deneyimleri ve Widget Beslemesi",
+    "Name": "Başlat Deneyimleri ve Widget Beslemesi",
     "Pkg": "*Microsoft.StartExperiencesApp*",
     "StoreId": "9PC1H9VN18CM",
     "DefaultCheck": true
   },
   {
-    "Name": "Microsoft Yard\u0131m Al (Get Help)",
+    "Name": "Microsoft Yardım Al (Get Help)",
     "Pkg": "*Microsoft.GetHelp*",
     "StoreId": "9PKDZBMV1H3T",
     "DefaultCheck": true
   },
   {
-    "Name": "Windows \u0130pu\u00e7lar\u0131 (Tips / Getstarted)",
+    "Name": "Windows İpuçları (Tips / Getstarted)",
     "Pkg": "*Microsoft.Getstarted*",
     "StoreId": "9WZDNCRDTBJJ",
     "DefaultCheck": true
@@ -66,8 +78,8 @@
     "DefaultCheck": true
   },
   {
-    "Name": "Microsoft Teams (Ki\u015fisel / UWP)",
-    "Pkg": "*MSTeams*",
+    "Name": "Microsoft Teams (Kişisel / UWP)",
+    "Pkg": "*Teams*",
     "StoreId": "XP8BT8DW290MPQ",
     "DefaultCheck": true
   },
@@ -78,7 +90,7 @@
     "DefaultCheck": true
   },
   {
-    "Name": "Microsoft \u0130nsanlar (People)",
+    "Name": "Microsoft İnsanlar (People)",
     "Pkg": "*Microsoft.People*",
     "StoreId": "9NBLGGH10PG8",
     "DefaultCheck": true
@@ -90,9 +102,15 @@
     "DefaultCheck": true
   },
   {
-    "Name": "3D G\u00f6r\u00fcnt\u00fcleyici (3D Viewer)",
+    "Name": "3D Görüntüleyici (3D Viewer)",
     "Pkg": "*Microsoft.Microsoft3DViewer*",
     "StoreId": "9NBLGGH42THS",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Paint 3D",
+    "Pkg": "*Microsoft.MSPaint*",
+    "StoreId": "9NBLGGH5FV99",
     "DefaultCheck": true
   },
   {
@@ -108,7 +126,7 @@
     "DefaultCheck": true
   },
   {
-    "Name": "Clipchamp Video Edit\u00f6r",
+    "Name": "Clipchamp Video Editör",
     "Pkg": "*Clipchamp.Clipchamp*",
     "StoreId": "9P1J8S7CCWWT",
     "DefaultCheck": true
@@ -120,28 +138,82 @@
     "DefaultCheck": true
   },
   {
+    "Name": "Microsoft Whiteboard (Beyaz Tahta)",
+    "Pkg": "*Microsoft.Whiteboard*",
+    "StoreId": "9MSPC6MP8FM4",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Microsoft OneNote (UWP)",
+    "Pkg": "*Microsoft.Office.OneNote*",
+    "StoreId": "9WZDNCRFHVJL",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Microsoft Office Sway",
+    "Pkg": "*Microsoft.Office.Sway*",
+    "StoreId": "9WZDNCRD2G0J",
+    "DefaultCheck": true
+  },
+  {
     "Name": "Power Automate Desktop",
     "Pkg": "*Microsoft.PowerAutomateDesktop*",
     "StoreId": "9NFTCH6J7FHV",
     "DefaultCheck": true
   },
   {
-    "Name": "Windows Dev Home (Geli\u015ftirici Merkezi)",
+    "Name": "Windows Dev Home (Geliştirici Merkezi)",
     "Pkg": "*Microsoft.Windows.DevHome*",
     "StoreId": "9N8MHTPHNGVV",
     "DefaultCheck": true
   },
   {
-    "Name": "H\u0131zl\u0131 Yard\u0131m (Quick Assist)",
+    "Name": "Hızlı Yardım (Quick Assist)",
     "Pkg": "*MicrosoftCorporationII.QuickAssist*",
     "StoreId": "9P7BP5VNWKX5",
     "DefaultCheck": true
   },
   {
-    "Name": "Microsoft Yap\u0131\u015fkan Notlar (Sticky Notes)",
+    "Name": "Microsoft Yapışkan Notlar (Sticky Notes)",
     "Pkg": "*Microsoft.MicrosoftStickyNotes*",
     "StoreId": "9NBLGGH4QGHW",
     "DefaultCheck": true
+  },
+  {
+    "Name": "Zune Müzik / Media Player",
+    "Pkg": "*Microsoft.ZuneMusic*",
+    "StoreId": "9WZDNCRFJ3PT",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Zune Film ve TV (Movies & TV)",
+    "Pkg": "*Microsoft.ZuneVideo*",
+    "StoreId": "9WZDNCRFJ3P2",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Telefon Bağlantısı (Phone Link / Your Phone)",
+    "Pkg": "*Microsoft.YourPhone*",
+    "StoreId": "9NMPJ99VJBWV",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Microsoft Aile Güvenliği (Family Safety)",
+    "Pkg": "*MicrosoftCorporationII.MicrosoftFamily*",
+    "StoreId": "9PDJDJS743XF",
+    "DefaultCheck": true
+  },
+  {
+    "Name": "Windows Widgets (Web Experience Pack)",
+    "Pkg": "*MicrosoftWindows.Client.WebExperience*",
+    "StoreId": "9MSSGKG348SP",
+    "DefaultCheck": false
+  },
+  {
+    "Name": "Mobil Cihazlar Arka Plan Bağlantısı (CrossDevice)",
+    "Pkg": "*MicrosoftWindows.CrossDevice*",
+    "StoreId": "9NTXGKQ8P7N0",
+    "DefaultCheck": false
   },
   {
     "Name": "Ses Kaydedicisi (Sound Recorder)",
@@ -156,36 +228,6 @@
     "DefaultCheck": false
   },
   {
-    "Name": "Zune M\u00fczik / Media Player",
-    "Pkg": "*Microsoft.ZuneMusic*",
-    "StoreId": "9WZDNCRFJ3PT",
-    "DefaultCheck": true
-  },
-  {
-    "Name": "Zune Film ve TV (Movies & TV)",
-    "Pkg": "*Microsoft.ZuneVideo*",
-    "StoreId": "9WZDNCRFJ3P2",
-    "DefaultCheck": true
-  },
-  {
-    "Name": "Telefon Ba\u011flant\u0131s\u0131 (Phone Link / Your Phone)",
-    "Pkg": "*Microsoft.YourPhone*",
-    "StoreId": "9NMPJ99VJBWV",
-    "DefaultCheck": true
-  },
-  {
-    "Name": "Mobil Cihazlar Arka Plan Ba\u011flant\u0131s\u0131 (CrossDevice)",
-    "Pkg": "*MicrosoftWindows.CrossDevice*",
-    "StoreId": "9NTXGKQ8P7N0",
-    "DefaultCheck": false
-  },
-  {
-    "Name": "Microsoft Aile G\u00fcvenli\u011fi (Family Safety)",
-    "Pkg": "*MicrosoftCorporationII.MicrosoftFamily*",
-    "StoreId": "9PDJDJS743XF",
-    "DefaultCheck": true
-  },
-  {
     "Name": "Windows Kamera (Camera)",
     "Pkg": "*Microsoft.WindowsCamera*",
     "StoreId": "9WZDNCRFJBBG",
@@ -198,13 +240,13 @@
     "DefaultCheck": false
   },
   {
-    "Name": "Windows Foto\u011fraflar (Modern Photos)",
+    "Name": "Windows Fotoğraflar (Modern Photos)",
     "Pkg": "*Microsoft.Windows.Photos*",
     "StoreId": "9WZDNCRFJBH4",
     "DefaultCheck": false
   },
   {
-    "Name": "Ekran Al\u0131nt\u0131s\u0131 Arac\u0131 (Snipping Tool)",
+    "Name": "Ekran Alıntısı Aracı (Snipping Tool)",
     "Pkg": "*Microsoft.ScreenSketch*",
     "StoreId": "9MZ95KL8MR0L",
     "DefaultCheck": false
@@ -222,7 +264,7 @@
     "DefaultCheck": false
   },
   {
-    "Name": "Xbox Uygulamas\u0131 (GamingApp)",
+    "Name": "Xbox Uygulaması (GamingApp)",
     "Pkg": "*Microsoft.GamingApp*",
     "StoreId": "9MV0B5HZVK9Z",
     "DefaultCheck": false
@@ -234,21 +276,27 @@
     "DefaultCheck": false
   },
   {
+    "Name": "Xbox Game Bar Arka Plan Eklentisi (GameOverlay)",
+    "Pkg": "*Microsoft.XboxGameOverlay*",
+    "StoreId": "",
+    "DefaultCheck": false
+  },
+  {
     "Name": "Xbox Speech To Text Overlay",
     "Pkg": "*Microsoft.XboxSpeechToTextOverlay*",
     "StoreId": "",
     "DefaultCheck": false
   },
   {
-    "Name": "Xbox Identity Provider (Dikkat: Xbox Giri\u015fi \u0130\u00e7in Gerekli)",
+    "Name": "Xbox Identity Provider (Dikkat: Xbox Girişi İçin Gerekli)",
     "Pkg": "*Microsoft.XboxIdentityProvider*",
     "StoreId": "9WZDNCRD1HKW",
     "DefaultCheck": false
   },
   {
-    "Name": "Xbox TCUI (Canl\u0131 Hesap Aray\u00fcz\u00fc)",
+    "Name": "Xbox TCUI (Canlı Hesap Arayüzü)",
     "Pkg": "*Microsoft.Xbox.TCUI*",
-    "StoreId": "",
+    "StoreId": "9NBLGGH5SLLL",
     "DefaultCheck": false
   }
 ]
