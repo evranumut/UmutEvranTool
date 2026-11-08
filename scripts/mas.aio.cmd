@@ -2,7 +2,7 @@
 @echo off
 
 :: ============================================================================
-:: PROJE: UMUT EVRAN - GELISMIS WINDOWS & OFFICE SISTEM YONETIM ARACI (AIO)
+:: PROJE: PETRA OMNITOOL - GELISMIS WINDOWS & OFFICE SISTEM YONETIM ARACI (AIO)
 :: DURUM: FAZ 1 - FAZ 6 FINAL SURUM (HWID / OHOOK / TSFORGE CRASH FIX)
 :: ============================================================================
 
@@ -150,11 +150,11 @@ if defined _args (
 for /f "tokens=2*" %%a in ('reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v EditionID 2^>nul') do set "edition_id=%%b"
 set "edition_id=!edition_id: =!"
 if "%_unattended%"=="0" mode con cols=98 lines=32 >nul 2>&1
-title Umut Evran Tool - Gelismis Sistem ve Lisans Yonetim Araci v4.0 [Mimari: %os_arch% ^| Build: %winbuild%]
+title Petra OmniTool - Gelismis Sistem ve Lisans Yonetim Araci v4.0 [Mimari: %os_arch% ^| Build: %winbuild%]
 cls
 echo.
 echo   !_Cyan!==============================================================================================!_Reset!
-echo      !_White!UMUT EVRAN TOOL - GELISMIS WINDOWS ^& OFFICE LISANS YONETIM ARACI (AIO)!_Reset!
+echo      !_White!PETRA OMNITOOL - GELISMIS WINDOWS ^& OFFICE LISANS YONETIM ARACI (AIO)!_Reset!
 echo      !_Gray!Sistem: %win_edition% [%edition_id%] ^| Mimari: %os_arch% ^| Yapim: %winbuild%!_Reset!
 echo   !_Cyan!==============================================================================================!_Reset!
 if "%_wmi_ok%"=="0" echo      !_Red![UYARI] WMI Servisi [Winmgmt] yanit vermiyor. Sorun Giderme [8] menusunu kullanin.!_Reset!

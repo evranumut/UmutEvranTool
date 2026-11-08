@@ -442,6 +442,13 @@
         "Desc": "Görev çubuğundaki gereksiz arama kutusunu, Görev Görünümü butonunu ve arka planda çalışan Widget sürecini kapatır."
       },
       {
+        "Id": "Tweak_RemoveWidgets",
+        "Recommended": false,
+        "Preset": [],
+        "Title": "Widgets / Haber Akışını Tamamen Kaldır (Windows Web Experience Pack)",
+        "Desc": "Görev çubuğundaki Widgets düğmesini ve arka plan haber akışını sağlayan paketi kaldırır. UCPD korumalı kayıt defteri ayarlarına dokunmaz. Geri alındığında Microsoft Store'dan yeniden kurulur."
+      },
+      {
         "Id": "Tweak_DarkMode",
         "Recommended": true,
         "Preset": [
